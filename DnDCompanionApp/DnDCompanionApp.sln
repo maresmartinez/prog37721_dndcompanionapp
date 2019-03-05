@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCreationLib", "CharacterCreationLib\CharacterCreationLib.csproj", "{41AA5B9C-47A6-4623-9462-71B63C9ABA2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCreationForms", "CharacterCreationForms\CharacterCreationForms.csproj", "{EDD23366-CC02-4192-9E70-90B9E317E65A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41AA5B9C-47A6-4623-9462-71B63C9ABA2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41AA5B9C-47A6-4623-9462-71B63C9ABA2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41AA5B9C-47A6-4623-9462-71B63C9ABA2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41AA5B9C-47A6-4623-9462-71B63C9ABA2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDD23366-CC02-4192-9E70-90B9E317E65A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDD23366-CC02-4192-9E70-90B9E317E65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDD23366-CC02-4192-9E70-90B9E317E65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDD23366-CC02-4192-9E70-90B9E317E65A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A68EEF2E-8101-4F42-9C42-9F8D8EEF4FA3}
+	EndGlobalSection
+EndGlobal
