@@ -4,25 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CharacterCreationLib {
-    class Race {
+namespace CharacterCreationLib
+{
+    class Feature
+    {
         string name;
         string description;
-        Language languages;
 
         public string Name { get; set; }
         public string Description { get; set; }
-        public Language Languages { get; set; }
 
-        public Race()
+        public Feature()
         {
 
         }
-        public Race(string name, string description, Language languages)
+        public Feature(string name, string description)
         {
             Name = name;
             Description = description;
-            Languages = languages;
         }
     }
 }

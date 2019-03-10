@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CharacterCreationLib {
-    class Background {
+namespace CharacterCreationLib
+{
+    class CharacterBackground
+    {
         List<string> personality;
         List<string> ideals;
         List<string> bonds;
@@ -16,12 +18,12 @@ namespace CharacterCreationLib {
         public List<string> Bonds { get; set; }
         public List<string> Flaws { get; set; }
 
-        public Background()
+        public CharacterBackground()
         {
 
         }
 
-        public Background(List<string> personality, List<string> ideals, List<string> bonds, List<string> flaws)
+        public CharacterBackground(List<string> personality, List<string> ideals, List<string> bonds, List<string> flaws)
         {
             Personality = personality;
             Ideals = ideals;

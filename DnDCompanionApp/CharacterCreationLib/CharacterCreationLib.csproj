@@ -43,9 +43,15 @@
   <ItemGroup>
     <Compile Include="Background.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="CharacterBackground.cs" />
     <Compile Include="Class.cs" />
+    <Compile Include="Dice.cs" />
+    <Compile Include="Feature.cs" />
+    <Compile Include="Language.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Race.cs" />
+    <Compile Include="Skills.cs" />
+    <Compile Include="Spells.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
