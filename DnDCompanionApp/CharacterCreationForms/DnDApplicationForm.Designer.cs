@@ -138,9 +138,12 @@
             // 
             this.pnlPageView.AutoScroll = true;
             this.pnlPageView.AutoSize = true;
-            this.pnlPageView.Location = new System.Drawing.Point(12, 47);
+            this.pnlPageView.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlPageView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPageView.Location = new System.Drawing.Point(0, 35);
             this.pnlPageView.Name = "pnlPageView";
-            this.pnlPageView.Size = new System.Drawing.Size(860, 500);
+            this.pnlPageView.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.pnlPageView.Size = new System.Drawing.Size(884, 529);
             this.pnlPageView.TabIndex = 1;
             // 
             // DnDApplicationForm

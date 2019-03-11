@@ -13,5 +13,9 @@ namespace CharacterCreationForms {
         public CharacterPreviewForm() {
             InitializeComponent();
         }
+
+        private void CharacterPreviewForm_Load(object sender, EventArgs e) {
+
+        }
     }
 }

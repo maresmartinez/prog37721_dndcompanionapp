@@ -40,6 +40,7 @@
             // 
             // picCharacter
             // 
+            this.picCharacter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picCharacter.Image = ((System.Drawing.Image)(resources.GetObject("picCharacter.Image")));
             this.picCharacter.Location = new System.Drawing.Point(4, 3);
             this.picCharacter.Name = "picCharacter";

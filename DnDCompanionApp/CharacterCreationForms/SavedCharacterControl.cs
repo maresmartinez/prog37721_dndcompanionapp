@@ -29,6 +29,9 @@ namespace CharacterCreationForms {
             // When clicked, pass character to output page
             SavedCharacterPreviewForm form = new SavedCharacterPreviewForm();
             form.Show();
+
+            CharacterPreviewForm form2 = new CharacterPreviewForm();
+            form2.Show();
         }
     }
 }
