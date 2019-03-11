@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
-    class Character {
+    public class Character {
         string name;
         int strength;
         int dexterity;

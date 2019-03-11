@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
-    class Race {
+    public class Race {
         string name;
         string description;
         Language languages;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
-    class Class {
+    public class Class {
         string name;
         string description;
         List<Feature> features;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
-    class Background {
+    public class Background {
         List<string> personality;
         List<string> ideals;
         List<string> bonds;

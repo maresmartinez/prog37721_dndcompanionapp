@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CharacterCreationLib
 {
-    class Spells
+    public class Spells
     {
         string name;
         int castingTime;

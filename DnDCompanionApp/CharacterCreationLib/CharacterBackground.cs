@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CharacterCreationLib
 {
-    class CharacterBackground
+    public class CharacterBackground
     {
         List<string> personality;
         List<string> ideals;

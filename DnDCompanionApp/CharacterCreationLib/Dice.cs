@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CharacterCreationLib
 {
-    class Dice
+    public class Dice
     {
         int sides;
         

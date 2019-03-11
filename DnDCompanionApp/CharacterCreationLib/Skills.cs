@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CharacterCreationLib
 {
-    class Skills
+    public class Skills
     {
         string name;
         string description;

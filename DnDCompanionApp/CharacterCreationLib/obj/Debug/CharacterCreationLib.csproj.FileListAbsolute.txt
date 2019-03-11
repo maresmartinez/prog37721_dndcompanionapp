@@ -1,0 +1,6 @@
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationLib\bin\Debug\CharacterCreationLib.dll
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationLib\bin\Debug\CharacterCreationLib.pdb
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationLib\obj\Debug\CharacterCreationLib.csprojAssemblyReference.cache
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationLib\obj\Debug\CharacterCreationLib.csproj.CoreCompileInputs.cache
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationLib\obj\Debug\CharacterCreationLib.dll
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationLib\obj\Debug\CharacterCreationLib.pdb
