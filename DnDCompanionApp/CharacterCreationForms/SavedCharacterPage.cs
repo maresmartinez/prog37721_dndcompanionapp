@@ -98,7 +98,11 @@ namespace CharacterCreationForms {
                 "Dragonborn",
                 "Dragonborn look very much like dragons standing erect in humanoid form, " +
                 "though they lack wings or a tail.",
-                Language.DRACONAIN
+                new List<Language>(
+                    new Language[] {
+                        Language.DRACONAIN
+                    }
+                )
             );
             character1.CharacterClass = new Class(
                 "Fighter",
@@ -196,7 +200,11 @@ namespace CharacterCreationForms {
                 "Dragonborn",
                 "Dragonborn look very much like dragons standing erect in humanoid form, " +
                 "though they lack wings or a tail.",
-                Language.DRACONAIN
+                new List<Language>(
+                    new Language[] {
+                        Language.DRACONAIN
+                    }
+                )
             );
             character2.CharacterClass = new Class(
                 "Fighter",

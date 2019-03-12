@@ -31,20 +31,32 @@ namespace CharacterCreationForms {
                 "Dragonborn",
                 "Dragonborn look very much like dragons standing erect in humanoid form, " +
                 "though they lack wings or a tail.",
-                Language.DRACONAIN
+                new List<Language>(
+                    new Language[] {
+                        Language.DRACONAIN
+                    }
+                )
             ));
             races.Add(new Race(
                 "Elvish",
                 "Elves are a magical people of otherworldly grace, " +
                 "living in the world but not entirely part of it.",
-                Language.ELVISH
+                new List<Language>(
+                    new Language[] {
+                        Language.ELVISH
+                    }
+                )
             ));
             races.Add(new Race(
                 "Human",
                 "Humans are the most adaptable and ambitious people among the common races. " +
                 "Whatever drives them, humans are the innovators, the achievers, and the pioneers " +
                 "of the worlds.",
-                Language.COMMON
+                new List<Language>(
+                    new Language[] {
+                        Language.COMMON
+                    }
+                )
             ));
             
             // Retrieve all Classes
