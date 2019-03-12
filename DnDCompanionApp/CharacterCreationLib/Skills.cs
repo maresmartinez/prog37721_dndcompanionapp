@@ -6,22 +6,10 @@ using System.Threading.Tasks;
 
 namespace CharacterCreationLib
 {
-    public class Skills
+    public enum Skills
     {
-        string name;
-        string description;
-
-        public string Name { get; set; }
-        public string Description { get; set; }
-
-        public Skills()
-        {
-
-        }
-        public Skills(string name, string description)
-        {
-            Name = name;
-            Description = description;
-        }
+        ACROBATICS, ANIMAL_HANDLING, ARCANA, ATHLETICS, DECEPTION,
+        HISTORY, INSIGHT, INTIMIDATION, MEDICINE, NATURE, PERCEPTION,
+        PERFORMANCE, PERSUASION, RELIGION, SLEIGHT_OF_HAND, STEALTH, SURVIVAL
     }
 }

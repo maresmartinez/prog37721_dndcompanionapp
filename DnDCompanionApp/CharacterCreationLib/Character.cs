@@ -28,6 +28,8 @@ namespace CharacterCreationLib {
         string eyes;//can be null
         string skin;//can be null
         string additionalNotes;//can be null
+        Race race;
+        Class characterClass;
 
         public string Name { get; set; }
         public int Strength { get; set; }
@@ -51,16 +53,16 @@ namespace CharacterCreationLib {
         public string Eyes { get; set; }
         public string Skin { get; set; }
         public string AdditionalNotes { get; set; }
+        public Race Race { get; set; }
+        public Class CharacterClass { get; set; }
 
-        public Character()
-        {
+        public Character() {
 
         }
 
-        public Character(string name, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int strMod, 
-            int dexMod, int conMod, int intMod, int wisMod, int chrMod, List<Skills> skills, List<string> actions, List<Spells> spells, 
-            List<Feature> features, Background characterBackground, string hair, string eyes, string skin, string additionalNotes)
-        {
+        public Character(string name, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int strMod,
+            int dexMod, int conMod, int intMod, int wisMod, int chrMod, List<Skills> skills, List<string> actions, List<Spells> spells,
+            List<Feature> features, Background characterBackground, string hair, string eyes, string skin, string additionalNotes, Race race, Class characterClass) {
             Name = name;
             Strength = strength;
             Dexterity = dexterity;
@@ -83,12 +85,13 @@ namespace CharacterCreationLib {
             Eyes = eyes;
             Skin = skin;
             AdditionalNotes = additionalNotes;
+            Race = race;
+            CharacterClass = characterClass;
         }
-        
 
 
-        public override string ToString()
-        {
+
+        public override string ToString() {
             return name;
         }
 

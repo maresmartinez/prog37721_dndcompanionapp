@@ -24,14 +24,9 @@ namespace CharacterCreationForms {
         }
 
         private void picCharacter_Click(object sender, EventArgs e) {
-            // TODO: change name of picturebox
-
             // When clicked, pass character to output page
-            SavedCharacterPreviewForm form = new SavedCharacterPreviewForm();
+            SavedCharacterPreviewForm form = new SavedCharacterPreviewForm(character);
             form.Show();
-
-            CharacterPreviewForm form2 = new CharacterPreviewForm();
-            form2.Show();
         }
     }
 }

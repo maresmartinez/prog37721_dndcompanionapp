@@ -14,15 +14,18 @@ namespace CharacterCreationLib {
         public string Description { get; set; }
         public Language Languages { get; set; }
 
-        public Race()
-        {
+        public Race() {
 
         }
-        public Race(string name, string description, Language languages)
-        {
+        public Race(string name, string description, Language languages) {
             Name = name;
             Description = description;
             Languages = languages;
+        }
+
+        public override string ToString() {
+            return $"{Name}: {Description} {Environment.NewLine}" +
+                $"Languages: {languages}";
         }
     }
 }
