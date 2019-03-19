@@ -463,5 +463,9 @@ namespace CharacterCreationForms {
             txtWisMod.Text = (rand.Next(1, 16) - 5).ToString();
             txtChrMod.Text = (rand.Next(1, 16) - 5).ToString();
         }
+
+        private void lblTitle_Click(object sender, EventArgs e) {
+
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace CharacterCreationLib {
 
         public int RollDice() {
             Random rand = new Random();
-            int roll = rand.Next(1, Sides);
+            int roll = rand.Next(1, Sides + 1);
             return roll;
         }
 

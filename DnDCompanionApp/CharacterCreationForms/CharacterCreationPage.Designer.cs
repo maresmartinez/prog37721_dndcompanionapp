@@ -102,6 +102,7 @@
             this.lblTitle.Size = new System.Drawing.Size(224, 33);
             this.lblTitle.TabIndex = 42;
             this.lblTitle.Text = "Character Creation";
+            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // pnlCharacterCreationForm
             // 
