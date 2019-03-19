@@ -19,7 +19,7 @@ namespace CharacterCreationLib {
             set {
                 foreach (Language language in value) {
                     if (!Enum.IsDefined(typeof(Language), language)) {
-                        return;
+                        throw new ArgumentException("Not a Language enum");
                     }
                 }
                 languages = value;
@@ -29,6 +29,7 @@ namespace CharacterCreationLib {
         public Race() {
 
         }
+
         public Race(string name, string description, List<Language> languages) {
             Name = name;
             Description = description;

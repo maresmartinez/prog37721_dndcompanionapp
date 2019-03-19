@@ -23,7 +23,7 @@ namespace CharacterCreationLib {
             set {
                 foreach (Skills skill in value) {
                     if (!Enum.IsDefined(typeof(Skills), skill)) {
-                        return;
+                        throw new ArgumentException("Not a Skill enum");
                     }
                 }
                 characterSkills = value;
