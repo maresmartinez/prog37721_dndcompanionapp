@@ -17,26 +17,19 @@ namespace CharacterCreationLib {
         public List<Feature> Features { get; set; }
         public Dice HitDice { get; set; }
         public List<Skills> CharacterSkills {
-            get
-            {
+            get {
                 return characterSkills;
             }
-            set
-            {
+            set {
                 int track = 1;
-                foreach (int i in value)
-                {
-                    if(!Enum.IsDefined(typeof(Skills), value))
-                    {
+                foreach (int i in value) {
+                    if (!Enum.IsDefined(typeof(Skills), value)) {
                         track = 0;
                     }
                 }
-                if(track == 1)
-                {
+                if (track == 1) {
                     characterSkills = value;
-                }
-                else
-                {
+                } else {
                     throw new ArgumentException("Character skills is not valid");
                 }
             }
@@ -58,7 +51,7 @@ namespace CharacterCreationLib {
             string classDetails = $"{Name}: {Description} {Environment.NewLine}{Environment.NewLine}";
 
             classDetails += $"Features: {Environment.NewLine}";
-            foreach(Feature feature in Features) {
+            foreach (Feature feature in Features) {
                 classDetails += $"{feature.ToString()} {Environment.NewLine}";
             }
 

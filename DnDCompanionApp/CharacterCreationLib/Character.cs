@@ -31,170 +31,124 @@ namespace CharacterCreationLib {
         Class characterClass;
 
         public string Name { get; set; }
-        public int Strength { get
-            {
+        public int Strength {
+            get {
                 return strength;
             }
             set {
-                if(value >= 1 && value <= 20)
-                {
+                if (value >= 1 && value <= 20) {
                     strength = value;
-                }
-                else throw new ArgumentException(value + " is out of the range of strength");
+                } else throw new ArgumentException(value + " is out of the range of strength");
             }
         }
         public int Dexterity {
-            get
-            {
+            get {
                 return dexterity;
             }
-            set
-            {
-                if (value >= 1 && value <= 20)
-                {
+            set {
+                if (value >= 1 && value <= 20) {
                     dexterity = value;
-                }
-                else throw new ArgumentException(value + " is out of the range of dexterity");
+                } else throw new ArgumentException(value + " is out of the range of dexterity");
             }
         }
         public int Constitution {
-            get
-            {
+            get {
                 return constitution;
             }
-            set
-            {
-                if (value >= 1 && value <= 20)
-                {
+            set {
+                if (value >= 1 && value <= 20) {
                     constitution = value;
-                }
-                else throw new ArgumentException(value + " is out of the range of constitution");
+                } else throw new ArgumentException(value + " is out of the range of constitution");
             }
         }
         public int Intelligence {
-            get
-            {
+            get {
                 return intelligence;
             }
-            set
-            {
-                if (value >= 1 && value <= 20)
-                {
+            set {
+                if (value >= 1 && value <= 20) {
                     intelligence = value;
-                }
-                else throw new ArgumentException(value + " is out of the range of intelligence");
+                } else throw new ArgumentException(value + " is out of the range of intelligence");
             }
         }
         public int Wisdom {
-            get
-            {
+            get {
                 return wisdom;
             }
-            set
-            {
-                if (value >= 1 && value <= 20)
-                {
+            set {
+                if (value >= 1 && value <= 20) {
                     wisdom = value;
-                }
-                else throw new ArgumentException(value + " is out of the range of wisdom");
+                } else throw new ArgumentException(value + " is out of the range of wisdom");
             }
         }
         public int Charisma {
-            get
-            {
+            get {
                 return charisma;
             }
-            set
-            {
-                if (value >= 1 && value <= 20)
-                {
+            set {
+                if (value >= 1 && value <= 20) {
                     charisma = value;
-                }
-                else throw new ArgumentException(value + " is out of the range of charisma");
+                } else throw new ArgumentException(value + " is out of the range of charisma");
             }
         }
         public int StrMod {
-            get
-            {
+            get {
                 return strMod;
             }
-            set
-            {
-                if (value >= -5 && value <= 15)
-                {
+            set {
+                if (value >= -5 && value <= 15) {
                     strMod = value;
-                }
-                else throw new ArgumentException(value + " is out of the range of strMod");
+                } else throw new ArgumentException(value + " is out of the range of strMod");
             }
         }
         public int DexMod {
-            get
-            {
+            get {
                 return dexMod;
             }
-            set
-            {
-                if (value >= -5 && value <= 15)
-                {
+            set {
+                if (value >= -5 && value <= 15) {
                     dexMod = value;
-                }
-                else throw new ArgumentException(value + " is out of the range of dexMod");
+                } else throw new ArgumentException(value + " is out of the range of dexMod");
             }
         }
         public int ConMod {
-            get
-            {
+            get {
                 return conMod;
             }
-            set
-            {
-                if (value >= -5 && value <= 15)
-                {
+            set {
+                if (value >= -5 && value <= 15) {
                     conMod = value;
-                }
-                else throw new ArgumentException(value + " is out of the range of conMod");
+                } else throw new ArgumentException(value + " is out of the range of conMod");
             }
         }
         public int IntMod {
-            get
-            {
+            get {
                 return intMod;
             }
-            set
-            {
-                if (value >= -5 && value <= 15)
-                {
+            set {
+                if (value >= -5 && value <= 15) {
                     intMod = value;
-                }
-                else throw new ArgumentException(value + " is out of the range of intMod");
+                } else throw new ArgumentException(value + " is out of the range of intMod");
             }
         }
         public int WisMod {
-            get
-            {
+            get {
                 return wisMod;
             }
-            set
-            {
-                if (value >= -5 && value <= 15)
-                {
+            set {
+                if (value >= -5 && value <= 15) {
                     wisMod = value;
-                }
-                else throw new ArgumentException(value + " is out of the range of wisMod");
+                } else throw new ArgumentException(value + " is out of the range of wisMod");
             }
         }
         public int ChrMod {
-            get
-            {
+            get {
                 return chrMod;
             }
-            set
-            {
-                if (value >= -5 && value <= 15)
-                {
+            set {
+                if (value >= -5 && value <= 15) {
                     chrMod = value;
-                }
-                else throw new ArgumentException(value + " is out of the range of ChrMod");
+                } else throw new ArgumentException(value + " is out of the range of ChrMod");
             }
         }
         public List<string> Actions { get; set; }

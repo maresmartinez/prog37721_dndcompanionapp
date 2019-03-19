@@ -13,26 +13,19 @@ namespace CharacterCreationLib {
         public string Name { get; set; }
         public string Description { get; set; }
         public List<Language> Languages {
-            get
-            {
+            get {
                 return languages;
             }
-            set
-            {
+            set {
                 int track = 1;
-                foreach (int i in value)
-                {
-                    if (!Enum.IsDefined(typeof(Skills), value))
-                    {
+                foreach (int i in value) {
+                    if (!Enum.IsDefined(typeof(Skills), value)) {
                         track = 0;
                     }
                 }
-                if (track == 1)
-                {
+                if (track == 1) {
                     languages = value;
-                }
-                else
-                {
+                } else {
                     throw new ArgumentException("Character skills is not valid");
                 }
             }

@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CharacterCreationLib
-{
-    public class Spells
-    {
+namespace CharacterCreationLib {
+    public class Spells {
         string name;
         int castingTime;
         int duration; //could be hours or minutes have to decide
@@ -20,13 +18,11 @@ namespace CharacterCreationLib
         public int Range { get; set; }
         public string Description { get; set; }
 
-        public Spells()
-        {
+        public Spells() {
 
         }
 
-        public Spells(string name, int castingtime, int duration, string description)
-        {
+        public Spells(string name, int castingtime, int duration, string description) {
             Name = name;
             CastingTime = castingtime;
             Duration = duration;
