@@ -17,17 +17,12 @@ namespace CharacterCreationLib {
                 return languages;
             }
             set {
-                int track = 1;
-                foreach (int i in value) {
-                    if (!Enum.IsDefined(typeof(Skills), value)) {
-                        track = 0;
+                foreach (Language language in value) {
+                    if (!Enum.IsDefined(typeof(Language), language)) {
+                        return;
                     }
                 }
-                if (track == 1) {
-                    languages = value;
-                } else {
-                    throw new ArgumentException("Character skills is not valid");
-                }
+                languages = value;
             }
         }
 

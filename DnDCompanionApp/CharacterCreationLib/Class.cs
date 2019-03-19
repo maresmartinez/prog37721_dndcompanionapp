@@ -21,17 +21,12 @@ namespace CharacterCreationLib {
                 return characterSkills;
             }
             set {
-                int track = 1;
-                foreach (int i in value) {
-                    if (!Enum.IsDefined(typeof(Skills), value)) {
-                        track = 0;
+                foreach (Skills skill in value) {
+                    if (!Enum.IsDefined(typeof(Skills), skill)) {
+                        return;
                     }
                 }
-                if (track == 1) {
-                    characterSkills = value;
-                } else {
-                    throw new ArgumentException("Character skills is not valid");
-                }
+                characterSkills = value;
             }
         }
 
