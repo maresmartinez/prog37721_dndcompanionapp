@@ -19,9 +19,8 @@ namespace CharacterCreationLib {
         int intMod;
         int wisMod;
         int chrMod;
-        List<Skills> skillList;
         List<string> actions;
-        List<Spells> spellList;
+        List<Spells> spellList; //TaskType.IsDefined(typeof(TaskType), type)
         List<Feature> featureList;
         Background characterBackground;
         string hair;//can be null
@@ -32,19 +31,172 @@ namespace CharacterCreationLib {
         Class characterClass;
 
         public string Name { get; set; }
-        public int Strength { get; set; }
-        public int Dexterity { get; set; }
-        public int Constitution { get; set; }
-        public int Intelligence { get; set; }
-        public int Wisdom { get; set; }
-        public int Charisma { get; set; }
-        public int StrMod { get; set; }
-        public int DexMod { get; set; }
-        public int ConMod { get; set; }
-        public int IntMod { get; set; }
-        public int WisMod { get; set; }
-        public int ChrMod { get; set; }
-        public List<Skills> SkillList { get; set; }
+        public int Strength { get
+            {
+                return strength;
+            }
+            set {
+                if(value >= 1 && value <= 20)
+                {
+                    strength = value;
+                }
+                else throw new ArgumentException(value + " is out of the range of strength");
+            }
+        }
+        public int Dexterity {
+            get
+            {
+                return dexterity;
+            }
+            set
+            {
+                if (value >= 1 && value <= 20)
+                {
+                    dexterity = value;
+                }
+                else throw new ArgumentException(value + " is out of the range of dexterity");
+            }
+        }
+        public int Constitution {
+            get
+            {
+                return constitution;
+            }
+            set
+            {
+                if (value >= 1 && value <= 20)
+                {
+                    constitution = value;
+                }
+                else throw new ArgumentException(value + " is out of the range of constitution");
+            }
+        }
+        public int Intelligence {
+            get
+            {
+                return intelligence;
+            }
+            set
+            {
+                if (value >= 1 && value <= 20)
+                {
+                    intelligence = value;
+                }
+                else throw new ArgumentException(value + " is out of the range of intelligence");
+            }
+        }
+        public int Wisdom {
+            get
+            {
+                return wisdom;
+            }
+            set
+            {
+                if (value >= 1 && value <= 20)
+                {
+                    wisdom = value;
+                }
+                else throw new ArgumentException(value + " is out of the range of wisdom");
+            }
+        }
+        public int Charisma {
+            get
+            {
+                return charisma;
+            }
+            set
+            {
+                if (value >= 1 && value <= 20)
+                {
+                    charisma = value;
+                }
+                else throw new ArgumentException(value + " is out of the range of charisma");
+            }
+        }
+        public int StrMod {
+            get
+            {
+                return strMod;
+            }
+            set
+            {
+                if (value >= -5 && value <= 15)
+                {
+                    strMod = value;
+                }
+                else throw new ArgumentException(value + " is out of the range of strMod");
+            }
+        }
+        public int DexMod {
+            get
+            {
+                return dexMod;
+            }
+            set
+            {
+                if (value >= -5 && value <= 15)
+                {
+                    dexMod = value;
+                }
+                else throw new ArgumentException(value + " is out of the range of dexMod");
+            }
+        }
+        public int ConMod {
+            get
+            {
+                return conMod;
+            }
+            set
+            {
+                if (value >= -5 && value <= 15)
+                {
+                    conMod = value;
+                }
+                else throw new ArgumentException(value + " is out of the range of conMod");
+            }
+        }
+        public int IntMod {
+            get
+            {
+                return intMod;
+            }
+            set
+            {
+                if (value >= -5 && value <= 15)
+                {
+                    intMod = value;
+                }
+                else throw new ArgumentException(value + " is out of the range of intMod");
+            }
+        }
+        public int WisMod {
+            get
+            {
+                return wisMod;
+            }
+            set
+            {
+                if (value >= -5 && value <= 15)
+                {
+                    wisMod = value;
+                }
+                else throw new ArgumentException(value + " is out of the range of wisMod");
+            }
+        }
+        public int ChrMod {
+            get
+            {
+                return chrMod;
+            }
+            set
+            {
+                if (value >= -5 && value <= 15)
+                {
+                    chrMod = value;
+                }
+                else throw new ArgumentException(value + " is out of the range of ChrMod");
+            }
+        }
         public List<string> Actions { get; set; }
         public List<Spells> SpellList { get; set; }
         public List<Feature> FeatureList { get; set; }
@@ -61,7 +213,7 @@ namespace CharacterCreationLib {
         }
 
         public Character(string name, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int strMod,
-            int dexMod, int conMod, int intMod, int wisMod, int chrMod, List<Skills> skills, List<string> actions, List<Spells> spells,
+            int dexMod, int conMod, int intMod, int wisMod, int chrMod, List<string> actions, List<Spells> spells,
             List<Feature> features, Background characterBackground, string hair, string eyes, string skin, string additionalNotes, Race race, Class characterClass) {
             Name = name;
             Strength = strength;
@@ -76,7 +228,6 @@ namespace CharacterCreationLib {
             IntMod = intMod;
             WisMod = wisMod;
             ChrMod = chrMod;
-            SkillList = skills;
             Actions = actions;
             SpellList = spells;
             FeatureList = features;
