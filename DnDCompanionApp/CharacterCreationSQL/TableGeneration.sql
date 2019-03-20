@@ -23,3 +23,12 @@ CREATE TABLE [Spells](
 	[Description] nvarchar(100) not null
 );
 
+CREATE TABLE [Background](
+	[ID] int primary key identity(1,1) not null,
+	[Name] nvarchar(50) not null,
+	[Description] nvarchar(100) not null,
+	[Personality] nvarchar(400) not null,
+	[Ideals] nvarchar(400) not null,
+	[Bonds] nvarchar(400) not null,
+	[Flaws] nvarchar(400) not null
+);
