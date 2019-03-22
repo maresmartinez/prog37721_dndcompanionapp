@@ -54,6 +54,13 @@ namespace UserManagementLib {
         public List<Campaign> UserCampaigns {
             get { return userCampaigns; }
             set {
+
+                // Sets campaigns if it is an empty list
+                if (value.Count == 0) {
+                    userCampaigns = value;
+                    return;
+                }
+
                 // Ensure that the user is part of the campaign before adding it
                 foreach (Campaign campaign in value) {
                     if (campaign.IsUserInCampaign(this)) {
@@ -61,6 +68,7 @@ namespace UserManagementLib {
                         break;
                     }
                 }
+                throw new ArgumentException("User must be in campaign");
             }
         }
 
@@ -68,11 +76,12 @@ namespace UserManagementLib {
 
         }
 
-        public User(string username, string fullName, List<Character> userCharacters, string password) {
+        public User(string username, string fullName, List<Character> userCharacters, string password, List<Campaign> userCampaigns) {
             Username = username;
             FullName = fullName;
             UserCharacters = userCharacters;
             Password = password;
+            UserCampaigns = userCampaigns;
         }
 
         public void AddCharacter(Character character) {
@@ -88,13 +97,17 @@ namespace UserManagementLib {
         /// </summary>
         /// <param name="campaign"></param>
         public void AddCampaign(Campaign campaign) {
+            if (UserCampaigns is null) {
+                UserCampaigns = new List<Campaign>(); 
+            }
+
             foreach (Campaign userCampign in UserCampaigns) {
                 if (userCampign.Equals(campaign)) {
                     throw new ArgumentException("User already has this campaign");
                 }
             }
 
-            if (campaign.IsUserInCampaign(this)) {
+            if (campaign.IsUserInCampaign(this) || campaign.DungeonMaster.Equals(this)) {
                 UserCampaigns.Add(campaign);
             } else { 
                 throw new ArgumentException("User must be in campagin");
@@ -112,6 +125,19 @@ namespace UserManagementLib {
                 }
             }
             return false;
+        }
+
+        public Character GetCharacterByName(string name) {
+            foreach (Character character in UserCharacters) {
+                if (character.Name.Equals(name)) {
+                    return character;
+                }
+            }
+            return null;
+        }
+
+        public override string ToString() {
+            return $"Username: {Username}, Full Name: {FullName}";
         }
 
         public override bool Equals(object obj) {

@@ -12,41 +12,15 @@ using UserManagementLib;
 namespace CampaignCreationForms {
     public partial class SavedCampaignsPage : UserControl {
 
-        List<Campaign> savedCampaigns;
-        
+        User user;
 
-        public SavedCampaignsPage() {
+        public SavedCampaignsPage(User user) {
             InitializeComponent();
-            savedCampaigns = new List<Campaign>();
-        }
-
-        public SavedCampaignsPage(List<Campaign> savedCampaigns) {
-            InitializeComponent();
-            this.savedCampaigns = savedCampaigns;
+            this.user = user;
         }
 
         private void SavedCampaignsPage_Load(object sender, EventArgs e) {
-            // --------------------------------------------------------------------------------------------------------------------------------
-            // TODO: replace the following section with database queries
-            // Query database for campaigns that user is part of and add that to campaigns list
-            // --------------------------------------------------------------------------------------------------------------------------------
-
-            // ------------------------------------------------       START       -------------------------------------------------------------
-
-            Campaign campaign1 = new Campaign();
-            campaign1.CampaignName = "Campaign 1";
-
-
-            Campaign campaign2 = new Campaign();
-            campaign2.CampaignName = "Campaign 2";
-
-            savedCampaigns.Add(campaign1);
-            savedCampaigns.Add(campaign2);
-
-
-            // ------------------------------------------------       END       -------------------------------------------------------------
-
-            foreach (Campaign campaign in savedCampaigns) {
+            foreach (Campaign campaign in user.UserCampaigns) {
                 flowSavedCampaigns.Controls.Add(new SavedCampaignControl(campaign));
             }
         }

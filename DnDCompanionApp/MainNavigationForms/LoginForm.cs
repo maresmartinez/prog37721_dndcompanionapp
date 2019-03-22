@@ -18,6 +18,9 @@ namespace MainNavigationForms {
 
         public LoginForm() {
             InitializeComponent();
+            //TODO: this is just here to make testing faster, delete when done
+            txtUsername.Text = "testuser1";
+            txtPassword.Text = "password";
             // TODO: once database is implemented, change CheckValidUser() and remove line below
             GetAllUsers();
         }
@@ -275,7 +278,15 @@ namespace MainNavigationForms {
             );
 
             // Create user which references these characters
-            validUsers.Add(new User(
+            User testuser0 = new User(
+                "testuser0",
+                "Test User 0",
+                new List<Character>(), // Has no characters
+                "password",
+                new List<Campaign>()
+            );
+
+            User testuser1 = new User(
                 "testuser1",
                 "Test User 1",
                 new List<Character>(
@@ -283,10 +294,11 @@ namespace MainNavigationForms {
                         character1
                     }
                 ),
-                "password"
-            ));
+                "password",
+                new List<Campaign>()
+            );
 
-            validUsers.Add(new User(
+            User testuser2 = new User(
                 "testuser2",
                 "Test User 2",
                 new List<Character>(
@@ -294,8 +306,32 @@ namespace MainNavigationForms {
                         character2
                     }
                 ),
-                "password"
-            ));
+                "password",
+                new List<Campaign>()
+            );
+
+            validUsers.Add(testuser0);
+            validUsers.Add(testuser1);
+            validUsers.Add(testuser2);
+
+            Campaign campaign = new Campaign(
+                "Campaign 1",
+                "A test campaign",
+                new List<User>(
+                    new User[] {
+                        testuser1,
+                        testuser2
+                    }
+                ),
+                new List<Character>(
+                    new Character[] {
+                        testuser1.GetCharacterByName("Test Character 1"),
+                        testuser2.GetCharacterByName("Test Character 2")
+                    }
+                ),
+                testuser0
+            );
+            campaign.AddCampaignToAllUsers();
         }
     }
 }

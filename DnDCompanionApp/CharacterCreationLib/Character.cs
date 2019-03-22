@@ -195,7 +195,11 @@ namespace CharacterCreationLib {
         }
 
         public override string ToString() {
-            return name;
+            string charDesc = $"{Name}{Environment.NewLine}" +
+                $"Race: {Race.Name} - {Race.Description}{Environment.NewLine}" +
+                $"Class: {CharacterClass.Name} - {CharacterClass.Description}{Environment.NewLine}" +
+                $"Background: {CharacterBackground.Name} - {CharacterBackground.Description}";
+            return charDesc;
         }
 
         public override bool Equals(object obj) {

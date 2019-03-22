@@ -93,7 +93,7 @@ namespace MainNavigationForms {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void seeAllCampaignsToolStripMenuItem_Click(object sender, EventArgs e) {
-            SavedCampaignsPage savedCampaignsPage = new SavedCampaignsPage();
+            SavedCampaignsPage savedCampaignsPage = new SavedCampaignsPage(user);
             DockPage(savedCampaignsPage);
         }
 

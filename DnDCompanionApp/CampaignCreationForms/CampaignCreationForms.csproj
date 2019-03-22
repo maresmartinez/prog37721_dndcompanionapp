@@ -102,6 +102,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CharacterCreationLib\CharacterCreationLib.csproj">
+      <Project>{41aa5b9c-47a6-4623-9462-71b63c9aba2d}</Project>
+      <Name>CharacterCreationLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UserManagementLib\UserManagementLib.csproj">
       <Project>{d367c825-1b57-444c-9fdb-f31cc8473ceb}</Project>
       <Name>UserManagementLib</Name>

@@ -39,8 +39,10 @@ namespace UserManagementLib {
         public User DungeonMaster {
             get { return dungeonMaster; }
             set {
-                if (value == null) {
+                if (value is null) {
                     throw new ArgumentException("Campaign must have a dungeon master");
+                } else if (this.IsUserInCampaign(value)) {
+                    throw new ArgumentException("Dungeon Master cannot also be in campaign");
                 } else {
                     dungeonMaster = value;
                 }
@@ -92,13 +94,14 @@ namespace UserManagementLib {
 
         }
 
-        public Campaign(string campaignName, User dungeonMaster, List<Character> campaignCharacters,
-            List<User> campaignUsers, string campaignDescription) {
+        public Campaign(string campaignName, string campaignDescription, List<User> campaignUsers, 
+            List<Character> campaignCharacters, User dungeonMaster
+            ) {
             CampaignName = campaignName;
             CampaignDescription = campaignDescription;
-            DungeonMaster = dungeonMaster;
             CampaignUsers = campaignUsers;
             CampaignCharacters = campaignCharacters;
+            DungeonMaster = dungeonMaster;
         }
 
         public void AddNewMember(User user, Character character) {
@@ -110,6 +113,12 @@ namespace UserManagementLib {
         }
 
         public bool IsUserInCampaign(User user) {
+            if (CampaignUsers is null) {
+                return false;
+            }
+            if (!(DungeonMaster is null) && DungeonMaster.Equals(user)) {
+                return true;
+            }
             foreach (User campaignUser in CampaignUsers) {
                 if (campaignUser.Equals(user)) {
                     return true;
@@ -119,6 +128,7 @@ namespace UserManagementLib {
         }
 
         public void AddCampaignToAllUsers() {
+            DungeonMaster.AddCampaign(this);
             foreach (User user in CampaignUsers) {
                 user.AddCampaign(this);
             }
@@ -132,11 +142,11 @@ namespace UserManagementLib {
             Campaign campObj = (Campaign)obj;
 
             //Check if name, description, users, and characters match
-            if (campObj.CampaignName.Equals(this.CampaignName)
-                || campObj.CampaignDescription.Equals(this.CampaignDescription)
+            if (!campObj.CampaignName.Equals(this.CampaignName)
+                || !campObj.CampaignDescription.Equals(this.CampaignDescription)
                 || !campObj.DungeonMaster.Equals(this.DungeonMaster)
-                || campObj.CampaignUsers.Equals(this.CampaignUsers)
-                || campObj.CampaignCharacters.Equals(this.CampaignCharacters)) {
+                || !campObj.CampaignUsers.Equals(this.CampaignUsers)
+                || !campObj.CampaignCharacters.Equals(this.CampaignCharacters)) {
                 return false;
             }
 

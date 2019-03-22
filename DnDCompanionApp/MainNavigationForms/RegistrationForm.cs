@@ -56,7 +56,8 @@ namespace MainNavigationForms {
                     username,
                     fullName,
                     new List<Character>(),
-                    password
+                    password,
+                    new List<Campaign>()
                 );
             } catch (ArgumentException ex) {
                 MessageBox.Show(ex.Message);
