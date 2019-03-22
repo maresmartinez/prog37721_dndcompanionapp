@@ -15,3 +15,5 @@ D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompan
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationForms.dll.config
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationForms.dll
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.dll
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationForms\bin\Debug\UserManagementLib.dll
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationForms\bin\Debug\UserManagementLib.pdb

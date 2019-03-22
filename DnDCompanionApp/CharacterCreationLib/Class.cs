@@ -21,7 +21,7 @@ namespace CharacterCreationLib {
                 return characterSkills;
             }
             set {
-                foreach (Skills skill in value) {
+                foreach (object skill in value) {
                     if (!Enum.IsDefined(typeof(Skills), skill)) {
                         throw new ArgumentException("Not a Skill enum");
                     }

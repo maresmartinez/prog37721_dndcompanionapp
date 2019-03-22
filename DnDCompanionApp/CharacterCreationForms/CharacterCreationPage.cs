@@ -8,12 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CharacterCreationLib;
+using UserManagementLib;
 
 namespace CharacterCreationForms {
     public partial class CharacterCreationPage : UserControl {
 
-        public CharacterCreationPage() {
+        User user;
+
+        public CharacterCreationPage(User user) {
             InitializeComponent();
+            this.user = user;
         }
 
         private void CharacterCreationPage_Load(object sender, EventArgs e) {
@@ -371,42 +375,49 @@ namespace CharacterCreationForms {
             string skin = txtSkin.Text;
             string notes = txtNotes.Text;
 
-            // Generate character
-            Character character = new Character();
-            character.Name = name;
-            character.Strength = strength;
-            character.Dexterity = dexterity;
-            character.Constitution = constitution;
-            character.Intelligence = intelligence;
-            character.Wisdom = wisdom;
-            character.Charisma = charisma;
-            character.StrMod = strMod;
-            character.DexMod = dexMod;
-            character.ConMod = conMod;
-            character.IntMod = intMod;
-            character.WisMod = wisMod;
-            character.ChrMod = chrMod;
-            character.FeatureList = selectedClass.Features;
-            character.CharacterBackground = new Background(
-                selectedBackground.Name,
-                selectedBackground.Description,
-                personality,
-                ideals,
-                bonds,
-                flaws
-            );
-            character.Hair = (!string.IsNullOrEmpty(hair)) ? hair : "N/A";
-            character.Eyes = (!string.IsNullOrEmpty(eyes)) ? eyes : "N/A";
-            character.Skin = (!string.IsNullOrEmpty(skin)) ? skin : "N/A";
-            character.AdditionalNotes = (!string.IsNullOrEmpty(hair)) ? notes : "N/A";
-            character.Race = selectedRace;
-            character.CharacterClass = selectedClass;
+            // Generate character, catch any exceptions
+            Character character = null;
+            try {
+                character = new Character();
+                character.Name = name;
+                character.Strength = strength;
+                character.Dexterity = dexterity;
+                character.Constitution = constitution;
+                character.Intelligence = intelligence;
+                character.Wisdom = wisdom;
+                character.Charisma = charisma;
+                character.StrMod = strMod;
+                character.DexMod = dexMod;
+                character.ConMod = conMod;
+                character.IntMod = intMod;
+                character.WisMod = wisMod;
+                character.ChrMod = chrMod;
+                character.FeatureList = selectedClass.Features;
+                character.CharacterBackground = new Background(
+                    selectedBackground.Name,
+                    selectedBackground.Description,
+                    personality,
+                    ideals,
+                    bonds,
+                    flaws
+                );
+                character.Hair = (!string.IsNullOrEmpty(hair)) ? hair : "N/A";
+                character.Eyes = (!string.IsNullOrEmpty(eyes)) ? eyes : "N/A";
+                character.Skin = (!string.IsNullOrEmpty(skin)) ? skin : "N/A";
+                character.AdditionalNotes = (!string.IsNullOrEmpty(hair)) ? notes : "N/A";
+                character.Race = selectedRace;
+                character.CharacterClass = selectedClass;
+            } catch (ArgumentException ex) {
+                MessageBox.Show(ex.Message);
+                return;
+            }
 
             // Go to Character Output Page
             CharacterPreviewForm preview = new CharacterPreviewForm(character);
             DialogResult result = preview.ShowDialog();
             if (result == DialogResult.OK) {
-                MessageBox.Show("Save functionality not implemented yet.");
+                user.AddCharacter(character);
+                MessageBox.Show("Character successfully saved.");
             }
         }
 
@@ -462,10 +473,6 @@ namespace CharacterCreationForms {
             txtIntMod.Text = (rand.Next(1, 16) - 5).ToString();
             txtWisMod.Text = (rand.Next(1, 16) - 5).ToString();
             txtChrMod.Text = (rand.Next(1, 16) - 5).ToString();
-        }
-
-        private void lblTitle_Click(object sender, EventArgs e) {
-
         }
     }
 }

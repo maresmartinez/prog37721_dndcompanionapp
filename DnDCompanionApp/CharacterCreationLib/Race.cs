@@ -17,7 +17,7 @@ namespace CharacterCreationLib {
                 return languages;
             }
             set {
-                foreach (Language language in value) {
+                foreach (object language in value) {
                     if (!Enum.IsDefined(typeof(Language), language)) {
                         throw new ArgumentException("Not a Language enum");
                     }

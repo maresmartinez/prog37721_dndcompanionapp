@@ -31,15 +31,18 @@
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(86, 265);
+            this.lblName.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblName.ForeColor = System.Drawing.Color.White;
+            this.lblName.Location = new System.Drawing.Point(0, 256);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(84, 13);
+            this.lblName.Size = new System.Drawing.Size(257, 31);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Character Name";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // picCharacter
             // 
+            this.picCharacter.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.picCharacter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picCharacter.Image = ((System.Drawing.Image)(resources.GetObject("picCharacter.Image")));
             this.picCharacter.Location = new System.Drawing.Point(4, 3);
@@ -53,14 +56,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.picCharacter);
             this.Controls.Add(this.lblName);
             this.Name = "SavedCharacterControl";
-            this.Size = new System.Drawing.Size(257, 295);
+            this.Size = new System.Drawing.Size(257, 287);
             this.Load += new System.EventHandler(this.SavedCharacterControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picCharacter)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
