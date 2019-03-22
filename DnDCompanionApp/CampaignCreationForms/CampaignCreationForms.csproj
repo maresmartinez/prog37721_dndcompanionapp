@@ -102,9 +102,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CampaignCreationLib\CampaignCreationLib.csproj">
-      <Project>{e45c0180-d9c5-4f61-9ebf-525b766392c7}</Project>
-      <Name>CampaignCreationLib</Name>
+    <ProjectReference Include="..\UserManagementLib\UserManagementLib.csproj">
+      <Project>{d367c825-1b57-444c-9fdb-f31cc8473ceb}</Project>
+      <Name>UserManagementLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

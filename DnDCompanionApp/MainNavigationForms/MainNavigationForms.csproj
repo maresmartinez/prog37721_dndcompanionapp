@@ -129,10 +129,6 @@
       <Project>{460a35e4-89d7-4e72-a2cd-68b1ac040768}</Project>
       <Name>CampaignCreationForms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CampaignCreationLib\CampaignCreationLib.csproj">
-      <Project>{e45c0180-d9c5-4f61-9ebf-525b766392c7}</Project>
-      <Name>CampaignCreationLib</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CharacterCreationForms\CharacterCreationForms.csproj">
       <Project>{edd23366-cc02-4192-9e70-90b9e317e65a}</Project>
       <Name>CharacterCreationForms</Name>

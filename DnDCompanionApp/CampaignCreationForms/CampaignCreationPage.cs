@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CampaignCreationLib;
+using UserManagementLib;
 
 namespace CampaignCreationForms {
     public partial class CampaignCreationPage : UserControl {
 
-        public CampaignCreationPage() {
+        List<User> validUsers;
+
+        public CampaignCreationPage(List<User> validUsers) {
             InitializeComponent();
+            this.validUsers = validUsers;
         }
 
         private void btnGenerate_Click(object sender, EventArgs e) {

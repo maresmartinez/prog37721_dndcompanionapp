@@ -194,10 +194,24 @@ namespace CharacterCreationLib {
             CharacterClass = characterClass;
         }
 
-
-
         public override string ToString() {
             return name;
+        }
+
+        public override bool Equals(object obj) {
+            if (!(obj is Character)) {
+                return false;
+            }
+            Character charObj = (Character)obj;
+
+            // If character name, character race, and character class match, it is the same object
+            if (charObj.Name.Equals(this.Name)
+                && charObj.Race.Name.Equals(this.Race.Name)
+                && charObj.CharacterClass.Name.Equals(this.CharacterClass.Name)) {
+                return true;
+            }
+
+            return false;
         }
 
     }

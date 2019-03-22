@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CampaignCreationLib;
+using UserManagementLib;
 
 namespace CampaignCreationForms {
     public partial class CampaignPreviewForm : Form {

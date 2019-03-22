@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignCreationForms", "Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagementLib", "UserManagementLib\UserManagementLib.csproj", "{D367C825-1B57-444C-9FDB-F31CC8473CEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignCreationLib", "CampaignCreationLib\CampaignCreationLib.csproj", "{E45C0180-D9C5-4F61-9EBF-525B766392C7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{D367C825-1B57-444C-9FDB-F31CC8473CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D367C825-1B57-444C-9FDB-F31CC8473CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D367C825-1B57-444C-9FDB-F31CC8473CEB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E45C0180-D9C5-4F61-9EBF-525B766392C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E45C0180-D9C5-4F61-9EBF-525B766392C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E45C0180-D9C5-4F61-9EBF-525B766392C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E45C0180-D9C5-4F61-9EBF-525B766392C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

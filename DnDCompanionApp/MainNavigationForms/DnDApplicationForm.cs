@@ -17,9 +17,13 @@ namespace MainNavigationForms {
 
         User user;
 
-        public DnDApplicationForm(User user) {
+        // TODO: delete after database is implemented
+        List<User> validUsers;
+
+        public DnDApplicationForm(User user, List<User> validUsers) {
             InitializeComponent();
             this.user = user;
+            this.validUsers = validUsers;
         }
 
         /// <summary>
@@ -99,7 +103,7 @@ namespace MainNavigationForms {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void createNewCampaignToolStripMenuItem_Click(object sender, EventArgs e) {
-            CampaignCreationPage campaignCreationPage = new CampaignCreationPage();
+            CampaignCreationPage campaignCreationPage = new CampaignCreationPage(validUsers);
             DockPage(campaignCreationPage);
         }
 

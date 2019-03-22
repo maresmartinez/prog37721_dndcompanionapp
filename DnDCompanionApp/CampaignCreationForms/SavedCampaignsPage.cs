@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CampaignCreationLib;
+using UserManagementLib;
 
 namespace CampaignCreationForms {
     public partial class SavedCampaignsPage : UserControl {
 
         List<Campaign> savedCampaigns;
+        
 
         public SavedCampaignsPage() {
             InitializeComponent();
@@ -34,6 +35,8 @@ namespace CampaignCreationForms {
 
             Campaign campaign1 = new Campaign();
             campaign1.CampaignName = "Campaign 1";
+
+
             Campaign campaign2 = new Campaign();
             campaign2.CampaignName = "Campaign 2";
 

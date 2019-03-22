@@ -38,7 +38,7 @@ namespace MainNavigationForms {
             }
 
             // Allow access to DnD application
-            DnDApplicationForm dnd = new DnDApplicationForm(user);
+            DnDApplicationForm dnd = new DnDApplicationForm(user, validUsers);
             this.Hide();
             dnd.ShowDialog();
             this.Close();
@@ -276,13 +276,23 @@ namespace MainNavigationForms {
 
             // Create user which references these characters
             validUsers.Add(new User(
-                "testuser",
-                "Test User",
+                "testuser1",
+                "Test User 1",
                 new List<Character>(
                     new Character[] {
-                        character1,
+                        character1
+                    }
+                ),
+                "password"
+            ));
+
+            validUsers.Add(new User(
+                "testuser2",
+                "Test User 2",
+                new List<Character>(
+                    new Character[] {
                         character2
-        }
+                    }
                 ),
                 "password"
             ));
