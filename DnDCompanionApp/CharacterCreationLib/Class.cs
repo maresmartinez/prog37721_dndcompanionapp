@@ -11,6 +11,7 @@ namespace CharacterCreationLib {
         List<Feature> features;
         Dice hitDice;
         List<Skills> characterSkills;
+        List<Spells> classSpells;
 
         public string Name { get; set; }
         public string Description { get; set; }
@@ -29,6 +30,7 @@ namespace CharacterCreationLib {
                 characterSkills = value;
             }
         }
+        public List<Spells> ClassSpells { get; set; }
 
         public Class() {
 

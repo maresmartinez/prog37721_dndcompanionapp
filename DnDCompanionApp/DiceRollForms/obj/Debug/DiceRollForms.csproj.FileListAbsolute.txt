@@ -1,0 +1,12 @@
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\bin\Debug\DiceRollForms.dll
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\bin\Debug\DiceRollForms.pdb
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\bin\Debug\CharacterCreationLib.dll
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\bin\Debug\CharacterCreationLib.pdb
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.csprojAssemblyReference.cache
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.DiceRollPage.resources
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.csproj.GenerateResource.cache
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.csproj.CoreCompileInputs.cache
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.csproj.CopyComplete
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.dll
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.pdb
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.Properties.Resources.resources

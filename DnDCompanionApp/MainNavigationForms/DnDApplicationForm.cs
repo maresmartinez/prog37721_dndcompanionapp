@@ -11,6 +11,7 @@ using CharacterCreationForms;
 using CampaignCreationForms;
 using UserManagementLib;
 using CharacterCreationLib;
+using DiceRollForms;
 
 namespace MainNavigationForms {
     public partial class DnDApplicationForm : Form {
@@ -20,6 +21,11 @@ namespace MainNavigationForms {
         // TODO: delete after database is implemented
         List<User> validUsers;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="user">The user that will navigate the form</param>
+        /// <param name="validUsers">Temp variable used to simulate a database of users</param>
         public DnDApplicationForm(User user, List<User> validUsers) {
             InitializeComponent();
             this.user = user;
@@ -107,5 +113,9 @@ namespace MainNavigationForms {
             DockPage(campaignCreationPage);
         }
 
+        private void diceRollToolStripMenuItem_Click(object sender, EventArgs e) {
+            DiceRollPage diceRollPage = new DiceRollPage();
+            DockPage(diceRollPage);
+        }
     }
 }

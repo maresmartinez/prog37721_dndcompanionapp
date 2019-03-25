@@ -19,8 +19,6 @@ namespace CharacterCreationLib {
         int intMod;
         int wisMod;
         int chrMod;
-        List<string> actions;
-        List<Spells> spellList; //TaskType.IsDefined(typeof(TaskType), type)
         List<Feature> featureList;
         Background characterBackground;
         string hair;//can be null
@@ -151,8 +149,6 @@ namespace CharacterCreationLib {
                 } else throw new ArgumentException(value + " is out of the range of ChrMod");
             }
         }
-        public List<string> Actions { get; set; }
-        public List<Spells> SpellList { get; set; }
         public List<Feature> FeatureList { get; set; }
         public Background CharacterBackground { get; set; }
         public string Hair { get; set; }
@@ -167,8 +163,8 @@ namespace CharacterCreationLib {
         }
 
         public Character(string name, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int strMod,
-            int dexMod, int conMod, int intMod, int wisMod, int chrMod, List<string> actions, List<Spells> spells,
-            List<Feature> features, Background characterBackground, string hair, string eyes, string skin, string additionalNotes, Race race, Class characterClass) {
+            int dexMod, int conMod, int intMod, int wisMod, int chrMod, List<Feature> features, Background characterBackground, string hair, 
+            string eyes, string skin, string additionalNotes, Race race, Class characterClass) {
             Name = name;
             Strength = strength;
             Dexterity = dexterity;
@@ -182,8 +178,6 @@ namespace CharacterCreationLib {
             IntMod = intMod;
             WisMod = wisMod;
             ChrMod = chrMod;
-            Actions = actions;
-            SpellList = spells;
             FeatureList = features;
             CharacterBackground = characterBackground;
             Hair = hair;

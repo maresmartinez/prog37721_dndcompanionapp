@@ -132,6 +132,7 @@
             this.diceRollToolStripMenuItem.Name = "diceRollToolStripMenuItem";
             this.diceRollToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.diceRollToolStripMenuItem.Text = "Dice Roll";
+            this.diceRollToolStripMenuItem.Click += new System.EventHandler(this.diceRollToolStripMenuItem_Click);
             // 
             // encyclopediaToolStripMenuItem
             // 

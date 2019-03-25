@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignCreationForms", "Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagementLib", "UserManagementLib\UserManagementLib.csproj", "{D367C825-1B57-444C-9FDB-F31CC8473CEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceRollForms", "DiceRollForms\DiceRollForms.csproj", "{B10D402A-A877-4CFB-8840-AE8385EBFEFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncyclopaediaForms", "EncyclopaediaForms\EncyclopaediaForms.csproj", "{BBB34E5A-3B13-49E3-9497-7A21DEFDF62E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{D367C825-1B57-444C-9FDB-F31CC8473CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D367C825-1B57-444C-9FDB-F31CC8473CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D367C825-1B57-444C-9FDB-F31CC8473CEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B10D402A-A877-4CFB-8840-AE8385EBFEFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B10D402A-A877-4CFB-8840-AE8385EBFEFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B10D402A-A877-4CFB-8840-AE8385EBFEFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B10D402A-A877-4CFB-8840-AE8385EBFEFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBB34E5A-3B13-49E3-9497-7A21DEFDF62E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBB34E5A-3B13-49E3-9497-7A21DEFDF62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBB34E5A-3B13-49E3-9497-7A21DEFDF62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBB34E5A-3B13-49E3-9497-7A21DEFDF62E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

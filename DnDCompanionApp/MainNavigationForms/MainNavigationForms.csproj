@@ -137,10 +137,21 @@
       <Project>{41aa5b9c-47a6-4623-9462-71b63c9aba2d}</Project>
       <Name>CharacterCreationLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DiceRollForms\DiceRollForms.csproj">
+      <Project>{b10d402a-a877-4cfb-8840-ae8385ebfefc}</Project>
+      <Name>DiceRollForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EncyclopaediaForms\EncyclopaediaForms.csproj">
+      <Project>{bbb34e5a-3b13-49e3-9497-7a21defdf62e}</Project>
+      <Name>EncyclopaediaForms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UserManagementLib\UserManagementLib.csproj">
       <Project>{d367c825-1b57-444c-9fdb-f31cc8473ceb}</Project>
       <Name>UserManagementLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

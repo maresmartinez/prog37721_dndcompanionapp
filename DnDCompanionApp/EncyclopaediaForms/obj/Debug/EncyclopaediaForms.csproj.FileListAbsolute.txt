@@ -1,0 +1,6 @@
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\EncyclopaediaForms\bin\Debug\EncyclopaediaForms.dll
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\EncyclopaediaForms\bin\Debug\EncyclopaediaForms.pdb
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.csprojAssemblyReference.cache
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.csproj.CoreCompileInputs.cache
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.dll
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.pdb
