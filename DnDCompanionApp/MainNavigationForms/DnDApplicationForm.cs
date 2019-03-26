@@ -12,6 +12,7 @@ using CampaignCreationForms;
 using UserManagementLib;
 using CharacterCreationLib;
 using DiceRollForms;
+using EncyclopaediaForms;
 
 namespace MainNavigationForms {
     public partial class DnDApplicationForm : Form {
@@ -116,6 +117,11 @@ namespace MainNavigationForms {
         private void diceRollToolStripMenuItem_Click(object sender, EventArgs e) {
             DiceRollPage diceRollPage = new DiceRollPage();
             DockPage(diceRollPage);
+        }
+
+        private void encyclopediaToolStripMenuItem_Click(object sender, EventArgs e) {
+            OverviewPage overviewPage = new OverviewPage();
+            DockPage(overviewPage);
         }
     }
 }

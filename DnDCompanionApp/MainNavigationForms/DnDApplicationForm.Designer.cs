@@ -53,7 +53,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 5, 0, 5);
-            this.menuStrip1.Size = new System.Drawing.Size(884, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(847, 35);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -139,6 +139,7 @@
             this.encyclopediaToolStripMenuItem.Name = "encyclopediaToolStripMenuItem";
             this.encyclopediaToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.encyclopediaToolStripMenuItem.Text = "Encyclopedia";
+            this.encyclopediaToolStripMenuItem.Click += new System.EventHandler(this.encyclopediaToolStripMenuItem_Click);
             // 
             // alignmentQuizToolStripMenuItem
             // 
@@ -155,7 +156,7 @@
             this.pnlPageView.Location = new System.Drawing.Point(0, 35);
             this.pnlPageView.Name = "pnlPageView";
             this.pnlPageView.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.pnlPageView.Size = new System.Drawing.Size(884, 529);
+            this.pnlPageView.Size = new System.Drawing.Size(847, 560);
             this.pnlPageView.TabIndex = 1;
             // 
             // DnDApplicationForm
@@ -164,7 +165,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(884, 564);
+            this.ClientSize = new System.Drawing.Size(847, 595);
             this.Controls.Add(this.pnlPageView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

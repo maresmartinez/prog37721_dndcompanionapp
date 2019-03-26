@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,7 +43,78 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackgroundDetails.Designer.cs">
+      <DependentUpon>BackgroundDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackgroundTeaser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BackgroundTeaser.Designer.cs">
+      <DependentUpon>BackgroundTeaser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassDetailsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassDetailsPage.Designer.cs">
+      <DependentUpon>ClassDetailsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassTeaser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ClassTeaser.Designer.cs">
+      <DependentUpon>ClassTeaser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OverviewPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OverviewPage.Designer.cs">
+      <DependentUpon>OverviewPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RaceDetailsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RaceDetailsPage.Designer.cs">
+      <DependentUpon>RaceDetailsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RaceTeaser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RaceTeaser.Designer.cs">
+      <DependentUpon>RaceTeaser.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CharacterCreationLib\CharacterCreationLib.csproj">
+      <Project>{41aa5b9c-47a6-4623-9462-71b63c9aba2d}</Project>
+      <Name>CharacterCreationLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BackgroundDetails.resx">
+      <DependentUpon>BackgroundDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackgroundTeaser.resx">
+      <DependentUpon>BackgroundTeaser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassDetailsPage.resx">
+      <DependentUpon>ClassDetailsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassTeaser.resx">
+      <DependentUpon>ClassTeaser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OverviewPage.resx">
+      <DependentUpon>OverviewPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaceDetailsPage.resx">
+      <DependentUpon>RaceDetailsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaceTeaser.resx">
+      <DependentUpon>RaceTeaser.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
