@@ -9,11 +9,13 @@ using CharacterCreationLib;
 namespace UserManagementLib {
     public class User {
 
+        /// <summary>
+        /// Username of user
+        /// </summary>
         string username;
-        string fullName;
-        string password;
-        List<Campaign> userCampaigns;
-
+        /// <summary>
+        /// Username of user
+        /// </summary>
         public string Username {
             get { return username; }
             set {
@@ -25,6 +27,13 @@ namespace UserManagementLib {
             }
         }
 
+        /// <summary>
+        /// Full name of user
+        /// </summary>
+        string fullName;
+        /// <summary>
+        /// Full name of user
+        /// </summary>
         public string FullName {
             get { return fullName; }
             set {
@@ -36,21 +45,55 @@ namespace UserManagementLib {
             }
         }
 
+
+        /// <summary>
+        /// Characters owned by user
+        /// </summary>
         public List<Character> UserCharacters { get; set; }
 
+        /// <summary>
+        /// Salted and hashed password of user
+        /// </summary>
+        string password;
+        /// <summary>
+        /// Salted and hashed password of user
+        /// </summary>
         public string Password {
             get { return password; }
             set {
                 if (value.Length < 6) {
                     throw new ArgumentException("Password must be at least 6 characters long.");
                 } else {
-                    password = value;
+                    password = HashUtil.GetPasswordHash(value, Salt);
                 }
             }
         }
 
-        // TODO add salt utility so that password is not saved as plain text
+        /// <summary>
+        /// Salt to hash password
+        /// </summary>
+        string salt;
+        /// <summary>
+        /// Salt to hash password
+        /// </summary>
+        public string Salt {
+            get { return salt; }
+            set {
+                if (string.IsNullOrEmpty(value)) {
+                    throw new ArgumentException("Salt must have a value");
+                }
 
+                salt = value;
+            }
+        }
+
+        /// <summary>
+        /// Campaigns owned by user
+        /// </summary>
+        List<Campaign> userCampaigns;
+        /// <summary>
+        /// Campaigns owned by user
+        /// </summary>
         public List<Campaign> UserCampaigns {
             get { return userCampaigns; }
             set {
@@ -72,22 +115,42 @@ namespace UserManagementLib {
             }
         }
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public User() {
 
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="username">Username of user</param>
+        /// <param name="fullName">Full name of user</param>
+        /// <param name="userCharacters">Characters owned by user</param>
+        /// <param name="password">Password of user</param>
+        /// <param name="userCampaigns">Campaigns owns by user</param>
         public User(string username, string fullName, List<Character> userCharacters, string password, List<Campaign> userCampaigns) {
             Username = username;
             FullName = fullName;
             UserCharacters = userCharacters;
+            Salt = HashUtil.GetSalt();
             Password = password;
             UserCampaigns = userCampaigns;
         }
 
+        /// <summary>
+        /// Adds a character to UserCharacters
+        /// </summary>
+        /// <param name="character">The character to add</param>
         public void AddCharacter(Character character) {
             UserCharacters.Add(character);
         }
 
+        /// <summary>
+        /// Remove a user's character
+        /// </summary>
+        /// <param name="character">The character to remove</param>
         public void RemoveCharacter(Character character) {
             UserCharacters.Remove(character);
         }
@@ -95,7 +158,7 @@ namespace UserManagementLib {
         /// <summary>
         /// Will add campaign to UserCampaign only if user does not already hold a reference to this campaign, and if user is in the campaign
         /// </summary>
-        /// <param name="campaign"></param>
+        /// <param name="campaign">The campaign to add</param>
         public void AddCampaign(Campaign campaign) {
             if (UserCampaigns is null) {
                 UserCampaigns = new List<Campaign>(); 
@@ -114,10 +177,19 @@ namespace UserManagementLib {
             }
         }
 
+        /// <summary>
+        /// Removes a campaign from UserCampaigns
+        /// </summary>
+        /// <param name="campaign">The campaign to remoe</param>
         public void RemoveCampaign(Campaign campaign) {
             UserCampaigns.Remove(campaign);
         }
 
+        /// <summary>
+        /// Check if user owns a character
+        /// </summary>
+        /// <param name="character">The character to check</param>
+        /// <returns>True if the user owns the character, false if not</returns>
         public bool DoesUserOwnCharacter(Character character) {
             foreach (Character ownedCharacter in UserCharacters) {
                 if (ownedCharacter.Equals(character)) {
@@ -127,6 +199,11 @@ namespace UserManagementLib {
             return false;
         }
 
+        /// <summary>
+        /// Retrieves user character depending on name
+        /// </summary>
+        /// <param name="name">Name of the character</param>
+        /// <returns>The character if found, null if not</returns>
         public Character GetCharacterByName(string name) {
             foreach (Character character in UserCharacters) {
                 if (character.Name.Equals(name)) {
@@ -136,10 +213,37 @@ namespace UserManagementLib {
             return null;
         }
 
+        /// <summary>
+        /// Compares a given password to the hashed and salted password
+        /// </summary>
+        /// <param name="givenPassword">The password to authenticate</param>
+        /// <returns>Whether or not the password matches the user's</returns>
+        public bool AuthenticateUser(string givenPassword) {
+            
+            // Generate a hash for the entered password with the user's salt
+            string hashedInput = HashUtil.GetPasswordHash(givenPassword, Salt);
+
+            // Check if the user's password matches the inputted password
+            if (Password.Equals(hashedInput)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Describes the user
+        /// </summary>
+        /// <returns>Description of user</returns>
         public override string ToString() {
             return $"Username: {Username}, Full Name: {FullName}";
         }
 
+        /// <summary>
+        /// Checks if two users are the same
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj) {
             if (!(obj is User) || ((User)obj).Username != this.Username) {
                 return false;

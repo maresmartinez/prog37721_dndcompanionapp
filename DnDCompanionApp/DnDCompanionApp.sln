@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceRollForms", "DiceRollFo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncyclopaediaForms", "EncyclopaediaForms\EncyclopaediaForms.csproj", "{BBB34E5A-3B13-49E3-9497-7A21DEFDF62E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnDWebApp", "DnDWebApp\DnDWebApp.csproj", "{7F9242A8-FF2E-4886-A841-3E82EEEF457A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{BBB34E5A-3B13-49E3-9497-7A21DEFDF62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBB34E5A-3B13-49E3-9497-7A21DEFDF62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBB34E5A-3B13-49E3-9497-7A21DEFDF62E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F9242A8-FF2E-4886-A841-3E82EEEF457A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F9242A8-FF2E-4886-A841-3E82EEEF457A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F9242A8-FF2E-4886-A841-3E82EEEF457A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F9242A8-FF2E-4886-A841-3E82EEEF457A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

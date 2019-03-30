@@ -1,0 +1,94 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DnD.master.cs" Inherits="DnDWebApp.DnD" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title>DnD Companion App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="contentForm" runat="server">
+        <header>
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #d44a34;">
+                <div class="container">
+                    <asp:HyperLink ID="HLSite" runat="server" CssClass="navbar-brand" NavigateUrl="~/Home.aspx">D&D Companion App</asp:HyperLink>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <div class="navbar-nav mr-auto">
+                            <ul class="nav navbar-nav">
+
+                                <li class="nav-item">
+                                    <asp:HyperLink ID="HLHome" runat="server" CssClass="nav-link" NavigateUrl="~/Home.aspx">Home</asp:HyperLink>
+                                </li>
+
+                                <li class="nav-item">
+                                    <asp:HyperLink ID="HLProfile" runat="server" CssClass="nav-link" NavigateUrl="~/Users/Profile.aspx">Profile</asp:HyperLink>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarCharactersMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Characters
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarCharactersMenuLink">
+                                        <asp:HyperLink ID="HLAllCharacters" runat="server" CssClass="dropdown-item" NavigateUrl="~/Users/Characters/SeeAllCharacters.aspx">See All Characters</asp:HyperLink>
+                                        <asp:HyperLink ID="HLCreateCharacter" runat="server" CssClass="dropdown-item" NavigateUrl="~/Users/Characters/CreateNewCharacter.aspx">Create New Character</asp:HyperLink>
+                                    </div>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarCampaignsMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Campaigns
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarCampaignsMenuLink">
+                                        <asp:HyperLink ID="HLAllCampaigns" runat="server" CssClass="dropdown-item" NavigateUrl="~/Users/Campaigns/SeeAllCampaigns.aspx">See All Campaigns</asp:HyperLink>
+                                        <asp:HyperLink ID="HLCreateCampaign" runat="server" CssClass="dropdown-item" NavigateUrl="~/Users/Campaigns/CreateNewCampaign.aspx">Create New Campaigns</asp:HyperLink>
+                                    </div>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navBarToolsMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navBarToolsMenuLink">
+                                        <asp:HyperLink ID="HLDiceRoll" runat="server" CssClass="dropdown-item" NavigateUrl="~/Tools/DiceRoll.aspx">Dice Roll</asp:HyperLink>
+                                        <asp:HyperLink ID="HLEncyclopaediaOverview" runat="server" CssClass="dropdown-item" NavigateUrl="~/Tools/EncyclopaediaOverview.aspx">Encyclopaedia</asp:HyperLink>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="nav navbar-right">
+                            <asp:Button ID="BtnLogin" runat="server" Text="Login" CssClass="btn btn-outline-light btn-small navbar-btn float-right" OnClick="BtnLogin_Click" />
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Page Content -->
+        <main class="flex-shrink-0">
+            <div class="container">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer-copyright">
+                <span class="text-muted">Created by <a href="https://github.com/maresmartinez">Mariel Martinez</a>, <a href="https://github.com/Gronmin">Adam Stonelake</a>, and <a href="https://github.com/tovster">Mark Tov</a></span>
+            </div>
+        </footer>
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </form>
+</body>
+</html>

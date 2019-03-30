@@ -27,13 +27,13 @@
             this.lblLine = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlOverview = new System.Windows.Forms.Panel();
-            this.txtOverview = new System.Windows.Forms.TextBox();
             this.flowRaces = new System.Windows.Forms.FlowLayoutPanel();
             this.lblRaces = new System.Windows.Forms.Label();
             this.flowClasses = new System.Windows.Forms.FlowLayoutPanel();
             this.lblClasses = new System.Windows.Forms.Label();
             this.flowBackgrounds = new System.Windows.Forms.FlowLayoutPanel();
             this.lblBackgrounds = new System.Windows.Forms.Label();
+            this.txtOverview = new System.Windows.Forms.TextBox();
             this.pnlOverview.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,21 +73,10 @@
             this.pnlOverview.Size = new System.Drawing.Size(636, 517);
             this.pnlOverview.TabIndex = 9;
             // 
-            // txtOverview
-            // 
-            this.txtOverview.BackColor = System.Drawing.SystemColors.Control;
-            this.txtOverview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtOverview.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtOverview.Location = new System.Drawing.Point(5, 10);
-            this.txtOverview.Multiline = true;
-            this.txtOverview.Name = "txtOverview";
-            this.txtOverview.Size = new System.Drawing.Size(626, 125);
-            this.txtOverview.TabIndex = 0;
-            this.txtOverview.Text = resources.GetString("txtOverview.Text");
-            // 
             // flowRaces
             // 
             this.flowRaces.AutoScroll = true;
+            this.flowRaces.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowRaces.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowRaces.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowRaces.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -110,6 +99,7 @@
             // flowClasses
             // 
             this.flowClasses.AutoScroll = true;
+            this.flowClasses.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowClasses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowClasses.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowClasses.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -132,6 +122,7 @@
             // flowBackgrounds
             // 
             this.flowBackgrounds.AutoScroll = true;
+            this.flowBackgrounds.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowBackgrounds.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowBackgrounds.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowBackgrounds.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -150,6 +141,18 @@
             this.lblBackgrounds.Size = new System.Drawing.Size(127, 25);
             this.lblBackgrounds.TabIndex = 36;
             this.lblBackgrounds.Text = "Backgrounds";
+            // 
+            // txtOverview
+            // 
+            this.txtOverview.BackColor = System.Drawing.SystemColors.Control;
+            this.txtOverview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtOverview.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtOverview.Location = new System.Drawing.Point(5, 10);
+            this.txtOverview.Multiline = true;
+            this.txtOverview.Name = "txtOverview";
+            this.txtOverview.Size = new System.Drawing.Size(626, 125);
+            this.txtOverview.TabIndex = 0;
+            this.txtOverview.Text = resources.GetString("txtOverview.Text");
             // 
             // OverviewPage
             // 
