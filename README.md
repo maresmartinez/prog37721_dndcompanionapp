@@ -11,6 +11,7 @@ Dungeons and Dragons (D&D) is a fantasy tabletop role-playing game that has amas
 * Encyclopedia for Races and Classes
 
 ## Built With
-* [Dapper](https://github.com/StackExchange/Dapper) - ORM
+* [Bootstrap 4](https://getbootstrap.com/) - UX/UI Framework
 * [MariaDB](https://mariadb.org/) - Manage application database
+* [MongoDB](https://www.mongodb.com/) - Open Source Document Database
 * [Visual Studio 2017](https://visualstudio.microsoft.com/) - IDE
