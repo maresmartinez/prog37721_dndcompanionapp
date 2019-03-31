@@ -9,8 +9,17 @@ using CharacterCreationLib;
 namespace DnDWebApp.Users.Characters {
     public partial class SeeAllCharacters : System.Web.UI.Page {
 
+        /// <summary>
+        /// Reference to all the logged in user's characters
+        /// </summary>
         List<Character> characters = new List<Character>();
         
+        /// <summary>
+        /// Retrieves all the logged in user's character and displays them, if any.
+        /// If the user has no characters, then a message is displayed telling them so.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e) {
             InitCharacters();
             if (characters.Count > 0) {
@@ -37,6 +46,10 @@ namespace DnDWebApp.Users.Characters {
             DisplayCharacterDetails(selectedCharacter);
         }
 
+        /// <summary>
+        /// Displays the selected character
+        /// </summary>
+        /// <param name="character">Character to be displayed</param>
         private void DisplayCharacterDetails(Character character) {
             LblCharacterName.Text = character.Name;
             CharacterDetails.Visible = true;

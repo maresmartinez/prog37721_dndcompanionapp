@@ -7,6 +7,7 @@ using CharacterCreationLib;
 
 
 namespace UserManagementLib {
+    [Serializable]
     public class User {
 
         /// <summary>

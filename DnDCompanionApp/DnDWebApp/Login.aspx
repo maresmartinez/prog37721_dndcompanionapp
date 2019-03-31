@@ -16,5 +16,5 @@
         <asp:TextBox ID="TxtPassword" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
 
-    <asp:Button ID="BtnAuthenticate" runat="server" Text="Sign In" CssClass="btn btn-dark" OnClick="BtnAuthenticate_Click" />
+    <asp:Button ID="BtnAuthenticate" runat="server" Text="Sign In" CssClass="btn btn-dark" OnClick="BtnAuthenticate_Click" BorderColor="#d44a34" BackColor="#d44a34" />
 </asp:Content>

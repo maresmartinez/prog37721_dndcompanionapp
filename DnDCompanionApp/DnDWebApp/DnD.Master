@@ -81,7 +81,10 @@
 
         <footer class="footer">
             <div class="container footer-copyright">
-                <span class="text-muted">Created by <a href="https://github.com/maresmartinez">Mariel Martinez</a>, <a href="https://github.com/Gronmin">Adam Stonelake</a>, and <a href="https://github.com/tovster">Mark Tov</a></span>
+                <span class="text-muted">Created by <a href="https://github.com/maresmartinez" class="text-dark">Mariel Martinez</a>, 
+                    <a href="https://github.com/Gronmin" class="text-dark">Adam Stonelake</a>, 
+                    and <a href="https://github.com/tovster" class="text-dark">Mark Tov</a>
+                    &copy;</span>
             </div>
         </footer>
 

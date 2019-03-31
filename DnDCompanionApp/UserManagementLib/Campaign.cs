@@ -7,14 +7,19 @@ using CharacterCreationLib;
 using UserManagementLib;
 
 namespace UserManagementLib {
+    [Serializable]
+    /// <summary>
+    /// A D&D campaign which holds groups for the users and characters within the campaign
+    /// </summary>
     public class Campaign {
 
+        /// <summary>
+        /// Name of campaign
+        /// </summary>
         string campaignName;
-        string campaignDescription;
-        User dungeonMaster;
-        List<User> campaignUsers;
-        List<Character> campaignCharacters;
-
+        /// <summary>
+        /// Name of campaign
+        /// </summary>
         public string CampaignName {
             get { return campaignName; }
             set {
@@ -25,6 +30,14 @@ namespace UserManagementLib {
                 }
             }
         }
+
+        /// <summary>
+        /// Description of campaign
+        /// </summary>
+        string campaignDescription;
+        /// <summary>
+        /// Description of campaign
+        /// </summary>
         public string CampaignDescription {
             get { return campaignDescription; }
             set {
@@ -36,6 +49,13 @@ namespace UserManagementLib {
             }
         }
 
+        /// <summary>
+        /// Dungeon master of campaign
+        /// </summary>
+        User dungeonMaster;
+        /// <summary>
+        /// Dungeon master of campaign
+        /// </summary>
         public User DungeonMaster {
             get { return dungeonMaster; }
             set {
@@ -49,6 +69,13 @@ namespace UserManagementLib {
             }
         }
 
+        /// <summary>
+        /// All users in the campaign
+        /// </summary>
+        List<User> campaignUsers;
+        /// <summary>
+        /// All users in the campaign
+        /// </summary>
         public List<User> CampaignUsers {
             get { return campaignUsers; }
             set {
@@ -60,6 +87,13 @@ namespace UserManagementLib {
             }
         }
 
+        /// <summary>
+        /// The user characters that are in the campaign
+        /// </summary>
+        List<Character> campaignCharacters;
+        /// <summary>
+        /// The user characters that are in the campaign
+        /// </summary>
         public List<Character> CampaignCharacters {
             get { return campaignCharacters; }
             set {
@@ -90,10 +124,21 @@ namespace UserManagementLib {
             }
         }
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Campaign() {
 
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="campaignName">Name of campaign</param>
+        /// <param name="campaignDescription">Description of campaign</param>
+        /// <param name="campaignUsers">Users in the campaign</param>
+        /// <param name="campaignCharacters">The user characters which are in the campaign</param>
+        /// <param name="dungeonMaster">The dungeon master of the campaign</param>
         public Campaign(string campaignName, string campaignDescription, List<User> campaignUsers, 
             List<Character> campaignCharacters, User dungeonMaster
             ) {
@@ -104,6 +149,11 @@ namespace UserManagementLib {
             DungeonMaster = dungeonMaster;
         }
 
+        /// <summary>
+        /// Adds a new member to the campaign
+        /// </summary>
+        /// <param name="user">The user to add</param>
+        /// <param name="character">The user's character to add</param>
         public void AddNewMember(User user, Character character) {
             if (!user.DoesUserOwnCharacter(character)) {
                 throw new ArgumentException("User must own character");
@@ -112,6 +162,11 @@ namespace UserManagementLib {
             CampaignCharacters.Add(character);
         }
 
+        /// <summary>
+        /// Checks if the given user is part of this campaign, either as a user or dungeon master
+        /// </summary>
+        /// <param name="user">User to look for</param>
+        /// <returns>Whether or not the user is in the campaign</returns>
         public bool IsUserInCampaign(User user) {
             if (CampaignUsers is null) {
                 return false;
@@ -127,6 +182,9 @@ namespace UserManagementLib {
             return false;
         }
 
+        /// <summary>
+        /// Adds this instance of campaign to the users who are a part of it
+        /// </summary>
         public void AddCampaignToAllUsers() {
             DungeonMaster.AddCampaign(this);
             foreach (User user in CampaignUsers) {
@@ -134,6 +192,12 @@ namespace UserManagementLib {
             }
         }
 
+        /// <summary>
+        /// Determines equality by checking if two campaign objects share the same name, 
+        /// description, dungeon master, users, and characters
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>Whether or not the given object is equal to this campaign</returns>
         public override bool Equals(object obj) {
             if (!(obj is Campaign)) {
                 return false;
@@ -154,5 +218,20 @@ namespace UserManagementLib {
 
         }
 
+        /// <summary>
+        /// Describes the Campaign
+        /// </summary>
+        /// <returns>Description of the campaign</returns>
+        public override string ToString() {
+            return CampaignName;
+        }
+
+        /// <summary>
+        /// Generates a hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode() {
+            return base.GetHashCode();
+        }
     }
 }

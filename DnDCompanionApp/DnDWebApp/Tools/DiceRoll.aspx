@@ -22,7 +22,7 @@
         <asp:Label ID="LblNumRolls" runat="server" Text="Choose how many times to roll"></asp:Label>
         <asp:RequiredFieldValidator ID="ReqNumRolls" runat="server" ControlToValidate="TxtNumRolls" Display="Dynamic" ErrorMessage="(Number of rolls is required)" ForeColor="#D44A34" ValidationGroup="Roll"></asp:RequiredFieldValidator>
         <asp:RangeValidator ID="RngNumRolls" runat="server" ControlToValidate="TxtNumRolls" Display="Dynamic" ErrorMessage="(Number of rolls must be positive)" ForeColor="#D44A34" MaximumValue="9999999" MinimumValue="1" ValidationGroup="Roll"></asp:RangeValidator>
-        <asp:TextBox ID="TxtNumRolls" runat="server" CssClass="form-control" TextMode="Number" ></asp:TextBox>
+        <asp:TextBox ID="TxtNumRolls" runat="server" CssClass="form-control" Text="1" TextMode="Number" ></asp:TextBox>
     </div>
-    <asp:Button ID="BtnRoll" runat="server" CssClass="btn btn-dark btn-lg btn-block" Text="Roll Dice" OnClick="BtnRoll_Click" ValidationGroup="Roll" />
+    <asp:Button ID="BtnRoll" runat="server" CssClass="btn btn-dark btn-lg btn-block" Text="Roll Dice" OnClick="BtnRoll_Click" ValidationGroup="Roll" BorderColor="#d44a34" BackColor="#d44a34"  />
 </asp:Content>

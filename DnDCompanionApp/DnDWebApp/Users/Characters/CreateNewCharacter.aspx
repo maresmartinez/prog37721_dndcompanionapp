@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DnD.Master" AutoEventWireup="true" CodeBehind="CreateNewCharacter.aspx.cs" Inherits="DnDWebApp.Users.Characters.CreateNewCharacter" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DnD.Master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="CreateNewCharacter.aspx.cs" Inherits="DnDWebApp.Users.Characters.CreateNewCharacter" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -10,55 +10,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="mt-5">Create a New Character</h1>
     <p class="lead">Create a new D&D character for your account.</p>
-
-    <div id="CharacterDetails" runat="server" visible="false">
-        <hr />
-        <h2>Your New Character</h2>
-        <div class="card" style="margin-bottom: 15px;">
-            <div class="card-header text-white bg-dark mb-3">
-                <asp:Label ID="LblCharacterName" runat="server" Text="Character"></asp:Label>
-            </div>
-            <div class="card-body">
-                <h5>Stats</h5>
-                <asp:BulletedList ID="BLStats" runat="server"></asp:BulletedList>
-
-                <h5>Race</h5>
-                <p id="P1" runat="server"></p>
-                <h6>Languages</h6>
-                <asp:BulletedList ID="BLNewCharLang" runat="server"></asp:BulletedList>
-
-                <h5>Class</h5>
-                <p id="P2" runat="server"></p>
-                <h6>Features</h6>
-                <asp:BulletedList ID="BLNewCharFeats" runat="server"></asp:BulletedList>
-                <h6>Hit Dice</h6>
-                <p id="P3" runat="server"></p>
-                <h6>Skills</h6>
-                <asp:BulletedList ID="BLNewCharSkills" runat="server"></asp:BulletedList>
-
-                <h5>Background</h5>
-                <p id="P4" runat="server"></p>
-                <h6>Personality</h6>
-                <asp:BulletedList ID="BLPersonality" runat="server"></asp:BulletedList>
-                <h6>Ideals</h6>
-                <asp:BulletedList ID="BLIdeals" runat="server"></asp:BulletedList>
-                <h6>Bonds</h6>
-                <asp:BulletedList ID="BLBonds" runat="server"></asp:BulletedList>
-                <h6>Flaws</h6>
-                <asp:BulletedList ID="BLFlaws" runat="server"></asp:BulletedList>
-
-                <h5>Physical Characteristics</h5>
-                <p id="PhysicalDesc" runat="server"></p>
-
-                <h5>Additional Notes</h5>
-                <p id="AdditionalNotes" runat="server"></p>
-            </div>
-        </div>
-        <asp:Button ID="BtnSave" OnClick="BtnSave_Click" runat="server" Text="Save Character" CssClass="btn btn-dark btn-lg"  BorderColor="#d44a34" BackColor="#d44a34" />
-        <asp:Button ID="BtnDiscard" runat="server" Text="Discard Character" CssClass="btn btn-dark btn-lg" OnClick="BtnDiscard_Click" />
-        <hr />
-        <h2>Edit Character Details</h2>
-    </div>
 
     <div class="form-group">
         <asp:Label ID="LblName" runat="server" Text="Name"></asp:Label>
@@ -211,6 +162,53 @@
     </div>
 
     <asp:Button ID="BtnGenerate" OnClick="BtnGenerate_Click" runat="server" Text="Generate Character" CssClass="btn btn-dark btn-lg btn-block" BorderColor="#d44a34" BackColor="#d44a34" />
+
+    <div id="CharacterDetails" runat="server" visible="false">
+        <hr />
+        <h2>Your New Character</h2>
+        <div class="card" style="margin-bottom: 15px;">
+            <div class="card-header text-white bg-dark mb-3">
+                <asp:Label ID="LblCharacterName" runat="server" Text="Character"></asp:Label>
+            </div>
+            <div class="card-body">
+                <h5>Stats</h5>
+                <asp:BulletedList ID="BLStats" runat="server"></asp:BulletedList>
+
+                <h5>Race</h5>
+                <p id="P1" runat="server"></p>
+                <h6>Languages</h6>
+                <asp:BulletedList ID="BLNewCharLang" runat="server"></asp:BulletedList>
+
+                <h5>Class</h5>
+                <p id="P2" runat="server"></p>
+                <h6>Features</h6>
+                <asp:BulletedList ID="BLNewCharFeats" runat="server"></asp:BulletedList>
+                <h6>Hit Dice</h6>
+                <p id="P3" runat="server"></p>
+                <h6>Skills</h6>
+                <asp:BulletedList ID="BLNewCharSkills" runat="server"></asp:BulletedList>
+
+                <h5>Background</h5>
+                <p id="P4" runat="server"></p>
+                <h6>Personality</h6>
+                <asp:BulletedList ID="BLPersonality" runat="server"></asp:BulletedList>
+                <h6>Ideals</h6>
+                <asp:BulletedList ID="BLIdeals" runat="server"></asp:BulletedList>
+                <h6>Bonds</h6>
+                <asp:BulletedList ID="BLBonds" runat="server"></asp:BulletedList>
+                <h6>Flaws</h6>
+                <asp:BulletedList ID="BLFlaws" runat="server"></asp:BulletedList>
+
+                <h5>Physical Characteristics</h5>
+                <p id="PhysicalDesc" runat="server"></p>
+
+                <h5>Additional Notes</h5>
+                <p id="AdditionalNotes" runat="server"></p>
+            </div>
+        </div>
+        <asp:Button ID="BtnSave" OnClick="BtnSave_Click" runat="server" Text="Save Character" CssClass="btn btn-dark btn-lg"  BorderColor="#d44a34" BackColor="#d44a34" />
+        <asp:Button ID="BtnDiscard" runat="server" Text="Discard Character" CssClass="btn btn-dark btn-lg" OnClick="BtnDiscard_Click" />
+    </div>
 
     <script type="text/javascript">
 
