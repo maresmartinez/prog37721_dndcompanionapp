@@ -24,7 +24,7 @@ namespace DiceRollForms {
             int rolls = Convert.ToInt32(numRolls.Value); // num times to roll
             int sides = 0; // num sides of dice
 
-            // TODO: find better way to get selected radio button...
+            // Find better way to get selected radio button...
             // Get selected radio button
             if (rbD4.Checked) {
                 sides = Convert.ToInt32(rbD4.Tag);

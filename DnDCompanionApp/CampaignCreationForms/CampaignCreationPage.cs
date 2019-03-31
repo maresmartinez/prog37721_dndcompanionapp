@@ -13,8 +13,6 @@ using CharacterCreationLib;
 namespace CampaignCreationForms {
     public partial class CampaignCreationPage : UserControl {
 
-        // TODO: allow for the ability to remove Users/Characters if they were added by mistake
-
         List<User> validUsers;
         List<User> selectedUsers = new List<User>();
         List<Character> selectedCharacters = new List<Character>();

@@ -13,15 +13,15 @@ using CharacterCreationLib;
 namespace MainNavigationForms {
     public partial class LoginForm : Form {
 
-        // TODO: won't be needed when we implement database; this is substitute for database
+        // Won't be needed when we implement database; this is substitute for database
         List<User> validUsers = new List<User>();
 
         public LoginForm() {
             InitializeComponent();
-            //TODO: this is just here to make testing faster, delete when done
+            //This is just here to make testing faster, delete when done
             txtUsername.Text = "testuser1";
             txtPassword.Text = "password";
-            // TODO: once database is implemented, change CheckValidUser() and remove line below
+            // Once database is implemented, change CheckValidUser() and remove line below
             GetAllUsers();
         }
 
@@ -48,14 +48,14 @@ namespace MainNavigationForms {
         }
 
         private void lblRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            // TODO: once database is implemented, no need to pass validUsers. Registration will just add record to database, not List
+            // Once database is implemented, no need to pass validUsers. Registration will just add record to database, not List
             RegistrationForm registrationForm = new RegistrationForm(validUsers);
             registrationForm.ShowDialog();
         }
 
         /// <summary>
         /// Checks database for user information and returns valid user object if successful.
-        /// TODO: once database is implemented,t his will change to database query, not checking a List
+        /// Once database is implemented,t his will change to database query, not checking a List
         /// </summary>
         /// <param name="username">Username to be checked</param>
         /// <param name="password">Password to be checked against user record</param>
@@ -70,7 +70,7 @@ namespace MainNavigationForms {
             return null;
         }
 
-        // TODO: once database is implemented, this will be deleted
+        // Once database is implemented, this will be deleted
         private void GetAllUsers() {
             // Create Characters
             Character character1 = new Character();

@@ -13,7 +13,7 @@ using CharacterCreationLib;
 namespace MainNavigationForms {
     public partial class RegistrationForm : Form {
 
-        // TODO: this won't be needed once database is implemented
+        // This won't be needed once database is implemented
         List<User> validUsers;
 
         public RegistrationForm(List<User> validUsers) {
@@ -74,7 +74,7 @@ namespace MainNavigationForms {
         }
 
         private void AddToDatabase(User user) {
-            //TODO: this will should add to database, not list
+            //This will should add to database, not list
             validUsers.Add(user);
         }
     }

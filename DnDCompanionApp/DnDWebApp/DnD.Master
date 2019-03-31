@@ -39,7 +39,7 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarCharactersMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Characters
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarCharactersMenuLink">
-                                        <asp:HyperLink ID="HLAllCharacters" runat="server" CssClass="dropdown-item" NavigateUrl="~/Users/Characters/SeeAllCharacters.aspx">See All Characters</asp:HyperLink>
+                                        <asp:HyperLink ID="HLAllCharacters" runat="server" CssClass="dropdown-item" NavigateUrl="~/Users/Characters/SeeAllCharacters.aspx">See Saved Characters</asp:HyperLink>
                                         <asp:HyperLink ID="HLCreateCharacter" runat="server" CssClass="dropdown-item" NavigateUrl="~/Users/Characters/CreateNewCharacter.aspx">Create New Character</asp:HyperLink>
                                     </div>
                                 </li>
@@ -48,7 +48,7 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarCampaignsMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Campaigns
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarCampaignsMenuLink">
-                                        <asp:HyperLink ID="HLAllCampaigns" runat="server" CssClass="dropdown-item" NavigateUrl="~/Users/Campaigns/SeeAllCampaigns.aspx">See All Campaigns</asp:HyperLink>
+                                        <asp:HyperLink ID="HLAllCampaigns" runat="server" CssClass="dropdown-item" NavigateUrl="~/Users/Campaigns/SeeAllCampaigns.aspx">See Saved Campaigns</asp:HyperLink>
                                         <asp:HyperLink ID="HLCreateCampaign" runat="server" CssClass="dropdown-item" NavigateUrl="~/Users/Campaigns/CreateNewCampaign.aspx">Create New Campaigns</asp:HyperLink>
                                     </div>
                                 </li>

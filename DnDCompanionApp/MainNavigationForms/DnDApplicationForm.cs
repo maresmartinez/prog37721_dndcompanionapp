@@ -19,7 +19,8 @@ namespace MainNavigationForms {
 
         User user;
 
-        // TODO: delete after database is implemented
+        // D
+        elete after database is implemented
         List<User> validUsers;
 
         /// <summary>

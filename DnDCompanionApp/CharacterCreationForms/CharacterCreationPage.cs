@@ -23,7 +23,7 @@ namespace CharacterCreationForms {
         private void CharacterCreationPage_Load(object sender, EventArgs e) {
 
             // --------------------------------------------------------------------------------------------------------------------------------
-            // TODO: replace the following section with database queries
+            // Replace the following section with database queries
             // --------------------------------------------------------------------------------------------------------------------------------
 
             // ------------------------------------------------       START       -------------------------------------------------------------

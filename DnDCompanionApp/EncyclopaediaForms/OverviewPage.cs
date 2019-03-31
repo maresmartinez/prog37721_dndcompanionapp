@@ -51,7 +51,7 @@ namespace EncyclopaediaForms {
         /// Retrieves all values from database
         /// </summary>
         private void InitPage() {
-            // TODO: Replace the hard-coded values with database queries
+            // Replace the hard-coded values with database queries
 
             // Retrieve all races from database
             allRaces.Add(new Race(
