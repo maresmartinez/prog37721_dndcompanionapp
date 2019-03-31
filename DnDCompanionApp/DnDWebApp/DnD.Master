@@ -58,7 +58,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navBarToolsMenuLink">
                                         <asp:HyperLink ID="HLDiceRoll" runat="server" CssClass="dropdown-item" NavigateUrl="~/Tools/DiceRoll.aspx">Dice Roll</asp:HyperLink>
-                                        <asp:HyperLink ID="HLEncyclopaediaOverview" runat="server" CssClass="dropdown-item" NavigateUrl="~/Tools/EncyclopaediaOverview.aspx">Encyclopaedia</asp:HyperLink>
+                                        <asp:HyperLink ID="HLEncyclopaediaOverview" runat="server" CssClass="dropdown-item" NavigateUrl="~/Tools/Encyclopaedia/EncyclopaediaOverview.aspx">Encyclopaedia</asp:HyperLink>
                                     </div>
                                 </li>
                             </ul>
@@ -72,7 +72,7 @@
         </header>
 
         <!-- Page Content -->
-        <main class="flex-shrink-0">
+        <main class="flex-shrink-0" style="padding-bottom: 40px;">
             <div class="container">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>

@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
+    [Serializable]
     public class Background {
-
-
         string name;
         string description;
         List<string> personality;

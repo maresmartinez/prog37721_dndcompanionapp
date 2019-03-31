@@ -116,7 +116,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Tools\DiceRoll.aspx" />
-    <Content Include="Tools\EncyclopaediaOverview.aspx" />
+    <Content Include="Tools\Encyclopaedia\EncyclopaediaOverview.aspx" />
     <Content Include="Users\Campaigns\CreateNewCampaign.aspx" />
     <Content Include="Users\Campaigns\SeeAllCampaigns.aspx" />
     <Content Include="Users\Characters\CreateNewCharacter.aspx" />
@@ -173,11 +173,11 @@
     <Compile Include="Tools\DiceRoll.aspx.designer.cs">
       <DependentUpon>DiceRoll.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Tools\EncyclopaediaOverview.aspx.cs">
+    <Compile Include="Tools\Encyclopaedia\EncyclopaediaOverview.aspx.cs">
       <DependentUpon>EncyclopaediaOverview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Tools\EncyclopaediaOverview.aspx.designer.cs">
+    <Compile Include="Tools\Encyclopaedia\EncyclopaediaOverview.aspx.designer.cs">
       <DependentUpon>EncyclopaediaOverview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users\Campaigns\CreateNewCampaign.aspx.cs">

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
+    [Serializable]
     public class Race {
         string name;
         string description;
@@ -37,13 +38,7 @@ namespace CharacterCreationLib {
         }
 
         public override string ToString() {
-            string raceDesc = $"{Name}: {Description} {Environment.NewLine}" +
-                $"Languages: {Environment.NewLine}";
-            foreach (Language language in Languages) {
-                raceDesc += $"{language}";
-            }
-
-            return raceDesc;
+            return $"{Name}: {Description}";
         }
     }
 }

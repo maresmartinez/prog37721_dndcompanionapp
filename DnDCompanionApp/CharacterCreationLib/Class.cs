@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
+    [Serializable]
     public class Class {
         string name;
         string description;
@@ -45,21 +46,7 @@ namespace CharacterCreationLib {
         }
 
         public override string ToString() {
-            string classDetails = $"{Name}: {Description} {Environment.NewLine}{Environment.NewLine}";
-
-            classDetails += $"Features: {Environment.NewLine}";
-            foreach (Feature feature in Features) {
-                classDetails += $"{feature.ToString()} {Environment.NewLine}";
-            }
-
-            classDetails += $"{Environment.NewLine}Hit Dice: {HitDice} {Environment.NewLine}";
-
-            classDetails += $"{Environment.NewLine}Skills: {Environment.NewLine}";
-            foreach (Skills skill in CharacterSkills) {
-                classDetails += $"{skill} {Environment.NewLine}";
-            }
-
-            return classDetails;
+            return $"{Name}: {Description}";
         }
     }
 }

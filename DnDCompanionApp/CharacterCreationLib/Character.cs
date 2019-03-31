@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
+    [Serializable]
     public class Character {
         string name;
         int strength;
@@ -28,7 +29,16 @@ namespace CharacterCreationLib {
         Race race;
         Class characterClass;
 
-        public string Name { get; set; }
+        public string Name {
+            get { return name;  }
+            set {
+                if (string.IsNullOrEmpty(value)) {
+                    throw new ArgumentException("Name must have a value");
+                }
+                name = value;
+            }
+        }
+
         public int Strength {
             get {
                 return strength;
@@ -189,11 +199,7 @@ namespace CharacterCreationLib {
         }
 
         public override string ToString() {
-            string charDesc = $"{Name}{Environment.NewLine}" +
-                $"Race: {Race.Name} - {Race.Description}{Environment.NewLine}" +
-                $"Class: {CharacterClass.Name} - {CharacterClass.Description}{Environment.NewLine}" +
-                $"Background: {CharacterBackground.Name} - {CharacterBackground.Description}";
-            return charDesc;
+            return $"{Name}: {Race.Name}, {CharacterClass.Name}, {CharacterBackground.Name}";
         }
 
         public override bool Equals(object obj) {
