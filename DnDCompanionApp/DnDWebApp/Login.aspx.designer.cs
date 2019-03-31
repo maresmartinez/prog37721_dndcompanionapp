@@ -22,6 +22,15 @@ namespace DnDWebApp {
         protected global::System.Web.UI.WebControls.Label LblUsername;
         
         /// <summary>
+        /// ReqUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqUsername;
+        
+        /// <summary>
         /// TxtUsername control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace DnDWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblPassword;
+        
+        /// <summary>
+        /// ReqPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqPassword;
         
         /// <summary>
         /// TxtPassword control.

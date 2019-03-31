@@ -12,7 +12,11 @@ namespace DnDWebApp {
         }
 
         protected void BtnAuthenticate_Click(object sender, EventArgs e) {
+            string username = TxtUsername.Text;
+            string password = TxtPassword.Text;
 
+            // TODO: call authentication method from database
+            
         }
     }
 }
