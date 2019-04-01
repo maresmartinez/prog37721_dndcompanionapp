@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CharacterCreationSQL;
 
 namespace CharacterCreationForms {
     static class Program {
@@ -13,6 +14,7 @@ namespace CharacterCreationForms {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            BackgroundDAO backgroundDAO = new BackgroundDAO();
             Application.Run(new DnDApplicationForm());
         }
     }

@@ -138,6 +138,10 @@
       <Project>{41aa5b9c-47a6-4623-9462-71b63c9aba2d}</Project>
       <Name>CharacterCreationLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CharacterCreationSQL\CharacterCreationSQL.csproj">
+      <Project>{6dc261a2-e18f-441c-b991-b7ee3dbca4a3}</Project>
+      <Name>CharacterCreationSQL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

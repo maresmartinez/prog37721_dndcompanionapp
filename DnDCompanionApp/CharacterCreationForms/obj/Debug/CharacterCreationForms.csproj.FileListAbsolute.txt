@@ -17,3 +17,25 @@ D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompan
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.CharacterCreationPage.resources
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.CharacterPreviewForm.resources
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.SavedCharacterPreviewForm.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationForms.exe.config
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationForms.exe
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationForms.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationLib.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationSQL.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationLib.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationSQL.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationSQL.dll.config
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.csprojAssemblyReference.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.CharacterCreationPage.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.CharacterPreviewForm.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.DnDApplicationForm.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.HomePage.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.Properties.Resources.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.SavedCharacterControl.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.SavedCharacterPage.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.SavedCharacterPreviewForm.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.csproj.GenerateResource.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.csproj.CoreCompileInputs.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.csproj.CopyComplete
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.exe
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.pdb
