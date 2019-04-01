@@ -27,3 +27,15 @@ D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompan
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\MainNavigationForms\bin\Debug\EncyclopaediaForms.dll
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\MainNavigationForms\bin\Debug\DiceRollForms.pdb
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\MainNavigationForms\bin\Debug\EncyclopaediaForms.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\MainNavigationForms\obj\Debug\MainNavigationForms.csprojAssemblyReference.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\MainNavigationForms\obj\Debug\MainNavigationForms.DnDApplicationForm.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\MainNavigationForms\obj\Debug\MainNavigationForms.EditUserForm.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\MainNavigationForms\obj\Debug\MainNavigationForms.HomePage.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\MainNavigationForms\obj\Debug\MainNavigationForms.LoginForm.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\MainNavigationForms\obj\Debug\MainNavigationForms.ProfilePage.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\MainNavigationForms\obj\Debug\MainNavigationForms.Properties.Resources.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\MainNavigationForms\obj\Debug\MainNavigationForms.RegistrationForm.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\MainNavigationForms\obj\Debug\MainNavigationForms.csproj.GenerateResource.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\MainNavigationForms\obj\Debug\MainNavigationForms.csproj.CoreCompileInputs.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\MainNavigationForms\obj\Debug\MainNavigationForms.exe
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\MainNavigationForms\obj\Debug\MainNavigationForms.pdb

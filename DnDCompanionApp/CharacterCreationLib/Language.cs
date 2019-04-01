@@ -7,8 +7,19 @@ using System.Threading.Tasks;
 namespace CharacterCreationLib {
     [Serializable]
     public enum Language {
-        COMMON,
-        ELVISH,
-        DRACONAIN
+        Common = 1,
+        Aarakocra = 2,
+        Auran = 3,
+        Draconic = 4,
+        Dwarvish = 5,
+        Elvish = 6,
+        Primordial = 7,
+        Gnomish = 8,
+        Undercommon = 9,
+        Giant = 10,
+        Orc = 11,
+        Halfling = 12,
+        Infernal = 13,
+        Celestial = 14
     }
 }

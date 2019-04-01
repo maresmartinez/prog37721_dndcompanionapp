@@ -17,3 +17,14 @@ D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompan
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.dll
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationForms\bin\Debug\UserManagementLib.dll
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CharacterCreationForms\bin\Debug\UserManagementLib.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.csprojAssemblyReference.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.CharacterCreationPage.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.CharacterPreviewForm.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.Properties.Resources.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.SavedCharacterControl.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.SavedCharacterPage.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.SavedCharacterPreviewForm.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.csproj.GenerateResource.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.csproj.CoreCompileInputs.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.pdb

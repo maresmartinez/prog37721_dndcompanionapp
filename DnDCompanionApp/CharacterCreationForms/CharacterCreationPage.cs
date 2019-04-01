@@ -37,7 +37,7 @@ namespace CharacterCreationForms {
                 "though they lack wings or a tail.",
                 new List<Language>(
                     new Language[] {
-                        Language.DRACONAIN
+                        Language.Draconic
                     }
                 )
             ));
