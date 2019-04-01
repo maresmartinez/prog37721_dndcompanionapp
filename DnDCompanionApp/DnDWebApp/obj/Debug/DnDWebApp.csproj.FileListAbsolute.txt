@@ -58,3 +58,17 @@ D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompan
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DnDWebApp\obj\Debug\DnDWebApp.csproj.CopyComplete
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DnDWebApp\obj\Debug\DnDWebApp.dll
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DnDWebApp\obj\Debug\DnDWebApp.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\bin\DnDWebApp.dll.config
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\bin\DnDWebApp.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\bin\DnDWebApp.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\bin\CharacterCreationLib.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\bin\UserManagementLib.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\bin\CharacterCreationLib.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\bin\UserManagementLib.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\obj\Debug\DnDWebApp.csprojAssemblyReference.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\obj\Debug\DnDWebApp.csproj.CoreCompileInputs.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\obj\Debug\DnDWebApp.csproj.CopyComplete
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\obj\Debug\DnDWebApp.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DnDWebApp\obj\Debug\DnDWebApp.pdb
