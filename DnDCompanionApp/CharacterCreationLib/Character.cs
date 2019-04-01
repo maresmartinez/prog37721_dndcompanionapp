@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace CharacterCreationLib {
     [Serializable]
     public class Character {
+        int dbID;
         string name;
         int strength;
         int dexterity;

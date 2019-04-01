@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28721.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCreationLib", "CharacterCreationLib\CharacterCreationLib.csproj", "{41AA5B9C-47A6-4623-9462-71B63C9ABA2D}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncyclopaediaForms", "EncyclopaediaForms\EncyclopaediaForms.csproj", "{BBB34E5A-3B13-49E3-9497-7A21DEFDF62E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnDWebApp", "DnDWebApp\DnDWebApp.csproj", "{7F9242A8-FF2E-4886-A841-3E82EEEF457A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterSQLLib", "CharacterSQLLib\CharacterSQLLib.csproj", "{5E5D3C1A-CB31-4709-ADA6-2F45E70472BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{7F9242A8-FF2E-4886-A841-3E82EEEF457A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F9242A8-FF2E-4886-A841-3E82EEEF457A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F9242A8-FF2E-4886-A841-3E82EEEF457A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E5D3C1A-CB31-4709-ADA6-2F45E70472BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E5D3C1A-CB31-4709-ADA6-2F45E70472BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E5D3C1A-CB31-4709-ADA6-2F45E70472BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E5D3C1A-CB31-4709-ADA6-2F45E70472BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
