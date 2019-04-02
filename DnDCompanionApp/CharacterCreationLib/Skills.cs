@@ -7,8 +7,22 @@ using System.Threading.Tasks;
 namespace CharacterCreationLib {
     [Serializable]
     public enum Skills {
-        ACROBATICS, ANIMAL_HANDLING, ARCANA, ATHLETICS, DECEPTION,
-        HISTORY, INSIGHT, INTIMIDATION, MEDICINE, NATURE, PERCEPTION,
-        PERFORMANCE, PERSUASION, RELIGION, SLEIGHT_OF_HAND, STEALTH, SURVIVAL
+        ACROBATICS = 1,
+        ANIMAL_HANDLING = 2,
+        ARCANA = 3,
+        ATHLETICS = 4,
+        DECEPTION = 5,
+        HISTORY = 6,
+        INSIGHT = 7,
+        INTIMIDATION = 8,
+        MEDICINE = 9,
+        NATURE = 10,
+        PERCEPTION = 11,
+        PERFORMANCE = 12,
+        PERSUASION = 13,
+        RELIGION = 14,
+        SLEIGHT_OF_HAND = 15,
+        STEALTH = 16,
+        SURVIVAL = 17
     }
 }
