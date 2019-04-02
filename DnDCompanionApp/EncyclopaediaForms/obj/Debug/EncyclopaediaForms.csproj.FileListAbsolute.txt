@@ -27,3 +27,8 @@ C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionA
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.csproj.CoreCompileInputs.cache
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.dll
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\bin\Debug\EncyclopaediaForms.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\bin\Debug\EncyclopaediaForms.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\bin\Debug\CharacterCreationLib.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\bin\Debug\CharacterCreationLib.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.csproj.CopyComplete

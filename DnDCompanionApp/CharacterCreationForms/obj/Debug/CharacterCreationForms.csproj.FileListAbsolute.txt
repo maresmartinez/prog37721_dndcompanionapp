@@ -28,3 +28,11 @@ C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionA
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.csproj.CoreCompileInputs.cache
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.dll
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationForms.dll.config
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationForms.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationForms.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationLib.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\UserManagementLib.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\CharacterCreationLib.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\bin\Debug\UserManagementLib.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterCreationForms\obj\Debug\CharacterCreationForms.csproj.CopyComplete

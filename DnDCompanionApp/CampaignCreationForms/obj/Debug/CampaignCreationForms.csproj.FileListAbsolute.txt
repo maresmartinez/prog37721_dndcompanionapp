@@ -22,7 +22,6 @@ C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionA
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\bin\Debug\UserManagementLib.dll
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\bin\Debug\CharacterCreationLib.pdb
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\bin\Debug\UserManagementLib.pdb
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.csprojAssemblyReference.cache
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.CampaignCreationPage.resources
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.CampaignPreviewForm.resources
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.Properties.Resources.resources

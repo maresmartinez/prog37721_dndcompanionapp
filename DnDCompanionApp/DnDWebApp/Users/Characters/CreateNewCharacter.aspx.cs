@@ -336,8 +336,8 @@ namespace DnDWebApp.Users.Characters {
                 "though they lack wings or a tail.",
                 new List<Language>(
                     new Language[] {
-                        Language.COMMON,
-                        Language.DRACONAIN
+                        Language.Common,
+                        Language.Draconic
                     }
                 )
             ));
@@ -347,8 +347,8 @@ namespace DnDWebApp.Users.Characters {
                 "living in the world but not entirely part of it.",
                 new List<Language>(
                     new Language[] {
-                        Language.COMMON,
-                        Language.ELVISH
+                        Language.Common,
+                        Language.Elvish
                     }
                 )
             ));
@@ -359,7 +359,7 @@ namespace DnDWebApp.Users.Characters {
                 "of the worlds.",
                 new List<Language>(
                     new Language[] {
-                        Language.COMMON
+                        Language.Common
                     }
                 )
             ));
