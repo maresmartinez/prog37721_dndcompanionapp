@@ -96,7 +96,7 @@ namespace DnDSQLLib.dal
             }
             catch (SqlException)
             {
-
+                // Figure out how to deliver a good error message for the user
             }
             finally
             {
@@ -106,7 +106,28 @@ namespace DnDSQLLib.dal
         }
         public int DeleteBackground(int backgroundId)
         {
-            return 0;
+            int count = 0;
+            try
+            {
+                conn.Open();
+
+                SqlCommand command = new SqlCommand($"" +
+                    $"delete from background where Id = @bId");
+                command.Parameters.AddWithValue("@bId", backgroundId);
+                command.Connection = conn;
+
+                count = command.ExecuteNonQuery();
+            }
+            catch (SqlException)
+            {
+                // Figure out how to deliver a good error message for the user
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return count;
         }
         public Background GetBackground(int backgroundId)
         {
