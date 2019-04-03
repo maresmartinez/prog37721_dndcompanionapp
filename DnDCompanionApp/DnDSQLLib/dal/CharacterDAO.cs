@@ -30,7 +30,20 @@ namespace DnDSQLLib.dal
 
         public int addCharacter(Character character)
         {
-            conn.Open();
+            BackgroundDAO bgDAO = new BackgroundDAO();
+            try
+            {
+                conn.Open();
+                bgDAO.UploadBackground(character.CharacterBackground);
+            }
+            catch (SqlException)
+            {
+                // Figure out a good way to get an error message across
+            }
+            finally
+            {
+                conn.Close();
+            }
 
             return 0;
         }
