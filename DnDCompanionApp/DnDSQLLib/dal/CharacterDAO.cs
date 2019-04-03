@@ -11,30 +11,20 @@ namespace DnDSQLLib.dal
 {
     public class CharacterDAO
     {
-        string server = "Data Source=.\\SQLEXPRESS;Initial Catalog=dnd;Integrated Security=True";
         SqlConnection conn;
-        Character character;
 
-        public CharacterDAO(Character character)
+        public CharacterDAO()
         {
+            
             try
             {
-                this.character = character;
-            }
-            catch (ArgumentNullException)
-            {
-                MessageBox.Show("Null Character Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            try
-            {
-                conn = new SqlConnection(server);
+                conn = ConnectionFactory.GetConnection();
                 conn.Open();
-                conn.Close();
+                conn.Close();   // Just double checking to make sure that yes, we can indeed access the server
             }
             catch (SqlException)
             {
-                MessageBox.Show("Cannot connect to the database", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Figure out how to let the user know that things just aint happening
             }
         }
 

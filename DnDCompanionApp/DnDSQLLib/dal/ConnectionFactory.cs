@@ -19,14 +19,7 @@ namespace DnDSQLLib.dal
             }
             catch (SqlException)
             {
-                try
-                {
-                    return new SqlConnection(server2);
-                }
-                catch (SqlException)
-                {
-                    return null;
-                }
+                return new SqlConnection(server2);  // Flips over to the redundant server is things go horribly wrong with the Azure instance
             }
         }
     }
