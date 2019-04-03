@@ -7,12 +7,3 @@ D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompan
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\UserManagementLib\obj\Debug\UserManagementLib.csproj.CopyComplete
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\UserManagementLib\obj\Debug\UserManagementLib.dll
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\UserManagementLib\obj\Debug\UserManagementLib.pdb
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\UserManagementLib\bin\Debug\UserManagementLib.dll
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\UserManagementLib\bin\Debug\UserManagementLib.pdb
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\UserManagementLib\bin\Debug\CharacterCreationLib.dll
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\UserManagementLib\bin\Debug\CharacterCreationLib.pdb
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\UserManagementLib\obj\Debug\UserManagementLib.csprojAssemblyReference.cache
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\UserManagementLib\obj\Debug\UserManagementLib.csproj.CoreCompileInputs.cache
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\UserManagementLib\obj\Debug\UserManagementLib.csproj.CopyComplete
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\UserManagementLib\obj\Debug\UserManagementLib.dll
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\UserManagementLib\obj\Debug\UserManagementLib.pdb

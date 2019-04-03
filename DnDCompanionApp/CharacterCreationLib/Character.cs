@@ -206,6 +206,31 @@ namespace CharacterCreationLib {
             CharacterClass = characterClass;
         }
 
+        // Temporary Constructor for Character while I pull the other daos together
+        public Character(string name, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int strMod,
+            int dexMod, int conMod, int intMod, int wisMod, int chrMod, Background characterBackground, string hair,
+            string eyes, string skin, string additionalNotes)
+        {
+            Name = name;
+            Strength = strength;
+            Dexterity = dexterity;
+            Constitution = constitution;
+            Intelligence = intelligence;
+            Wisdom = wisdom;
+            Charisma = charisma;
+            StrMod = strMod;
+            DexMod = dexMod;
+            ConMod = conMod;
+            IntMod = intMod;
+            WisMod = wisMod;
+            ChrMod = chrMod;
+            CharacterBackground = characterBackground;
+            Hair = hair;
+            Eyes = eyes;
+            Skin = skin;
+            AdditionalNotes = additionalNotes;
+        }
+
         public override string ToString() {
             return $"{Name}: {Race.Name}, {CharacterClass.Name}, {CharacterBackground.Name}";
         }

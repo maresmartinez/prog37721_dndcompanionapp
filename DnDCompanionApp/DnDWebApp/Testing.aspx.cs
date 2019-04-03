@@ -13,16 +13,7 @@ namespace DnDWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            StatsDAO statsDAO = new StatsDAO();
-            statsDAO.DeleteStats(1);
-            List<int> stats = statsDAO.GetStats(1);
 
-            string statconcat = "";
-            foreach (int stat in stats)
-            {
-                statconcat += stats[stat] + ", ";
-            }
-            Label1.Text = statconcat;
             
         }
     }
