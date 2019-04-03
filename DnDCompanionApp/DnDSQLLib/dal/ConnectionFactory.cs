@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DnDSQLLib.dal
+{
+    class ConnectionFactory
+    {
+        public static string server1 = @"Data Source=mark-laptop\sqlexpress;Initial Catalog=inclass;Integrated Security=True";
+        public static string server2 = "";  // Used in the event of redundancy
+        public static SqlConnection GetConnection()
+        {
+            try
+            {
+                return new SqlConnection(server1);
+            }
+            catch (SqlException)
+            {
+                try
+                {
+                    return new SqlConnection(server2);
+                }
+                catch (SqlException)
+                {
+                    return null;
+                }
+            }
+        }
+    }
+}
