@@ -42,6 +42,27 @@ namespace DnDSQLLib.dal
 
         public Character getCharacter(int characterID)
         {
+            int charID;
+            string name;
+            int str;
+            int dex;
+            int con;
+            int intel;
+            int wis;
+            int chr;
+            int strMod;
+            int dexMod;
+            int conMod;
+            int intMod;
+            int wisMod;
+            int chrMod;
+            string hair;
+            string eyes;
+            string skin;
+            string notes;
+            int raceID;
+            int classID;
+
             conn.Open();
             SqlCommand cmd = new SqlCommand($"select * from character where Id = @id");
             cmd.Parameters.AddWithValue("@id", characterID);
@@ -50,33 +71,29 @@ namespace DnDSQLLib.dal
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                int charID = Convert.ToInt32(reader["Id"]);
-                string name = Convert.ToString(reader["Name"]);
-                int str = Convert.ToInt32(reader["Strength"]);
-                int dex = Convert.ToInt32(reader["Dexterity"]);
-                int con = Convert.ToInt32(reader["Constitution"]);
-                int intel = Convert.ToInt32(reader["Intelligence"]);
-                int wis = Convert.ToInt32(reader["Wisdom"]);
-                int chr = Convert.ToInt32(reader["Charisma"]);
-                int strMod = Convert.ToInt32(reader["strMod"]);
-                int dexMod = Convert.ToInt32(reader["dexMod"]);
-                int conMod = Convert.ToInt32(reader["conMod"]);
-                int intMod = Convert.ToInt32(reader["intMod"]);
-                int wisMod = Convert.ToInt32(reader["wisMod"]);
-                int chrMod = Convert.ToInt32(reader["chrMod"]);
-                string hair = Convert.ToString(reader["Hair"]);
-                string eyes = Convert.ToString(reader["Eyes"]);
-                string skin = Convert.ToString(reader["Skin"]);
-                string notes = Convert.ToString(reader["Notes"]);
-                int raceID = Convert.ToInt32(reader["RaceID"]);
-                int classID = Convert.ToInt32(reader["ClassID"]);
+                charID  = Convert.ToInt32(reader["Id"]);
+                name = Convert.ToString(reader["Name"]);
+                str     = Convert.ToInt32(reader["Strength"]);
+                dex     = Convert.ToInt32(reader["Dexterity"]);
+                con     = Convert.ToInt32(reader["Constitution"]);
+                intel   = Convert.ToInt32(reader["Intelligence"]);
+                wis     = Convert.ToInt32(reader["Wisdom"]);
+                chr     = Convert.ToInt32(reader["Charisma"]);
+                strMod  = Convert.ToInt32(reader["strMod"]);
+                dexMod  = Convert.ToInt32(reader["dexMod"]);
+                conMod  = Convert.ToInt32(reader["conMod"]);
+                intMod  = Convert.ToInt32(reader["intMod"]);
+                wisMod  = Convert.ToInt32(reader["wisMod"]);
+                chrMod  = Convert.ToInt32(reader["chrMod"]);
+                hair = Convert.ToString(reader["Hair"]);
+                eyes = Convert.ToString(reader["Eyes"]);
+                skin = Convert.ToString(reader["Skin"]);
+                notes = Convert.ToString(reader["Notes"]);
+                raceID  = Convert.ToInt32(reader["RaceID"]);
+                classID = Convert.ToInt32(reader["ClassID"]);
             }
+            
             return null;
-        }
-
-        public int updateCharacter(int characterID)
-        {
-            return 0;
         }
     }
 }
