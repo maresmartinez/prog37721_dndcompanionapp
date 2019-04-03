@@ -60,8 +60,13 @@ namespace DnDSQLLib.dal
             string eyes;
             string skin;
             string notes;
-            int raceID;
-            int classID;
+            int raceID = 1;     // Setting up defaults in the event these vars are not properly initialized
+            Race race;
+            int classID = 1;    // Setting up defaults in the event these vars are not properly initialized
+            Class charClass = new Class();
+            List<Skills> skills = new List<Skills>();
+            List<Feature> features = new List<Feature>();
+            List<Language> languages = new List<Language>();
 
             conn.Open();
             SqlCommand cmd = new SqlCommand($"select * from character where Id = @id");
@@ -92,7 +97,67 @@ namespace DnDSQLLib.dal
                 raceID  = Convert.ToInt32(reader["RaceID"]);
                 classID = Convert.ToInt32(reader["ClassID"]);
             }
-            
+            reader.Close();
+
+            // Getting Class Object
+            cmd = new SqlCommand($"" +
+                $"select Name, Description, hitDice from class where Id = @cId");
+            cmd.Parameters.AddWithValue("@cId", classID);
+            cmd.Connection = conn;
+
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                charClass.Name = Convert.ToString(reader["Name"]);
+                charClass.Description = Convert.ToString(reader["Description"]);
+                charClass.HitDice = new Dice(Convert.ToInt32(reader["hitDice"]));
+            }
+            reader.Close();
+
+            // Getting Skills
+            cmd = new SqlCommand($"" +
+                $"select skillId from classSkills where classId = @cId");
+            cmd.Parameters.AddWithValue("@cId", classID);
+            cmd.Connection = conn;
+
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int skillid = Convert.ToInt32(reader["skillId"]);
+                skills.Add((Skills)skillid);
+            }
+            reader.Close();
+
+            // Get Features
+
+            // Get Race
+            cmd = new SqlCommand($"" +
+                $"select Name, Description from race where Id = @rId");
+            cmd.Parameters.AddWithValue("@rId", raceID);
+            cmd.Connection = conn;
+
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                string raceName = Convert.ToString(reader["Name"]);
+                string raceDesc = Convert.ToString(reader["Description"]);
+            }
+            reader.Close();
+
+            cmd = new SqlCommand($"" +
+                $"select LanguageId from raceLanguage where raceId = @rId");
+            cmd.Parameters.AddWithValue("@rId", raceID);
+            cmd.Connection = conn;
+
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                int languageid = Convert.ToInt32(reader["LanguageID"]);
+                languages.Add((Language)languageid);
+            }
+
+
+
             return null;
         }
     }
