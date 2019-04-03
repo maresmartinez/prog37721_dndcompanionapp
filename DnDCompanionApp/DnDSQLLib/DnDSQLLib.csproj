@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dal\BackgroundDAO.cs" />
     <Compile Include="dal\CharacterDAO.cs" />
     <Compile Include="dal\ConnectionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

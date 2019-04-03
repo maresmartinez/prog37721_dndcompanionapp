@@ -9,7 +9,7 @@ namespace DnDSQLLib.dal
 {
     class ConnectionFactory
     {
-        public static string server1 = @"Data Source=mark-laptop\sqlexpress;Initial Catalog=inclass;Integrated Security=True";
+        public static string server1 = @"Data Source=mark-laptop\sqlexpress;Initial Catalog=dnd;Integrated Security=True";
         public static string server2 = "";  // Used in the event of redundancy
         public static SqlConnection GetConnection()
         {

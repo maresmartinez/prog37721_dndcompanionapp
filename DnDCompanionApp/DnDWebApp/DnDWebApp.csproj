@@ -233,6 +233,10 @@
       <Project>{41aa5b9c-47a6-4623-9462-71b63c9aba2d}</Project>
       <Name>CharacterCreationLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DnDSQLLib\DnDSQLLib.csproj">
+      <Project>{493c68b7-a3a3-4bd6-aeda-eeb19326511e}</Project>
+      <Name>DnDSQLLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UserManagementLib\UserManagementLib.csproj">
       <Project>{d367c825-1b57-444c-9fdb-f31cc8473ceb}</Project>
       <Name>UserManagementLib</Name>

@@ -36,8 +36,22 @@ namespace CharacterCreationLib {
             Flaws = flaws;
         }
 
+        public Background(int backgroundId, List<string> personality, List<string> ideals, List<string> bonds, List<string> flaws)
+        {
+            BackgroundId = backgroundId;
+            Personality = personality;
+            Ideals = ideals;
+            Bonds = bonds;
+            Flaws = flaws;
+        }
+
         public override string ToString() {
             return $"{Name}: {Description}";
+        }
+
+        public string OtherToString()
+        {
+            return $"{Personality[0]}";
         }
     }
 }
