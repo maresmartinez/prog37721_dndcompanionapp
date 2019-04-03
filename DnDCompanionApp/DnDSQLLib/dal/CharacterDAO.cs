@@ -42,25 +42,31 @@ namespace DnDSQLLib.dal
 
         public Character getCharacter(int characterID)
         {
-            int charID;
-            string name;
-            int str;
-            int dex;
-            int con;
-            int intel;
-            int wis;
-            int chr;
-            int strMod;
-            int dexMod;
-            int conMod;
-            int intMod;
-            int wisMod;
-            int chrMod;
-            string hair;
-            string eyes;
-            string skin;
-            string notes;
+            BackgroundDAO bgDAO = new BackgroundDAO();
+
+            int charID = 0;
+            string name = "";
+            int str = 0;
+            int dex = 0;
+            int con = 0;
+            int intel = 0;
+            int wis = 0;
+            int chr = 0;
+            int strMod = 0;
+            int dexMod = 0;
+            int conMod = 0;
+            int intMod = 0;
+            int wisMod = 0;
+            int chrMod = 0;
+            string hair = "";
+            string eyes = "";
+            string skin = "";
+            string notes = "";
+            Background bg = null;
+            int backgroundId = 0;
             int raceID = 1;     // Setting up defaults in the event these vars are not properly initialized
+            string raceName = "";
+            string raceDesc = "";
             Race race;
             int classID = 1;    // Setting up defaults in the event these vars are not properly initialized
             Class charClass = new Class();
@@ -129,6 +135,20 @@ namespace DnDSQLLib.dal
             reader.Close();
 
             // Get Features
+            cmd = new SqlCommand($"" +
+                $"select f.Name, f.Description from features f" +
+                $"join classFeatures cf on cf.FeatureId = f.Id" +
+                $"join class c on cf.ClassId = c.Id" +
+                $"where c.Id = @cId");
+            cmd.Parameters.AddWithValue("@cId", classID);
+            cmd.Connection = conn;
+
+            reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                features.Add(new Feature(Convert.ToString(reader["Name"]), Convert.ToString(reader["Description"])));
+            }
+            reader.Close();
 
             // Get Race
             cmd = new SqlCommand($"" +
@@ -139,11 +159,12 @@ namespace DnDSQLLib.dal
             reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                string raceName = Convert.ToString(reader["Name"]);
-                string raceDesc = Convert.ToString(reader["Description"]);
+                raceName = Convert.ToString(reader["Name"]);
+                raceDesc = Convert.ToString(reader["Description"]);
             }
             reader.Close();
 
+            // Languages
             cmd = new SqlCommand($"" +
                 $"select LanguageId from raceLanguage where raceId = @rId");
             cmd.Parameters.AddWithValue("@rId", raceID);
@@ -155,10 +176,26 @@ namespace DnDSQLLib.dal
                 int languageid = Convert.ToInt32(reader["LanguageID"]);
                 languages.Add((Language)languageid);
             }
+            reader.Close();
 
+            race = new Race(raceName, raceDesc, languages);
 
+            // Getting Background
+            cmd = new SqlCommand($"" +
+                $"select BackgroundId from character where Id = @chId");
+            cmd.Parameters.AddWithValue("@chId", characterID);
+            cmd.Connection = conn;
 
-            return null;
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                backgroundId = Convert.ToInt32(reader["BackgroundId"]);
+            }
+            bg = bgDAO.GetBackground(backgroundId);
+
+            Character character = new Character(name, str, dex, con, intel, wis, chr, strMod, dexMod, conMod, intMod, wisMod, chrMod, features, bg, hair, eyes, skin, notes, race, charClass);
+
+            return character;
         }
     }
 }
