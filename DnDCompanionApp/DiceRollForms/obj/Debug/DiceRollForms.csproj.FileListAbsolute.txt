@@ -10,3 +10,15 @@ D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompan
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.dll
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.pdb
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.Properties.Resources.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DiceRollForms\bin\Debug\DiceRollForms.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DiceRollForms\bin\Debug\DiceRollForms.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DiceRollForms\bin\Debug\CharacterCreationLib.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DiceRollForms\bin\Debug\CharacterCreationLib.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.csprojAssemblyReference.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.DiceRollPage.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.Properties.Resources.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.csproj.GenerateResource.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.csproj.CoreCompileInputs.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.csproj.CopyComplete
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\DiceRollForms\obj\Debug\DiceRollForms.pdb

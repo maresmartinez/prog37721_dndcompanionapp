@@ -29,7 +29,14 @@ namespace CharacterCreationLib {
         Race race;
         Class characterClass;
 
-        public int dbID { get; set; }
+        // Various DB variables
+        public int DbID { get; set; }
+        public int StatID { get; set; }
+        public int RaceID { get; set; }
+        public int ClassID { get; set; }
+        public int BackgroundID { get; set; }
+        public int AppearanceID { get; set; }
+        public int AvailSpellID { get; set; }
         public string Name {
             get { return name;  }
             set {

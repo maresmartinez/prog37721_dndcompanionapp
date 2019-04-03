@@ -13,10 +13,16 @@ namespace DnDWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BackgroundDAO bdao = new BackgroundDAO();
-            Background background = bdao.GetBackground(1);
+            StatsDAO statsDAO = new StatsDAO();
+            statsDAO.DeleteStats(1);
+            List<int> stats = statsDAO.GetStats(1);
 
-            Label1.Text = background.OtherToString();
+            string statconcat = "";
+            foreach (int stat in stats)
+            {
+                statconcat += stats[stat] + ", ";
+            }
+            Label1.Text = statconcat;
             
         }
     }
