@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace DnDSQLLib.dal
 {
-    public class ClassDAO
+    public class SkillsDAO
     {
         SqlConnection conn;
-        public ClassDAO()
+
+        public SkillsDAO()
         {
             try
             {
@@ -25,43 +26,25 @@ namespace DnDSQLLib.dal
             }
         }
 
-        public Class GetClass(int classID)
+        public List<Skills> GetAllSkills()
         {
-            Class charClass;
-            string name = "";
-            string description = "";
-
-            FeatureDAO fDAO = new FeatureDAO();
-            List<Feature> features = fDAO.GetClassFeatures(classID);
-
-            int hitDiceValue;
-            Dice dice = null;
-
-            SkillsDAO sDAO = new SkillsDAO();
-            List<Skills> skills = sDAO.GetAllSkills();
+            List<Skills> skills = new List<Skills>();
 
             try
             {
                 conn.Open();
-
                 SqlCommand cmd = new SqlCommand($"" +
-                        $"select Name, Description, hitDice from race where Id = @cId");
-                cmd.Parameters.AddWithValue("@cId", classID);
+                    $"select Id from skill");
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    name = Convert.ToString(reader["name"]);
-                    description = Convert.ToString(reader["description"]);
-                    hitDiceValue = Convert.ToInt32(reader["hitDice"]);
-                    dice = new Dice(hitDiceValue);
+                    skills.Add((Skills)Enum.ToObject(typeof(Skills), Convert.ToString(reader["Id"])));
                 }
                 reader.Close();
 
-                charClass = new Class(name, description, features, dice, skills);
-
-                return charClass;
+                return skills;
             }
             catch (SqlException)
             {
