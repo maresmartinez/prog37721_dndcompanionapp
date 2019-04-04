@@ -57,7 +57,7 @@ namespace DnDSQLLib.dal
                 while (reader.Read())
                 {
                     string languageId = Convert.ToString(reader["LanguageID"]);
-                    languages.Add((Language)Enum.ToObject(typeof(Language), languageId);
+                    languages.Add((Language)Enum.ToObject(typeof(Language), languageId));
                 }
                 reader.Close();
 
