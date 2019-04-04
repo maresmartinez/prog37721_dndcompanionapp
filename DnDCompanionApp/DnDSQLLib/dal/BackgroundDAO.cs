@@ -146,10 +146,10 @@ namespace DnDSQLLib.dal
         public Background GetBackground(int backgroundId)
         {
             Background background;
-            List<String> personality = new List<string>();
-            List<String> ideal = new List<string>();
-            List<String> bond = new List<string>();
-            List<String> flaw = new List<string>();
+            List<string> personality = new List<string>();
+            List<string> ideal = new List<string>();
+            List<string> bond = new List<string>();
+            List<string> flaw = new List<string>();
 
             try
             {
