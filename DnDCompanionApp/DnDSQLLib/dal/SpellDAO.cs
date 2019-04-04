@@ -27,9 +27,40 @@ namespace DnDSQLLib
             }
         }
 
-        public int UploadSpells(Character character)
+        public List<Spells> GetAllSpells()
         {
-            return 0;
+            List<Spells> spells = new List<Spells>();
+            try
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand($"" +
+                    $"select * from spells");
+                cmd.Connection = conn;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string name = Convert.ToString(reader["Name"]);
+                    int castingTime = Convert.ToInt32(reader["castingTime"]);
+                    int duration = Convert.ToInt32(reader["Duration"]);
+                    int range = Convert.ToInt32(reader["Range"]);
+                    string description = Convert.ToString(reader["Description"]);
+                    Spells spell = new Spells(name, castingTime, duration, description);
+                    spells.Add(spell);
+                }
+                reader.Close();
+                return spells;
+            }
+            catch (SqlException)
+            {
+                // **ERROR PLACE HOLDER**
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }
