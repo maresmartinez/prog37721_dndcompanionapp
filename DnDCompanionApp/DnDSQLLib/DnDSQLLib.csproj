@@ -45,9 +45,11 @@
     <Compile Include="dal\AppearanceDAO.cs" />
     <Compile Include="dal\BackgroundDAO.cs" />
     <Compile Include="dal\CharacterDAO.cs" />
+    <Compile Include="dal\ClassDAO.cs" />
     <Compile Include="dal\ConnectionFactory.cs" />
     <Compile Include="dal\FeatureDAO.cs" />
     <Compile Include="dal\RaceDAO.cs" />
+    <Compile Include="dal\SkillsDAO.cs" />
     <Compile Include="dal\StatsDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="dal\SpellDAO.cs" />

@@ -96,10 +96,11 @@ namespace DnDSQLLib.dal
             StatsDAO sDAO = new StatsDAO();
 
             RaceDAO rDAO = new RaceDAO();
-
+            
             FeatureDAO fDAO = new FeatureDAO();
 
             Character character;
+            ClassDAO cDAO = new ClassDAO();
 
             string name = "";
             string notes = "";
@@ -132,11 +133,13 @@ namespace DnDSQLLib.dal
                 List<string> appearance = aDAO.GetAppearance(appearanceId);
                 List<Feature> features = fDAO.GetClassFeatures(classId);
                 Race race = rDAO.GetRace(raceId);
+                Class charClass = cDAO.GetClass(classId);
+
 
                 character = new Character(
                     name, stats[0], stats[1], stats[2], stats[3], stats[4], stats[5], stats[6],
                     stats[7], stats[8], stats[9], stats[10], stats[11], features, background, appearance[0], appearance[1],
-                    appearance[2], notes, race, null);
+                    appearance[2], notes, race, charClass);
                 character.DbID = characterId;
             }
             catch(SqlException)
