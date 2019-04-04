@@ -33,3 +33,4 @@ C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionA
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.csproj.CopyComplete
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.dll
 C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.csprojAssemblyReference.cache

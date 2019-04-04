@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="dal\AppearanceDAO.cs" />
     <Compile Include="dal\BackgroundDAO.cs" />
+    <Compile Include="dal\CampaignDAO.cs" />
     <Compile Include="dal\CharacterDAO.cs" />
     <Compile Include="dal\ClassDAO.cs" />
     <Compile Include="dal\ConnectionFactory.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="dal\RaceDAO.cs" />
     <Compile Include="dal\SkillsDAO.cs" />
     <Compile Include="dal\StatsDAO.cs" />
+    <Compile Include="dal\UserDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="dal\SpellDAO.cs" />
   </ItemGroup>
@@ -58,6 +60,10 @@
     <ProjectReference Include="..\CharacterCreationLib\CharacterCreationLib.csproj">
       <Project>{41aa5b9c-47a6-4623-9462-71b63c9aba2d}</Project>
       <Name>CharacterCreationLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserManagementLib\UserManagementLib.csproj">
+      <Project>{D367C825-1B57-444C-9FDB-F31CC8473CEB}</Project>
+      <Name>UserManagementLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
