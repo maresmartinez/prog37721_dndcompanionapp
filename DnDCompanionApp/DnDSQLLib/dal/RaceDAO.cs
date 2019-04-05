@@ -58,6 +58,7 @@ namespace DnDSQLLib.dal {
                         int languageId = Convert.ToInt32(languageReader["languageID"]);
                         languages.Add((Language)languageId);
                     }
+                    languageReader.Close();
 
                     races.Add(new Race(name, description, languages));
                 }
