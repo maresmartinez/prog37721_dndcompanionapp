@@ -19,3 +19,14 @@ D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompan
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DnDSQLLib\obj\Debug\DnDSQLLib.csproj.CopyComplete
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DnDSQLLib\obj\Debug\DnDSQLLib.dll
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DnDSQLLib\obj\Debug\DnDSQLLib.pdb
+C:\Users\mark\source\repos\prog37721_dndcompanionapp\DnDCompanionApp\DnDSQLLib\bin\Debug\DnDSQLLib.dll
+C:\Users\mark\source\repos\prog37721_dndcompanionapp\DnDCompanionApp\DnDSQLLib\bin\Debug\DnDSQLLib.pdb
+C:\Users\mark\source\repos\prog37721_dndcompanionapp\DnDCompanionApp\DnDSQLLib\bin\Debug\CharacterCreationLib.dll
+C:\Users\mark\source\repos\prog37721_dndcompanionapp\DnDCompanionApp\DnDSQLLib\bin\Debug\UserManagementLib.dll
+C:\Users\mark\source\repos\prog37721_dndcompanionapp\DnDCompanionApp\DnDSQLLib\bin\Debug\CharacterCreationLib.pdb
+C:\Users\mark\source\repos\prog37721_dndcompanionapp\DnDCompanionApp\DnDSQLLib\bin\Debug\UserManagementLib.pdb
+C:\Users\mark\source\repos\prog37721_dndcompanionapp\DnDCompanionApp\DnDSQLLib\obj\Debug\DnDSQLLib.csprojAssemblyReference.cache
+C:\Users\mark\source\repos\prog37721_dndcompanionapp\DnDCompanionApp\DnDSQLLib\obj\Debug\DnDSQLLib.csproj.CoreCompileInputs.cache
+C:\Users\mark\source\repos\prog37721_dndcompanionapp\DnDCompanionApp\DnDSQLLib\obj\Debug\DnDSQLLib.csproj.CopyComplete
+C:\Users\mark\source\repos\prog37721_dndcompanionapp\DnDCompanionApp\DnDSQLLib\obj\Debug\DnDSQLLib.dll
+C:\Users\mark\source\repos\prog37721_dndcompanionapp\DnDCompanionApp\DnDSQLLib\obj\Debug\DnDSQLLib.pdb

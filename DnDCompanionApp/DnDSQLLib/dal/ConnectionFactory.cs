@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DnDSQLLib.dal {
     class ConnectionFactory {
         // TODO: remove MARS from production build
-        public static string server1 = @"Data Source=HAM\SQLEXPRESS;Initial Catalog=DungeonsAndDragonsDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;MultipleActiveResultSets=true";
+        public static string server1 = @"Data Source=mark-laptop\sqlexpress;Initial Catalog=dnd;Integrated Security=True;MultipleActiveResultSets=true";
         public static string server2 = "";  // Used in the event of redundancy
         public static SqlConnection GetConnection() {
             try {
