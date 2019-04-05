@@ -43,13 +43,14 @@ namespace DnDSQLLib.dal {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand($"" +
-                    $"Insert into character (Name, Notes, StatsID, RaceID, ClassID, BackgroundID, AppearaneID)" +
-                    $"Values (@name,@notes,@sid,@rid,@bid,@aid)");
+                    $"Insert into character (Name, Notes, StatsID, RaceID, ClassID, BackgroundID, BgTypeID, AppearanceID)" +
+                    $"Values (@name,@notes,@sid,@rid,@bid,@tid,@aid)");
                 cmd.Parameters.AddWithValue("@name", character.Name);
                 cmd.Parameters.AddWithValue("@notes", character.AdditionalNotes);
                 cmd.Parameters.AddWithValue("@sid", character.StatID);
                 cmd.Parameters.AddWithValue("@rid", character.RaceID);
                 cmd.Parameters.AddWithValue("@bid", character.BackgroundID);
+                cmd.Parameters.AddWithValue("@tid", character.TypeID);
                 cmd.Parameters.AddWithValue("@aid", character.AppearanceID);
                 cmd.Connection = conn;
 
@@ -99,6 +100,7 @@ namespace DnDSQLLib.dal {
         /// <returns></returns>
         public Character GetCharacter(int characterId) {
             Background background;
+            BackgroundType type;
             BackgroundDAO bDAO = new BackgroundDAO();
 
             AppearanceDAO aDAO = new AppearanceDAO();
@@ -118,6 +120,7 @@ namespace DnDSQLLib.dal {
             int raceId = 0;
             int classId = 0;
             int backgroundId = 0;
+            int bgTypeId = 0;
             int appearanceId = 0;
 
             try {
@@ -134,10 +137,12 @@ namespace DnDSQLLib.dal {
                     raceId = Convert.ToInt32(reader["RaceID"]);
                     classId = Convert.ToInt32(reader["ClassID"]);
                     backgroundId = Convert.ToInt32(reader["BackgroundID"]);
+                    bgTypeId = Convert.ToInt32(reader["BgTypeID"]);
                     appearanceId = Convert.ToInt32(reader["AppearanceID"]);
                 }
                 List<int> stats = sDAO.GetStats(statsId);
-                background = bDAO.GetBackground(backgroundId);
+                type = bDAO.GetBgType(bgTypeId);
+                background = bDAO.GetBackground(backgroundId, type);
                 List<string> appearance = aDAO.GetAppearance(appearanceId);
                 List<Feature> features = fDAO.GetClassFeatures(classId);
                 Race race = rDAO.GetRace(raceId);

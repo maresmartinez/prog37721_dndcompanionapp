@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Background.cs" />
+    <Compile Include="BackgroundType.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="Dice.cs" />

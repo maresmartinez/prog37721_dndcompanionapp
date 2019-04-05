@@ -40,7 +40,7 @@ namespace DnDSQLLib.dal {
                 
                 SqlCommand cmd = new SqlCommand($"SELECT id, name, description from race;");
                 cmd.Connection = conn;
-
+                
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read()) {
