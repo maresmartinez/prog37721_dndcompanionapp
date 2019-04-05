@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using UserManagementLib;
 using CharacterCreationLib;
+using DnDSQLLib.dal;
 
 namespace DnDWebApp {
     public partial class CreateAccount : System.Web.UI.Page {
@@ -25,17 +26,20 @@ namespace DnDWebApp {
                 user = new User(
                     username,
                     fullName,
-                    new List<Character>(),
-                    password,
-                    new List<Campaign>()
+                    password
                 );
             } catch (ArgumentException ex) {
                 LblError.Text = ex.Message;
                 return;
             }
 
-            // TODO: add new user to database
-            Response.Write($"{user.Username}, {user.FullName}, {user.Password}, {user.Salt}");
+            // Add new user to database
+            UserDAO userDAO = new UserDAO();
+            userDAO.AddUser(new User(
+                username, fullName, password
+            ));
+
+            Response.Redirect("~/Login.aspx?justRegistered=true");
         }
 
     }

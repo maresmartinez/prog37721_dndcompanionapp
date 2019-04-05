@@ -125,25 +125,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CampaignCreationForms\CampaignCreationForms.csproj">
-      <Project>{460a35e4-89d7-4e72-a2cd-68b1ac040768}</Project>
-      <Name>CampaignCreationForms</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CharacterCreationForms\CharacterCreationForms.csproj">
-      <Project>{edd23366-cc02-4192-9e70-90b9e317e65a}</Project>
-      <Name>CharacterCreationForms</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CharacterCreationLib\CharacterCreationLib.csproj">
       <Project>{41aa5b9c-47a6-4623-9462-71b63c9aba2d}</Project>
       <Name>CharacterCreationLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DiceRollForms\DiceRollForms.csproj">
-      <Project>{b10d402a-a877-4cfb-8840-ae8385ebfefc}</Project>
-      <Name>DiceRollForms</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EncyclopaediaForms\EncyclopaediaForms.csproj">
-      <Project>{bbb34e5a-3b13-49e3-9497-7a21defdf62e}</Project>
-      <Name>EncyclopaediaForms</Name>
     </ProjectReference>
     <ProjectReference Include="..\UserManagementLib\UserManagementLib.csproj">
       <Project>{d367c825-1b57-444c-9fdb-f31cc8473ceb}</Project>

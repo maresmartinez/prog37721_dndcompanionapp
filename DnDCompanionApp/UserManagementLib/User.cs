@@ -117,6 +117,22 @@ namespace UserManagementLib {
         }
 
         /// <summary>
+        /// Database identifier for user
+        /// </summary>
+        int id;
+        /// <summary>
+        /// Database identifier for user
+        /// </summary>
+        public int ID {
+            get { return id; }
+            set {
+                if (value < 1) {
+                    throw new ArgumentException("ID must be a positive value");
+                }
+            }
+        }
+
+        /// <summary>
         /// Default constructor
         /// </summary>
         public User() {
@@ -131,6 +147,25 @@ namespace UserManagementLib {
         /// <param name="userCharacters">Characters owned by user</param>
         /// <param name="password">Password of user</param>
         /// <param name="userCampaigns">Campaigns owns by user</param>
+        public User(int id, string username, string fullName, List<Character> userCharacters, string password, List<Campaign> userCampaigns) {
+            ID = id;
+            Username = username;
+            FullName = fullName;
+            UserCharacters = userCharacters;
+            Salt = HashUtil.GetSalt();
+            Password = password;
+            UserCampaigns = userCampaigns;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="id">ID of user</param>
+        /// <param name="username">Username of user</param>
+        /// <param name="fullName">Full name of user</param>
+        /// <param name="userCharacters">Characters owned by user</param>
+        /// <param name="password">Password of user</param>
+        /// <param name="userCampaigns">Campaigns owns by user</param>
         public User(string username, string fullName, List<Character> userCharacters, string password, List<Campaign> userCampaigns) {
             Username = username;
             FullName = fullName;
@@ -138,6 +173,33 @@ namespace UserManagementLib {
             Salt = HashUtil.GetSalt();
             Password = password;
             UserCampaigns = userCampaigns;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="username">Username of user</param>
+        /// <param name="fullName">Full name of user</param>
+        /// <param name="password">Password of user</param>
+        public User(string username, string fullName, string password) {
+            Username = username;
+            FullName = fullName;
+            Salt = HashUtil.GetSalt();
+            Password = password;
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="username">Username of user</param>
+        /// <param name="fullName">Full name of user</param>
+        /// <param name="password">Password of user</param>
+        public User(int id, string username, string fullName, string password, string salt) {
+            ID = id;
+            Username = username;
+            FullName = fullName;
+            Salt = salt;
+            Password = password;
         }
 
         /// <summary>

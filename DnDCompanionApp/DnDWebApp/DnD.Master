@@ -65,6 +65,7 @@
                         </div>
                         <div class="nav navbar-right">
                             <asp:Button ID="BtnLogin" runat="server" Text="Login" CssClass="btn btn-outline-light btn-small navbar-btn float-right" OnClick="BtnLogin_Click" />
+                            <asp:Button ID="BtnLogout" runat="server" Text="Logout" CssClass="btn btn-outline-light btn-small navbar-btn float-right" Visible="false" OnClick="BtnLogout_Click" />
                         </div>
                     </div>
                 </div>

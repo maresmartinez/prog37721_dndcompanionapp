@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using UserManagementLib;
 using CharacterCreationLib;
+using DnDSQLLib.dal;
 
 namespace DnDWebApp.Users {
     public partial class Profile : System.Web.UI.Page {
@@ -17,18 +18,11 @@ namespace DnDWebApp.Users {
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e) {
             // TODO: retrieve logged in user
-            User testuser0 = new User(
-                "testuser0",
-                "Test User 0",
-                new List<Character>(), // Has no characters
-                "password",
-                new List<Campaign>()
-            );
+            UserDAO userDAO = new UserDAO();
+            User loggedInUser = userDAO.GetUser(Context.User.Identity.Name);
 
-            Username.InnerText = testuser0.Username;
-            FullName.InnerText = testuser0.FullName;
+            Username.InnerText = loggedInUser.Username;
+            FullName.InnerText = loggedInUser.FullName;
         }
-
-        // TODO: once database is implemented, allow user to change full name and password
     }
 }

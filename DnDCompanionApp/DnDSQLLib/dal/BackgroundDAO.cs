@@ -356,36 +356,6 @@ namespace DnDSQLLib.dal {
                 }
                 reader.Close();
 
-
-
-                //SqlCommand cmd = new SqlCommand($"" +
-                //    $"select" +
-                //    $"p.Description AS 'Personality1', p2.Description AS 'Personality2'," +
-                //    $"i.Description AS 'Ideal', b.Description AS 'Bond', f.Description AS 'Flaw'" +
-                //    $"FROM background bg " +
-                //    $"INNER JOIN personality p on p.Id = bg.PersonalityID1" +
-                //    $"INNER JOIN personality p2 on p2.Id = bg.PersonalityID2" +
-                //    $"INNER JOIN ideal i on i.Id = bg.IdealID" +
-                //    $"INNER JOIN bond b on b.Id = bg.BondID" +
-                //    $"INNER JOIN flaw f on f.Id = bg.FlawID" +
-                //    $"WHERE bg.Id = @Id");
-                //cmd.Parameters.AddWithValue("@Id", backgroundId);
-                //cmd.Connection = conn;
-
-                //SqlDataReader reader = cmd.ExecuteReader();
-                //while (reader.Read())
-                //{
-                //    personality.Add(Convert.ToString(reader["Personality1"]));
-                //    personality.Add(Convert.ToString(reader["Personality2"]));
-                //    ideal.Add(Convert.ToString(reader["Ideal1"]));
-                //    ideal.Add(Convert.ToString(reader["Ideal2"]));
-                //    bond.Add(Convert.ToString(reader["Bond1"]));
-                //    bond.Add(Convert.ToString(reader["Bond2"]));
-                //    flaw.Add(Convert.ToString(reader["Flaw1"]));
-                //    flaw.Add(Convert.ToString(reader["Flaw2"]));
-                //}
-                //reader.Close();
-
                 background = new Background(bgType.Name, bgType.Description, personality, ideal, bond, flaw);
                 background.BackgroundId = backgroundId;
 
