@@ -34,6 +34,7 @@ namespace CharacterCreationLib {
         public int StatID { get; set; }
         public int RaceID { get; set; }
         public int ClassID { get; set; }
+        public int TypeID { get; set; }
         public int BackgroundID { get; set; }
         public int AppearanceID { get; set; }
         public int AvailSpellID { get; set; }
