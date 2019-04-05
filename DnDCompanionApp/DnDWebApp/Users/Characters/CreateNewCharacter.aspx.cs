@@ -32,7 +32,7 @@ namespace DnDWebApp.Users.Characters {
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e) {
             InitCreationData();
-            
+
             if (!IsPostBack) {
                 DisplayRace(races[0]);
                 DisplayClass(classes[0]);
@@ -488,7 +488,7 @@ namespace DnDWebApp.Users.Characters {
         /// <param name="e"></param>
         protected void BtnSave_Click(object sender, EventArgs e) {
             // TODO: insert into database
-            Character character = (Character) ViewState["character"];
+            Character character = (Character)ViewState["character"];
         }
 
         /// <summary>
