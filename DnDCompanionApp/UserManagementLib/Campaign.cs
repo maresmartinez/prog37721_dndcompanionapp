@@ -66,6 +66,12 @@ namespace UserManagementLib {
                 } else {
                     dungeonMaster = value;
                 }
+
+                if (value is null) {
+                    throw new ArgumentException("Campaign must have a dungeon master");
+                } else {
+                    dungeonMaster = value;
+                }
             }
         }
 
@@ -117,10 +123,27 @@ namespace UserManagementLib {
 
                 // Characters must equal users; users can only play one character
                 if (value.Count != CampaignUsers.Count) {
-                    throw new ArgumentException("Every user must play exactly one character");
+                    throw new ArgumentException("Campaign users must equal characters");
                 }
 
                 campaignCharacters = value;
+            }
+        }
+
+        /// <summary>
+        /// Unique identifier for campaign
+        /// </summary>
+        int id;
+        /// <summary>
+        /// Unique identifier for campaign
+        /// </summary>
+        public int ID {
+            get { return id; }
+            set {
+                if (value < 1) {
+                    throw new ArgumentException("ID must be a positive value");
+                }
+                id = value;
             }
         }
 
@@ -132,16 +155,46 @@ namespace UserManagementLib {
         }
 
         /// <summary>
-        /// Constructor
+        /// Constructor without ID, used when inserting into database. Generates a unique ID.
         /// </summary>
         /// <param name="campaignName">Name of campaign</param>
         /// <param name="campaignDescription">Description of campaign</param>
         /// <param name="campaignUsers">Users in the campaign</param>
         /// <param name="campaignCharacters">The user characters which are in the campaign</param>
         /// <param name="dungeonMaster">The dungeon master of the campaign</param>
-        public Campaign(string campaignName, string campaignDescription, List<User> campaignUsers, 
+        public Campaign(string campaignName, string campaignDescription, List<User> campaignUsers,
             List<Character> campaignCharacters, User dungeonMaster
             ) {
+            ID = GenerateID();
+            CampaignName = campaignName;
+            CampaignDescription = campaignDescription;
+            CampaignUsers = campaignUsers;
+            CampaignCharacters = campaignCharacters;
+            DungeonMaster = dungeonMaster;
+        }
+
+        /// <summary>
+        /// Generates unique 6 digit ID
+        /// </summary>
+        /// <returns></returns>
+        private int GenerateID() {
+            Random rnd = new Random();
+            return rnd.Next(100000, 999999);
+        }
+
+        /// <summary>
+        /// Constructor with ID, used when retrieving from database
+        /// </summary>
+        /// <param name="id">ID of campaign</param>
+        /// <param name="campaignName">Name of campaign</param>
+        /// <param name="campaignDescription">Description of campaign</param>
+        /// <param name="campaignUsers">Users in the campaign</param>
+        /// <param name="campaignCharacters">The user characters which are in the campaign</param>
+        /// <param name="dungeonMaster">The dungeon master of the campaign</param>
+        public Campaign(int id, string campaignName, string campaignDescription, List<User> campaignUsers, 
+            List<Character> campaignCharacters, User dungeonMaster
+            ) {
+            ID = id;
             CampaignName = campaignName;
             CampaignDescription = campaignDescription;
             CampaignUsers = campaignUsers;
@@ -155,9 +208,9 @@ namespace UserManagementLib {
         /// <param name="user">The user to add</param>
         /// <param name="character">The user's character to add</param>
         public void AddNewMember(User user, Character character) {
-            if (!user.DoesUserOwnCharacter(character)) {
-                throw new ArgumentException("User must own character");
-            }
+            //if (!user.DoesUserOwnCharacter(character)) {
+            //    throw new ArgumentException("User must own character");
+            //}
             CampaignUsers.Add(user);
             CampaignCharacters.Add(character);
         }

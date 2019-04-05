@@ -7,32 +7,86 @@ using System.Text;
 using System.Threading.Tasks;
 using UserManagementLib;
 
-namespace DnDSQLLib.dal
-{
-    public class CampaignDAO
-    {
+namespace DnDSQLLib.dal {
+    /// <summary>
+    /// Interface between campaign class and campaign tables in database
+    /// </summary>
+    public class CampaignDAO {
+
+        /// <summary>
+        /// Connection to database
+        /// </summary>
         SqlConnection conn;
 
-        public CampaignDAO()
-        {
-            try
-            {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public CampaignDAO() {
+            try {
                 conn = ConnectionFactory.GetConnection();
                 conn.Open();
                 conn.Close();   // Just double checking to make sure that yes, we can indeed access the server
-            }
-            catch (SqlException)
-            {
+            } catch (SqlException) {
                 // Figure out how to let the user know that things just aint happening
             }
         }
 
-        public Campaign GetCampaign(int campaignId)
-        {
+        /// <summary>
+        /// Uploads campaign to database and creates record that associates it with the users in it
+        /// </summary>
+        /// <param name="userId">User to be associated with campaign</param>
+        /// <param name="campaign">Campaign to be uploaded</param>
+        /// <returns>Number of rows that were affected in the database</returns>
+        public int UploadCampaign(Campaign campaign) {
+            int count = 0;
+
+            using (conn) {
+                conn.Open();
+
+                // Insert campaign into campaigns table
+                SqlCommand cmd = new SqlCommand("INSERT INTO campaign (id, name, description, dungeonMasterId) " +
+                    "VALUES (@CID, @Name, @Description, @DM)");
+                cmd.Parameters.AddWithValue("@CID", campaign.ID);
+                cmd.Parameters.AddWithValue("@Name", campaign.CampaignName);
+                cmd.Parameters.AddWithValue("@Description", campaign.CampaignDescription);
+                cmd.Parameters.AddWithValue("@DM", campaign.DungeonMaster.ID);
+                cmd.Connection = conn;
+
+                count = cmd.ExecuteNonQuery();
+
+                // Insert campaign into userCampaign table to associate with users
+                foreach (User campaignUser in campaign.CampaignUsers) {
+                    cmd = new SqlCommand("INSERT INTO userCampaign (userid, campaignid) " +
+                    "VALUES (@UID, @CID)");
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@UID", campaignUser.ID);
+                    cmd.Parameters.AddWithValue("@CID", campaign.ID);
+                    count += cmd.ExecuteNonQuery();
+                }
+
+                // Insert campaign into characterCampaign table to associate with characters
+                foreach (Character campaignCharacter in campaign.CampaignCharacters) {
+                    cmd = new SqlCommand("INSERT INTO characterCampaign (charId, campaignId) " +
+                    "VALUES (@CharID, @CampID)");
+                    cmd.Connection = conn;
+                    //cmd.Parameters.AddWithValue("@CharID", campaignCharacter.ID); //TODO: add ID to character class
+                    cmd.Parameters.AddWithValue("@CampID", campaign.ID);
+                    count += cmd.ExecuteNonQuery();
+                }
+            }
+
+            return count;
+        }
+
+        /// <summary>
+        /// Retrieves campaign record from database
+        /// </summary>
+        /// <param name="campaignId">Campaign to be retrieved</param>
+        /// <returns>Campaign</returns>
+        public Campaign GetCampaign(int campaignId) {
             Campaign campaign = null;
 
-            try
-            {
+            try {
                 conn.Open();
                 // Get the users in campaign
                 List<User> users = new List<User>();
@@ -43,8 +97,7 @@ namespace DnDSQLLib.dal
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
+                while (reader.Read()) {
                     users.Add(uDAO.GetUser(Convert.ToInt32(reader["UserId"])));
                 }
                 reader.Close();
@@ -58,8 +111,7 @@ namespace DnDSQLLib.dal
                 cmd.Connection = conn;
 
                 reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
+                while (reader.Read()) {
                     characters.Add(cDAO.GetCharacter(Convert.ToInt32(reader["CharId"])));
                 }
                 reader.Close();
@@ -71,9 +123,9 @@ namespace DnDSQLLib.dal
 
                 // Get the campaign
                 reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    campaign = new Campaign(Convert.ToString(reader["Name"]),
+                while (reader.Read()) {
+                    campaign = new Campaign(Convert.ToInt32(reader["id"]),
+                        Convert.ToString(reader["Name"]),
                         Convert.ToString(reader["Description"]),
                         users,
                         characters,
@@ -81,14 +133,10 @@ namespace DnDSQLLib.dal
                 }
                 reader.Close();
                 return campaign;
-            }
-            catch (SqlException)
-            {
+            } catch (SqlException) {
                 // **ERROR PLACE HOLDER**
                 return null;
-            }
-            finally
-            {
+            } finally {
                 conn.Close();
             }
         }

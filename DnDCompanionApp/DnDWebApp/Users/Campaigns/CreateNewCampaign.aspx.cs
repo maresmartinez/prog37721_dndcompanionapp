@@ -46,17 +46,17 @@ namespace DnDWebApp.Users.Campaigns {
                 DDCampaignUsers.DataSource = validUsers;
                 DDCampaignUsers.DataBind();
 
-                ViewState["userCharacters"] = userCharacters;
-                ViewState["selectedUsers"] = selectedUsers;
-                ViewState["selectedCharacters"] = selectedCharacters;
+                Session["userCharacters"] = userCharacters;
+                Session["selectedUsers"] = selectedUsers;
+                Session["selectedCharacters"] = selectedCharacters;
             } else {
-                userCharacters = (List<Character>)ViewState["userCharacters"];
-                selectedUsers = (List<User>)ViewState["selectedUsers"];
-                selectedCharacters = (List<Character>)ViewState["selectedCharacters"];
+                userCharacters = (List<Character>)Session["userCharacters"];
+                selectedUsers = (List<User>)Session["selectedUsers"];
+                selectedCharacters = (List<Character>)Session["selectedCharacters"];
             }
 
-            if (ViewState["generatedCampaign"] != null) {
-                generatedCampaign = (Campaign)ViewState["generatedCampaign"];
+            if (Session["generatedCampaign"] != null) {
+                generatedCampaign = (Campaign)Session["generatedCampaign"];
             }
         }
 
@@ -80,7 +80,7 @@ namespace DnDWebApp.Users.Campaigns {
                 return;
             }
 
-            ViewState["generatedCampaign"] = campaign;
+            Session["generatedCampaign"] = campaign;
             DisplayCampaign(campaign);
         }
 
@@ -91,7 +91,7 @@ namespace DnDWebApp.Users.Campaigns {
         /// <param name="e"></param>
         protected void BtnSave_Click(object sender, EventArgs e) {
             // TODO: save campaign to the database
-            Campaign saveCampaign = (Campaign)ViewState["generatedCampaign"];
+            Campaign saveCampaign = (Campaign)Session["generatedCampaign"];
         }
 
         /// <summary>
@@ -177,7 +177,7 @@ namespace DnDWebApp.Users.Campaigns {
             }
 
             selectedCharacters.Remove(removeCharacter);
-            ViewState["selectedCharacters"] = selectedCharacters;
+            Session["selectedCharacters"] = selectedCharacters;
 
             LBPartyMembers.DataSource = selectedCharacters;
             LBPartyMembers.DataBind();
@@ -191,7 +191,7 @@ namespace DnDWebApp.Users.Campaigns {
         protected void DDCampaignUsers_SelectedIndexChanged(object sender, EventArgs e) {
             User selectedUser = validUsers[DDCampaignUsers.SelectedIndex];
             userCharacters = selectedUser.UserCharacters;
-            ViewState["userCharacters"] = selectedUser.UserCharacters;
+            Session["userCharacters"] = selectedUser.UserCharacters;
 
             DDCampaignCharacters.DataSource = userCharacters;
             DDCampaignCharacters.DataBind();
@@ -214,10 +214,10 @@ namespace DnDWebApp.Users.Campaigns {
                 return;
             }
 
-            // Update ViewState
-            if (ViewState["selectedCharacters"] != null && ViewState["selectedUsers"] != null) {
-                selectedCharacters = (List<Character>)ViewState["selectedCharacters"];
-                selectedUsers = (List<User>)ViewState["selectedUsers"];
+            // Update Session
+            if (Session["selectedCharacters"] != null && Session["selectedUsers"] != null) {
+                selectedCharacters = (List<Character>)Session["selectedCharacters"];
+                selectedUsers = (List<User>)Session["selectedUsers"];
             }
 
             // Ensure character is not already added
@@ -230,10 +230,10 @@ namespace DnDWebApp.Users.Campaigns {
 
             // If valid, add user and character
             selectedUsers.Add(user);
-            ViewState["selectedUsers"] = selectedUsers;
+            Session["selectedUsers"] = selectedUsers;
 
             selectedCharacters.Add(character);
-            ViewState["selectedCharacters"] = selectedCharacters;
+            Session["selectedCharacters"] = selectedCharacters;
 
             LBPartyMembers.DataSource = selectedCharacters;
             LBPartyMembers.DataBind();

@@ -129,6 +129,7 @@ namespace UserManagementLib {
                 if (value < 1) {
                     throw new ArgumentException("ID must be a positive value");
                 }
+                id = value;
             }
         }
 
@@ -140,6 +141,33 @@ namespace UserManagementLib {
         }
 
         /// <summary>
+        /// Constructor without ID, used to insert into database
+        /// </summary>
+        /// <param name="username">Username of user</param>
+        /// <param name="fullName">Full name of user</param>
+        /// <param name="password">Password of user</param>
+        public User(string username, string fullName, string password) {
+            Username = username;
+            FullName = fullName;
+            Salt = HashUtil.GetSalt();
+            Password = password;
+        }
+
+        /// <summary>
+        /// Constructor with ID, is what is returned from database
+        /// </summary>
+        /// <param name="username">Username of user</param>
+        /// <param name="fullName">Full name of user</param>
+        /// <param name="password">Password of user</param>
+        public User(int id, string username, string fullName, string password, string salt) {
+            ID = id;
+            Username = username;
+            FullName = fullName;
+            Salt = salt;
+            Password = password;
+        }
+
+        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="username">Username of user</param>
@@ -147,15 +175,15 @@ namespace UserManagementLib {
         /// <param name="userCharacters">Characters owned by user</param>
         /// <param name="password">Password of user</param>
         /// <param name="userCampaigns">Campaigns owns by user</param>
-        public User(int id, string username, string fullName, List<Character> userCharacters, string password, List<Campaign> userCampaigns) {
-            ID = id;
-            Username = username;
-            FullName = fullName;
-            UserCharacters = userCharacters;
-            Salt = HashUtil.GetSalt();
-            Password = password;
-            UserCampaigns = userCampaigns;
-        }
+        //public User(int id, string username, string fullName, List<Character> userCharacters, string password, List<Campaign> userCampaigns) {
+        //    ID = id;
+        //    Username = username;
+        //    FullName = fullName;
+        //    UserCharacters = userCharacters;
+        //    Salt = HashUtil.GetSalt();
+        //    Password = password;
+        //    UserCampaigns = userCampaigns;
+        //}
 
         /// <summary>
         /// Constructor
@@ -173,33 +201,6 @@ namespace UserManagementLib {
             Salt = HashUtil.GetSalt();
             Password = password;
             UserCampaigns = userCampaigns;
-        }
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="username">Username of user</param>
-        /// <param name="fullName">Full name of user</param>
-        /// <param name="password">Password of user</param>
-        public User(string username, string fullName, string password) {
-            Username = username;
-            FullName = fullName;
-            Salt = HashUtil.GetSalt();
-            Password = password;
-        }
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="username">Username of user</param>
-        /// <param name="fullName">Full name of user</param>
-        /// <param name="password">Password of user</param>
-        public User(int id, string username, string fullName, string password, string salt) {
-            ID = id;
-            Username = username;
-            FullName = fullName;
-            Salt = salt;
-            Password = password;
         }
 
         /// <summary>
@@ -224,7 +225,7 @@ namespace UserManagementLib {
         /// <param name="campaign">The campaign to add</param>
         public void AddCampaign(Campaign campaign) {
             if (UserCampaigns is null) {
-                UserCampaigns = new List<Campaign>(); 
+                UserCampaigns = new List<Campaign>();
             }
 
             foreach (Campaign userCampign in UserCampaigns) {
@@ -235,7 +236,7 @@ namespace UserManagementLib {
 
             if (campaign.IsUserInCampaign(this) || campaign.DungeonMaster.Equals(this)) {
                 UserCampaigns.Add(campaign);
-            } else { 
+            } else {
                 throw new ArgumentException("User must be in campagin");
             }
         }
@@ -274,24 +275,6 @@ namespace UserManagementLib {
                 }
             }
             return null;
-        }
-
-        /// <summary>
-        /// Compares a given password to the hashed and salted password
-        /// </summary>
-        /// <param name="givenPassword">The password to authenticate</param>
-        /// <returns>Whether or not the password matches the user's</returns>
-        public bool AuthenticateUser(string givenPassword) {
-            
-            // Generate a hash for the entered password with the user's salt
-            string hashedInput = HashUtil.GetPasswordHash(givenPassword, Salt);
-
-            // Check if the user's password matches the inputted password
-            if (Password.Equals(hashedInput)) {
-                return true;
-            } else {
-                return false;
-            }
         }
 
         /// <summary>

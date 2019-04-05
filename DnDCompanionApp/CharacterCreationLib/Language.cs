@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
-    [Serializable]
     public enum Language {
         Common = 1,
         Aarakocra = 2,

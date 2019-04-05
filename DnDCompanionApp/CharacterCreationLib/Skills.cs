@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
-    [Serializable]
     public enum Skills {
         ACROBATICS = 1,
         ANIMAL_HANDLING = 2,

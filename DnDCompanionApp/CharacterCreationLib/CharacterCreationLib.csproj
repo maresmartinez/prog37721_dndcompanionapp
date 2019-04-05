@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Background.cs" />
     <Compile Include="Character.cs" />
-    <Compile Include="CharacterBackground.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="Dice.cs" />
     <Compile Include="Feature.cs" />

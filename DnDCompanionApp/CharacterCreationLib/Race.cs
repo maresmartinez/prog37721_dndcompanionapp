@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
-    [Serializable]
     public class Race {
         string name;
         string description;

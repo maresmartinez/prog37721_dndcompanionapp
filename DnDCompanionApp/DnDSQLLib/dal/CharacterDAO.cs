@@ -7,9 +7,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DnDSQLLib.dal {
+    /// <summary>
+    /// Interface between character class and character tables in database
+    /// </summary>
     public class CharacterDAO {
+
+        /// <summary>
+        /// Connection to database
+        /// </summary>
         SqlConnection conn;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public CharacterDAO() {
             try {
                 conn = ConnectionFactory.GetConnection();
@@ -20,10 +30,16 @@ namespace DnDSQLLib.dal {
             }
         }
 
-        public int UploadCharacter(Character character) {
+        /// <summary>
+        /// Uploads character to database and creates record that associates it with the user who created it
+        /// </summary>
+        /// <param name="userId">User to be associated with character</param>
+        /// <param name="character">Character to be uploaded</param>
+        /// <returns>Number of rows that were affected in the database</returns>
+        public int UploadCharacter(int userId, Character character) {
             int characterId;
 
-            try {
+            try { //TODO: add stats to database
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand($"" +
@@ -39,6 +55,7 @@ namespace DnDSQLLib.dal {
 
                 characterId = Convert.ToInt32(cmd.ExecuteScalar());
                 character.DbID = characterId;
+
                 return characterId;
             } catch (SqlException) {
                 // **ERROR PLACE HOLDER**
@@ -49,6 +66,12 @@ namespace DnDSQLLib.dal {
             }
 
         }
+
+        /// <summary>
+        /// Removes a character from the database
+        /// </summary>
+        /// <param name="characterId">Character to be removed</param>
+        /// <returns></returns>
         public int DeleteCharacter(int characterId) {
             int count = 0;
             try {
@@ -68,6 +91,12 @@ namespace DnDSQLLib.dal {
                 conn.Close();
             }
         }
+
+        /// <summary>
+        /// Retrieves 
+        /// </summary>
+        /// <param name="characterId"></param>
+        /// <returns></returns>
         public Character GetCharacter(int characterId) {
             Background background;
             BackgroundDAO bDAO = new BackgroundDAO();
@@ -113,7 +142,6 @@ namespace DnDSQLLib.dal {
                 List<Feature> features = fDAO.GetClassFeatures(classId);
                 Race race = rDAO.GetRace(raceId);
                 Class charClass = cDAO.GetClass(classId);
-
 
                 character = new Character(
                     name, stats[0], stats[1], stats[2], stats[3], stats[4], stats[5], stats[6],

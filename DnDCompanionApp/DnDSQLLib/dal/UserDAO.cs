@@ -8,9 +8,19 @@ using System.Threading.Tasks;
 using UserManagementLib;
 
 namespace DnDSQLLib.dal {
+    /// <summary>
+    /// Inteface between user class and user table in database
+    /// </summary>
     public class UserDAO {
+
+        /// <summary>
+        /// Connection to database
+        /// </summary>
         SqlConnection conn;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public UserDAO() {
             try {
                 conn = ConnectionFactory.GetConnection();
@@ -85,6 +95,11 @@ namespace DnDSQLLib.dal {
             return false;
         }
 
+        /// <summary>
+        /// Retrieves all user characters from the database
+        /// </summary>
+        /// <param name="userId">User whose characters must be retrieved</param>
+        /// <returns>Collection of characters</returns>
         public List<Character> GetUserCharacters(int userId) {
             List<Character> characters = new List<Character>();
 
@@ -113,6 +128,11 @@ namespace DnDSQLLib.dal {
             }
         }
 
+        /// <summary>
+        /// Retrieves all user campaigns from the database
+        /// </summary>
+        /// <param name="userId">User whose campaigns must be retrieved</param>
+        /// <returns>Collection of campaigns</returns>
         public List<Campaign> GetUserCampaigns(int userId) {
             List<Campaign> campaigns = new List<Campaign>();
 

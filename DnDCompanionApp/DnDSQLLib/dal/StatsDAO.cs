@@ -6,32 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DnDSQLLib.dal
-{
-    public class StatsDAO
-    {
+namespace DnDSQLLib.dal {
+    public class StatsDAO {
         SqlConnection conn;
-        public StatsDAO()
-        {
+        public StatsDAO() {
 
-            try
-            {
+            try {
                 conn = ConnectionFactory.GetConnection();
                 conn.Open();
                 conn.Close();   // Just double checking to make sure that yes, we can indeed access the server
-            }
-            catch (SqlException)
-            {
+            } catch (SqlException) {
                 // Figure out how to let the user know that things just aint happening
             }
         }
 
-        public int UploadStats(Character character)
-        {
+        public int UploadStats(Character character) {
             int statsId;
             List<int> stats = new List<int>();
-            try
-            {
+            try {
                 conn.Open();
 
                 // Adding all the initial stats to the list
@@ -74,23 +66,17 @@ namespace DnDSQLLib.dal
                 character.StatID = statsId;
 
                 return statsId;
-            }
-            catch (SqlException)
-            {
+            } catch (SqlException) {
                 // **ERROR PLACE HOLDER**
                 statsId = -1;
                 return statsId;
-            }
-            finally
-            {
+            } finally {
                 conn.Close();
             }
         }
-        public int DeleteStats(int statsId)
-        {
+        public int DeleteStats(int statsId) {
             int confirm;
-            try
-            {
+            try {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand($"" +
@@ -100,23 +86,17 @@ namespace DnDSQLLib.dal
                 cmd.Connection = conn;
 
                 confirm = cmd.ExecuteNonQuery();
-            }
-            catch (SqlException)
-            {
+            } catch (SqlException) {
                 // **ERROR PLACE HOLDER**
                 confirm = -1;
-            }
-            finally
-            {
+            } finally {
                 conn.Close();
             }
             return confirm;
         }
-        public List<int> GetStats(int statsId)
-        {
+        public List<int> GetStats(int statsId) {
             List<int> stats = new List<int>();
-            try
-            {
+            try {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"Select Str,Dex,Con,Int,Wis,Chr,StrMod,DexMod,ConMod,IntMod,WisMod,ChrMod From characterStats Where Id = @Id");
@@ -124,36 +104,27 @@ namespace DnDSQLLib.dal
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    for (int i = 0; i < 12; i++)
-                    {
+                while (reader.Read()) {
+                    for (int i = 0; i < 12; i++) {
                         stats.Add(Convert.ToInt32(reader[i]));
                     }
                 }
                 reader.Close();
-            }
-            catch (SqlException)
-            {
+            } catch (SqlException) {
                 // **ERROR PLACE HOLDER**
                 stats = null;
-            }
-            finally
-            {
+            } finally {
                 conn.Close();
             }
             return stats;
         }
-        public int UpdateStats(string type, int newValue, int statsId, Character character)
-        {
+        public int UpdateStats(string type, int newValue, int statsId, Character character) {
             int confirm = 0;
 
-            try
-            {
+            try {
                 conn.Open();
                 SqlCommand cmd;
-                switch (type)
-                {
+                switch (type) {
                     case "str":
                         cmd = new SqlCommand($"Update characterStats Set Str = @nV Where Id = @sI");
                         break;
@@ -199,10 +170,8 @@ namespace DnDSQLLib.dal
 
                 confirm = cmd.ExecuteNonQuery();
 
-                if (character != null)
-                {
-                    switch (type)
-                    {
+                if (character != null) {
+                    switch (type) {
                         case "str":
                             character.Strength = newValue;
                             break;
@@ -243,14 +212,10 @@ namespace DnDSQLLib.dal
                             return -1;
                     }
                 }
-            }
-            catch (SqlException)
-            {
+            } catch (SqlException) {
                 // **ERROR PLACE HOLDER**
                 return -1;
-            }
-            finally
-            {
+            } finally {
                 conn.Close();
             }
             return confirm;

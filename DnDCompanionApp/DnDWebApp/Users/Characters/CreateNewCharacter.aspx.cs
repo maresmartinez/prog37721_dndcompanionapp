@@ -268,7 +268,7 @@ namespace DnDWebApp.Users.Characters {
             character.Race = charRace;
             character.CharacterClass = charClass;
 
-            ViewState["character"] = character;
+            Session["character"] = character;
 
             DisplayCharacter(character);
         }
@@ -488,7 +488,7 @@ namespace DnDWebApp.Users.Characters {
         /// <param name="e"></param>
         protected void BtnSave_Click(object sender, EventArgs e) {
             // TODO: insert into database
-            Character character = (Character)ViewState["character"];
+            Character character = (Character)Session["character"];
         }
 
         /// <summary>
