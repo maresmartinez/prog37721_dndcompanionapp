@@ -16,3 +16,21 @@ D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompan
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.csproj.CopyComplete
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.CampaignCreationPage.resources
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.CampaignPreviewForm.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\bin\Debug\CampaignCreationForms.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\bin\Debug\CampaignCreationForms.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\bin\Debug\CharacterCreationLib.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\bin\Debug\UserManagementLib.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\bin\Debug\CharacterCreationLib.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\bin\Debug\UserManagementLib.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.CampaignCreationPage.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.CampaignPreviewForm.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.Properties.Resources.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.SavedCampaignControl.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.SavedCampaignPreviewForm.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.SavedCampaignsPage.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.csproj.GenerateResource.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.csproj.CoreCompileInputs.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.csproj.CopyComplete
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CampaignCreationForms\obj\Debug\CampaignCreationForms.csprojAssemblyReference.cache

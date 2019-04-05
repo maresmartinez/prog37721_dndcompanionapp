@@ -14,6 +14,7 @@ namespace CharacterCreationLib {
         List<Skills> characterSkills;
         List<Spells> classSpells;
 
+        public int ClassId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public List<Feature> Features { get; set; }
@@ -46,7 +47,7 @@ namespace CharacterCreationLib {
         }
 
         public override string ToString() {
-            return $"{Name}: {Description}";
+            return Name;
         }
     }
 }

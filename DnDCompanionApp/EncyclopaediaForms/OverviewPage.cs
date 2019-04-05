@@ -60,7 +60,7 @@ namespace EncyclopaediaForms {
                 "though they lack wings or a tail.",
                 new List<Language>(
                     new Language[] {
-                        Language.DRACONAIN
+                        Language.Draconic
                     }
                 )
             ));
@@ -70,7 +70,7 @@ namespace EncyclopaediaForms {
                 "living in the world but not entirely part of it.",
                 new List<Language>(
                     new Language[] {
-                        Language.ELVISH
+                        Language.Elvish
                     }
                 )
             ));
@@ -81,7 +81,7 @@ namespace EncyclopaediaForms {
                 "of the worlds.",
                 new List<Language>(
                     new Language[] {
-                        Language.COMMON
+                        Language.Common
                     }
                 )
             ));

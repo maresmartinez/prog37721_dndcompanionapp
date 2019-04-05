@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CharacterCreationLib;
+using DnDSQLLib.dal;
 
 namespace DnDWebApp.Users.Characters {
     public partial class CreateNewCharacter : System.Web.UI.Page {
@@ -329,130 +330,11 @@ namespace DnDWebApp.Users.Characters {
         /// TODO: implement database functionality
         /// </summary>
         private void InitCreationData() {
-            // Retrieve all Races
-            races.Add(new Race(
-                "Dragonborn",
-                "Dragonborn look very much like dragons standing erect in humanoid form, " +
-                "though they lack wings or a tail.",
-                new List<Language>(
-                    new Language[] {
-                        Language.COMMON,
-                        Language.DRACONAIN
-                    }
-                )
-            ));
-            races.Add(new Race(
-                "Elvish",
-                "Elves are a magical people of otherworldly grace, " +
-                "living in the world but not entirely part of it.",
-                new List<Language>(
-                    new Language[] {
-                        Language.COMMON,
-                        Language.ELVISH
-                    }
-                )
-            ));
-            races.Add(new Race(
-                "Human",
-                "Humans are the most adaptable and ambitious people among the common races. " +
-                "Whatever drives them, humans are the innovators, the achievers, and the pioneers " +
-                "of the worlds.",
-                new List<Language>(
-                    new Language[] {
-                        Language.COMMON
-                    }
-                )
-            ));
+            RaceDAO raceDAO = new RaceDAO();
+            races = raceDAO.GetAllRaces();
 
-            // Retrieve all Classes
-            classes.Add(new Class(
-                "Fighter",
-                "A master of martial combat, skilled with a variety of weapons and armor.",
-                new List<Feature>(
-                    // Initializing list with features
-                    new Feature[] {
-                        new Feature("Second Wind",
-                            "You have a limited well of stamina that you can draw on to protect " +
-                            "yourself from harm."),
-                        new Feature("Action Surge",
-                            "You can push yourself beyond your normal limits for a moment. On your " +
-                            "turn, you can take one additional action."),
-                        new Feature("Martial Archetype",
-                            "You choose an archetype that you strive to emulate in your combat styles " +
-                            "and techniques. Choose Chamption, Battle Master, or Eldritch Knight.")
-                    }
-                ),
-                new Dice(10),
-                new List<Skills>(
-                    new Skills[] {
-                        Skills.ACROBATICS,
-                        Skills.ANIMAL_HANDLING,
-                        Skills.ATHLETICS,
-                        Skills.HISTORY,
-                        Skills.INSIGHT,
-                        Skills.INTIMIDATION,
-                        Skills.PERCEPTION,
-                        Skills.SURVIVAL
-                    }
-                )
-            ));
-            classes.Add(new Class(
-                "Sorcerer",
-                "A spellcaster who draws on inherent magic from a gift or bloodline.",
-                new List<Feature>(
-                    // Initializing list with features
-                    new Feature[] {
-                        new Feature("Sorcerous Origin",
-                            "Choose a sorcerous origin, which describes the source of your innate magical " +
-                            "power: Draconic Bloodline, wild magic, or other."),
-                        new Feature("Font of Magic",
-                            "You tap into a deep wellspring of magic within yourself. This wellspring is " +
-                            "represented by sorcery points, which allow you to create a variety of magical " +
-                            "effects."),
-                        new Feature("Metamagic",
-                            "You gain the ability to twist your spells to suit your needs. You gain two of the " +
-                            "following Metamagic options: Careful Spell, Distant Spell, Empowered Spell, " +
-                            "Extended Spell, Heightened Spell, Quickened Spell, Subtle Spell, or Twinned " +
-                            "Spell."),
-                    }
-                ),
-                new Dice(6),
-                new List<Skills>(
-                    new Skills[] {
-                        Skills.ARCANA,
-                        Skills.DECEPTION,
-                        Skills.INSIGHT,
-                        Skills.INTIMIDATION,
-                        Skills.PERSUASION,
-                        Skills.RELIGION
-                    }
-                )
-            ));
-            classes.Add(new Class(
-                "Bard",
-                "An inspiting magician whose power echoes the music of creation.",
-                new List<Feature>(
-                    // Initializing list with features
-                    new Feature[] {
-                        new Feature("Bardic Inspiration",
-                            "You can inspire others through stirring words or music. To do so, you use " +
-                            "a bonus acation on your turn to choose one creature other than yourself " +
-                            "within 60 =ft of you who can hear you. That creature gains one Bardic Inspiration " +
-                            "die, a D6."),
-                        new Feature("Jack of All Trades",
-                            "You can add half your proficiency bonus, rounded down, to any ability check " +
-                            "that doesn't already include your proficiency bonus."),
-                        new Feature("Song of Rest",
-                            "You can use soothing music or oration to help revitalize your wounded allies " +
-                            "during a short rest. Each of those creatures regains an extra 1d6 hit points."),
-                    }
-                ),
-                new Dice(8),
-                // This class has ALL skills
-                new List<Skills>(
-                    (Skills[])Enum.GetValues(typeof(Skills))
-                )
-            ));
+            ClassDAO classDAO = new ClassDAO();
+            classes = classDAO.GetAllClasses();
 
             // Retrieve all backgrounds
             backgrounds.Add(new Background(

@@ -37,7 +37,7 @@ namespace CharacterCreationForms {
                 "though they lack wings or a tail.",
                 new List<Language>(
                     new Language[] {
-                        Language.DRACONAIN
+                        Language.Draconic
                     }
                 )
             ));
@@ -47,7 +47,7 @@ namespace CharacterCreationForms {
                 "living in the world but not entirely part of it.",
                 new List<Language>(
                     new Language[] {
-                        Language.ELVISH
+                        Language.Elvish
                     }
                 )
             ));
@@ -58,7 +58,7 @@ namespace CharacterCreationForms {
                 "of the worlds.",
                 new List<Language>(
                     new Language[] {
-                        Language.COMMON
+                        Language.Common
                     }
                 )
             ));

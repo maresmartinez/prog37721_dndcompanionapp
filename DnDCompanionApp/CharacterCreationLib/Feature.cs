@@ -30,6 +30,8 @@ namespace CharacterCreationLib {
             }
         }
 
+        public int FeatureID { get; set; }
+
         public Feature() {
 
         }

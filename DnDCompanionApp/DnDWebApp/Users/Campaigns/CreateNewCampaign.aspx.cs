@@ -312,7 +312,7 @@ namespace DnDWebApp.Users.Campaigns {
                 "though they lack wings or a tail.",
                 new List<Language>(
                     new Language[] {
-                        Language.DRACONAIN
+                        Language.Draconic
                     }
                 )
             );
@@ -414,7 +414,7 @@ namespace DnDWebApp.Users.Campaigns {
                 "though they lack wings or a tail.",
                 new List<Language>(
                     new Language[] {
-                        Language.DRACONAIN
+                        Language.Draconic
                     }
                 )
             );
@@ -516,7 +516,7 @@ namespace DnDWebApp.Users.Campaigns {
                 "though they lack wings or a tail.",
                 new List<Language>(
                     new Language[] {
-                        Language.DRACONAIN
+                        Language.Draconic
                     }
                 )
             );

@@ -115,6 +115,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Testing.aspx" />
     <Content Include="Tools\DiceRoll.aspx" />
     <Content Include="Tools\Encyclopaedia\EncyclopaediaOverview.aspx" />
     <Content Include="Users\Campaigns\CreateNewCampaign.aspx" />
@@ -166,6 +167,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Testing.aspx.cs">
+      <DependentUpon>Testing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Testing.aspx.designer.cs">
+      <DependentUpon>Testing.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Tools\DiceRoll.aspx.cs">
       <DependentUpon>DiceRoll.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -232,6 +240,10 @@
     <ProjectReference Include="..\CharacterCreationLib\CharacterCreationLib.csproj">
       <Project>{41aa5b9c-47a6-4623-9462-71b63c9aba2d}</Project>
       <Name>CharacterCreationLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DnDSQLLib\DnDSQLLib.csproj">
+      <Project>{493c68b7-a3a3-4bd6-aeda-eeb19326511e}</Project>
+      <Name>DnDSQLLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\UserManagementLib\UserManagementLib.csproj">
       <Project>{d367c825-1b57-444c-9fdb-f31cc8473ceb}</Project>

@@ -29,6 +29,14 @@ namespace CharacterCreationLib {
         Race race;
         Class characterClass;
 
+        // Various DB variables
+        public int DbID { get; set; }
+        public int StatID { get; set; }
+        public int RaceID { get; set; }
+        public int ClassID { get; set; }
+        public int BackgroundID { get; set; }
+        public int AppearanceID { get; set; }
+        public int AvailSpellID { get; set; }
         public string Name {
             get { return name;  }
             set {
@@ -197,6 +205,7 @@ namespace CharacterCreationLib {
             Race = race;
             CharacterClass = characterClass;
         }
+
 
         public override string ToString() {
             return $"{Name}: {Race.Name}, {CharacterClass.Name}, {CharacterBackground.Name}";

@@ -15,3 +15,20 @@ D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompan
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.ClassTeaser.resources
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.RaceTeaser.resources
 D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.BackgroundDetails.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\bin\Debug\EncyclopaediaForms.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\bin\Debug\EncyclopaediaForms.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\bin\Debug\CharacterCreationLib.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\bin\Debug\CharacterCreationLib.pdb
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.csprojAssemblyReference.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.BackgroundDetails.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.BackgroundTeaser.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.ClassDetailsPage.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.ClassTeaser.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.OverviewPage.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.RaceDetailsPage.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.RaceTeaser.resources
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.csproj.GenerateResource.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.csproj.CoreCompileInputs.cache
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.csproj.CopyComplete
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.dll
+C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\EncyclopaediaForms\obj\Debug\EncyclopaediaForms.pdb

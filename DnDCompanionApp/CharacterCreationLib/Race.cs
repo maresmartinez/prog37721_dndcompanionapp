@@ -11,6 +11,7 @@ namespace CharacterCreationLib {
         string description;
         List<Language> languages;
 
+        public int RaceId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public List<Language> Languages {
@@ -38,7 +39,7 @@ namespace CharacterCreationLib {
         }
 
         public override string ToString() {
-            return $"{Name}: {Description}";
+            return Name;
         }
     }
 }
