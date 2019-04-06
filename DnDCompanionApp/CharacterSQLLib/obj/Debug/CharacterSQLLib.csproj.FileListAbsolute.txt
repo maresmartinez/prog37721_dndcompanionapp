@@ -1,9 +1,0 @@
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterSQLLib\obj\Debug\CharacterSQLLib.csprojAssemblyReference.cache
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterSQLLib\obj\Debug\CharacterSQLLib.csproj.CoreCompileInputs.cache
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterSQLLib\bin\Debug\CharacterSQLLib.dll
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterSQLLib\bin\Debug\CharacterSQLLib.pdb
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterSQLLib\bin\Debug\CharacterCreationLib.dll
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterSQLLib\bin\Debug\CharacterCreationLib.pdb
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterSQLLib\obj\Debug\CharacterSQLLib.csproj.CopyComplete
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterSQLLib\obj\Debug\CharacterSQLLib.dll
-C:\Users\mark\Source\Repos\maresmartinez\prog37721_dndcompanionapp\DnDCompanionApp\CharacterSQLLib\obj\Debug\CharacterSQLLib.pdb
