@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
+    /// <summary>
+    /// Languages which characters in DnD are able to speak
+    /// </summary>
     public enum Language {
         Common = 1,
         Aarakocra = 2,

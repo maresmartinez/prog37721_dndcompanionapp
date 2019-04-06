@@ -1,0 +1,5 @@
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DnDDb\bin\Debug\DnDDb.dacpac
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DnDDb\bin\Debug\DnDDb.dll
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DnDDb\bin\Debug\DnDDb.pdb
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DnDDb\obj\Debug\DnDDb.dll
+D:\Documents\Word Files\School\Coding\C#.NET\PROG37721\DnDCompanionApp\DnDCompanionApp\DnDDb\obj\Debug\DnDDb.pdb

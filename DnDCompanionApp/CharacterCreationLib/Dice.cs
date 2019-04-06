@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
+    /// <summary>
+    /// Generates a random integer based on the sides of a dice
+    /// </summary>
     public class Dice {
 
         /// <summary>

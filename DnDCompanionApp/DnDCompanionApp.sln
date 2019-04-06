@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnDWebApp", "DnDWebApp\DnDW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnDSQLLib", "DnDSQLLib\DnDSQLLib.csproj", "{493C68B7-A3A3-4BD6-AEDA-EEB19326511E}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DnDDb", "DnDDb\DnDDb.sqlproj", "{BAE7DAD7-6107-4AE1-93E3-4CC86DA8AC9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,12 @@ Global
 		{493C68B7-A3A3-4BD6-AEDA-EEB19326511E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{493C68B7-A3A3-4BD6-AEDA-EEB19326511E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{493C68B7-A3A3-4BD6-AEDA-EEB19326511E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAE7DAD7-6107-4AE1-93E3-4CC86DA8AC9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAE7DAD7-6107-4AE1-93E3-4CC86DA8AC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAE7DAD7-6107-4AE1-93E3-4CC86DA8AC9E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BAE7DAD7-6107-4AE1-93E3-4CC86DA8AC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAE7DAD7-6107-4AE1-93E3-4CC86DA8AC9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAE7DAD7-6107-4AE1-93E3-4CC86DA8AC9E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

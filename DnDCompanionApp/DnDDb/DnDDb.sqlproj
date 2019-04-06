@@ -57,5 +57,35 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\backgroundType.sql" />
+    <Build Include="dbo\Tables\bgTypeBond.sql" />
+    <Build Include="dbo\Tables\bgTypeFlaw.sql" />
+    <Build Include="dbo\Tables\bgTypeIdeal.sql" />
+    <Build Include="dbo\Tables\bgTypePersonality.sql" />
+    <Build Include="dbo\Tables\bond.sql" />
+    <Build Include="dbo\Tables\campaign.sql" />
+    <Build Include="dbo\Tables\character.sql" />
+    <Build Include="dbo\Tables\characterBackground.sql" />
+    <Build Include="dbo\Tables\characterCampaign.sql" />
+    <Build Include="dbo\Tables\characterSkills.sql" />
+    <Build Include="dbo\Tables\characterSpells.sql" />
+    <Build Include="dbo\Tables\class.sql" />
+    <Build Include="dbo\Tables\classFeatures.sql" />
+    <Build Include="dbo\Tables\features.sql" />
+    <Build Include="dbo\Tables\flaw.sql" />
+    <Build Include="dbo\Tables\ideal.sql" />
+    <Build Include="dbo\Tables\languages.sql" />
+    <Build Include="dbo\Tables\personality.sql" />
+    <Build Include="dbo\Tables\race.sql" />
+    <Build Include="dbo\Tables\raceLanguage.sql" />
+    <Build Include="dbo\Tables\skill.sql" />
+    <Build Include="dbo\Tables\spells.sql" />
+    <Build Include="dbo\Tables\userCampaign.sql" />
+    <Build Include="dbo\Tables\userCharacter.sql" />
+    <Build Include="dbo\Tables\users.sql" />
   </ItemGroup>
 </Project>

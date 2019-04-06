@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CharacterCreationLib {
+    /// <summary>
+    /// Skills of a character which defines what particular types of rolls they may have an advantage in. 
+    /// Essentially, if a character has one of these skills, they get a bonus when doing anything story-related to that skill.
+    /// </summary>
     public enum Skills {
         ACROBATICS = 1,
         ANIMAL_HANDLING = 2,

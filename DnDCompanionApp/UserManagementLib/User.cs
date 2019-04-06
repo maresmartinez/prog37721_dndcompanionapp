@@ -8,6 +8,7 @@ using CharacterCreationLib;
 namespace UserManagementLib {
     /// <summary>
     /// Holds information of user of an application
+    /// TODO: Add email to class; think about implementing two-tier authentication
     /// </summary>
     public class User {
 

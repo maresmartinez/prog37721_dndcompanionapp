@@ -9,6 +9,7 @@ using UserManagementLib;
 namespace UserManagementLib {
     /// <summary>
     /// A D&D campaign which holds groups for the users and characters within the campaign
+    /// TODO: find way to validate campaign lists without needing methods in user class... the commented out code was buggy
     /// </summary>
     public class Campaign {
 
@@ -218,16 +219,6 @@ namespace UserManagementLib {
         }
 
         /// <summary>
-        /// Adds this instance of campaign to the users who are a part of it
-        /// </summary>
-        //public void AddCampaignToAllUsers() {
-        //    DungeonMaster.AddCampaign(this);
-        //    foreach (User user in CampaignUsers) {
-        //        user.AddCampaign(this);
-        //    }
-        //}
-
-        /// <summary>
         /// Determines equality by checking if two campaign objects share the same name, 
         /// description, dungeon master, users, and characters
         /// </summary>
@@ -256,7 +247,7 @@ namespace UserManagementLib {
         /// <summary>
         /// Describes the Campaign
         /// </summary>
-        /// <returns>Description of the campaign</returns>
+        /// <returns>Name of the campaign</returns>
         public override string ToString() {
             return CampaignName;
         }
