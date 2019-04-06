@@ -255,33 +255,22 @@ namespace DnDWebApp.Users.Characters {
             int intelMod = int.Parse(IntMod.InnerText);
             int chrMod = int.Parse(ChrMod.InnerText);
 
-            string hair = TxtHair.Text;
-            string eyes = TxtEyes.Text;
-            string skin = TxtSkin.Text;
+            string hair = (!string.IsNullOrEmpty(TxtHair.Text)) ? TxtHair.Text : "N/A";
+            string eyes = (!string.IsNullOrEmpty(TxtEyes.Text)) ? TxtEyes.Text : "N/A";
+            string skin = (!string.IsNullOrEmpty(TxtSkin.Text)) ? TxtSkin.Text : "N/A";
             string notes = TxtAdditionalNotes.Text;
 
             // Generate character, catch any exceptions
-            Character character = new Character();
-            character.Name = name;
-            character.Strength = str;
-            character.Dexterity = dex;
-            character.Constitution = con;
-            character.Intelligence = intel;
-            character.Wisdom = wis;
-            character.Charisma = chr;
-            character.StrMod = strMod;
-            character.DexMod = dexMod;
-            character.ConMod = conMod;
-            character.IntMod = intelMod;
-            character.WisMod = wisMod;
-            character.ChrMod = chrMod;
-            character.CharacterBackground = charBackground;
-            character.Hair = (!string.IsNullOrEmpty(hair)) ? hair : "N/A";
-            character.Eyes = (!string.IsNullOrEmpty(eyes)) ? eyes : "N/A";
-            character.Skin = (!string.IsNullOrEmpty(skin)) ? skin : "N/A";
-            character.AdditionalNotes = (!string.IsNullOrEmpty(hair)) ? notes : "N/A";
-            character.Race = charRace;
-            character.CharacterClass = charClass;
+            Character character = new Character(
+                name, 
+                str, dex, con, intel, wis, chr, 
+                strMod, dexMod, conMod, intelMod, wisMod, chrMod, 
+                charBackground, 
+                hair, eyes, skin, notes, 
+                charRace, 
+                charClass
+            );
+
 
             Session["character"] = character;
 
