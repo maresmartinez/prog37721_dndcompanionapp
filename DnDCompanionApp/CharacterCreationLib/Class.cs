@@ -46,6 +46,15 @@ namespace CharacterCreationLib {
             CharacterSkills = skills;
         }
 
+        public Class(int id, string name, string description, List<Feature> features, Dice hitDice, List<Skills> skills) {
+            ClassId = id;
+            Name = name;
+            Description = description;
+            Features = features;
+            HitDice = hitDice;
+            CharacterSkills = skills;
+        }
+
         public override string ToString() {
             return Name;
         }

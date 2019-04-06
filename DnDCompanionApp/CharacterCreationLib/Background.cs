@@ -36,8 +36,10 @@ namespace CharacterCreationLib {
             Flaws = flaws;
         }
 
-        public Background(int backgroundId, List<string> personality, List<string> ideals, List<string> bonds, List<string> flaws) {
+        public Background(int backgroundId, string name, string description, List<string> personality, List<string> ideals, List<string> bonds, List<string> flaws) {
             BackgroundId = backgroundId;
+            Name = name;
+            Description = description;
             Personality = personality;
             Ideals = ideals;
             Bonds = bonds;

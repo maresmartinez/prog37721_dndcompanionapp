@@ -19,24 +19,15 @@ namespace CharacterCreationLib {
         int intMod;
         int wisMod;
         int chrMod;
-        List<Feature> featureList;
-        Background characterBackground;
-        string hair;//can be null
-        string eyes;//can be null
-        string skin;//can be null
-        string additionalNotes;//can be null
-        Race race;
-        Class characterClass;
 
         // Various DB variables
         public int DbID { get; set; }
-        public int StatID { get; set; }
-        public int RaceID { get; set; }
-        public int ClassID { get; set; }
-        public int TypeID { get; set; }
-        public int BackgroundID { get; set; }
-        public int AppearanceID { get; set; }
+        //public int RaceID { get; set; }
+        //public int ClassID { get; set; }
+        public int BackgroundTypeID { get; set; }
+        public int CharBackgroundID { get; set; }
         public int AvailSpellID { get; set; }
+
         public string Name {
             get { return name;  }
             set {
@@ -167,7 +158,6 @@ namespace CharacterCreationLib {
                 } else throw new ArgumentException(value + " is out of the range of ChrMod");
             }
         }
-        public List<Feature> FeatureList { get; set; }
         public Background CharacterBackground { get; set; }
         public string Hair { get; set; }
         public string Eyes { get; set; }
@@ -181,7 +171,7 @@ namespace CharacterCreationLib {
         }
 
         public Character(string name, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int strMod,
-            int dexMod, int conMod, int intMod, int wisMod, int chrMod, List<Feature> features, Background characterBackground, string hair, 
+            int dexMod, int conMod, int intMod, int wisMod, int chrMod, Background characterBackground, string hair, 
             string eyes, string skin, string additionalNotes, Race race, Class characterClass) {
             Name = name;
             Strength = strength;
@@ -196,7 +186,6 @@ namespace CharacterCreationLib {
             IntMod = intMod;
             WisMod = wisMod;
             ChrMod = chrMod;
-            FeatureList = features;
             CharacterBackground = characterBackground;
             Hair = hair;
             Eyes = eyes;
@@ -205,7 +194,6 @@ namespace CharacterCreationLib {
             Race = race;
             CharacterClass = characterClass;
         }
-
 
         public override string ToString() {
             return $"{Name}: {Race.Name}, {CharacterClass.Name}, {CharacterBackground.Name}";

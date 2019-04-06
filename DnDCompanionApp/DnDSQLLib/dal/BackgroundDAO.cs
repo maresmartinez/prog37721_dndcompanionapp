@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DnDSQLLib.dal {
+    /// <summary>
+    /// Interface between background class and background table in database
+    /// </summary>
     public class BackgroundDAO {
 
         /// <summary>
@@ -31,91 +34,96 @@ namespace DnDSQLLib.dal {
         /// Adds character background to the database
         /// </summary>
         /// <param name="character">Character whose background is being added</param>
-        /// <returns>Number of records that were added to the database</returns>
+        /// <returns>Id of background</returns>
         public int UploadBackground(Character character) {
-            int backgroundId;
-            List<string> personality = character.CharacterBackground.Personality;
-            List<string> ideal = character.CharacterBackground.Ideals;
-            List<string> bond = character.CharacterBackground.Bonds;
-            List<string> flaw = character.CharacterBackground.Flaws;
+            int charBackgroundID;
 
-            List<int> personalityId = new List<int>();
-            List<int> idealId = new List<int>();
-            List<int> bondId = new List<int>();
-            List<int> flawId = new List<int>();
+            int backgroundTypeID = character.BackgroundTypeID;
+            string personality1 = character.CharacterBackground.Personality[0];
+            string ideal1 = character.CharacterBackground.Ideals[0];
+            string bond1 = character.CharacterBackground.Bonds[0];
+            string flaw1 = character.CharacterBackground.Flaws[0];
+            string personality2 = character.CharacterBackground.Personality[1];
+            string ideal2 = character.CharacterBackground.Ideals[1];
+            string bond2 = character.CharacterBackground.Bonds[1];
+            string flaw2 = character.CharacterBackground.Flaws[1];
 
-            try {
+            int personalityID1;
+            int personalityID2;
+            int idealID1;
+            int idealID2;
+            int bondID1;
+            int bondID2;
+            int flawID1;
+            int flawID2;
+
+            using (conn) {
                 conn.Open();
 
-
-                // Getting the IDs of each of the background stuff
                 // Personality IDs
-                for (int i = 0; i < 2; i++) {
-                    SqlCommand cmd1 = new SqlCommand($"" +
-                    $"Select Id from personality WHERE Description = @Desc");
-                    cmd1.Parameters.AddWithValue("@Desc", personality[i]);
-                    cmd1.Connection = conn;
+                SqlCommand cmd = new SqlCommand("SELECT ID FROM personality WHERE description = @Desc;");
+                cmd.Parameters.AddWithValue("@Desc", personality1);
+                cmd.Connection = conn;
+                personalityID1 = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    SqlDataReader reader1 = cmd1.ExecuteReader();
-                    while (reader1.Read())
-                        personalityId.Add(Convert.ToInt32(reader1["0"]));
-                    reader1.Close();
-                }
+                cmd = new SqlCommand("SELECT ID FROM personality WHERE description = @Desc;");
+                cmd.Parameters.AddWithValue("@Desc", personality2);
+                cmd.Connection = conn;
+                personalityID2 = Convert.ToInt32(cmd.ExecuteScalar());
 
-                // Ideal ID
-                SqlCommand cmd = new SqlCommand($"" +
-                    $"Select Id from ideal WHERE Description = @Desc");
-                cmd.Parameters.AddWithValue("@Desc", ideal[0]);
+                // Ideal IDs
+                cmd = new SqlCommand("SELECT ID FROM ideal WHERE description = @Desc;");
+                cmd.Parameters.AddWithValue("@Desc", ideal1);
+                cmd.Connection = conn;
+                idealID1 = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cmd = new SqlCommand("SELECT ID FROM ideal WHERE description = @Desc;");
+                cmd.Parameters.AddWithValue("@Desc", ideal2);
+                cmd.Connection = conn;
+                idealID2 = Convert.ToInt32(cmd.ExecuteScalar());
+
+                // Bond IDs
+                cmd = new SqlCommand("SELECT ID FROM bond WHERE description = @Desc;");
+                cmd.Parameters.AddWithValue("@Desc", bond1);
+                cmd.Connection = conn;
+                bondID1 = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cmd = new SqlCommand("SELECT ID FROM bond WHERE description = @Desc;");
+                cmd.Parameters.AddWithValue("@Desc", bond2);
+                cmd.Connection = conn;
+                bondID2 = Convert.ToInt32(cmd.ExecuteScalar());
+
+                // Flaw IDs
+                cmd = new SqlCommand("SELECT ID FROM flaw WHERE description = @Desc;");
+                cmd.Parameters.AddWithValue("@Desc", flaw1);
+                cmd.Connection = conn;
+                flawID1 = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cmd = new SqlCommand("SELECT ID FROM flaw WHERE description = @Desc;");
+                cmd.Parameters.AddWithValue("@Desc", flaw2);
+                cmd.Connection = conn;
+                flawID2 = Convert.ToInt32(cmd.ExecuteScalar());
+
+                // Insert the record
+                cmd = new SqlCommand("INSERT INTO characterBackground " +
+                    "(personalityid1, personalityid2, idealid1, idealid2, bondid1, bondid2, flawid1, flawid2, backgroundtypeid)" +
+                    "VALUES (@P1, @P2, @I1, @I2, @B1, @B2, @F1, @F2, @BGID); " +
+                    "SELECT SCOPE_IDENTITY();");
+                cmd.Parameters.AddWithValue("@P1", personalityID1);
+                cmd.Parameters.AddWithValue("@P2", personalityID2);
+                cmd.Parameters.AddWithValue("@I1", idealID1);
+                cmd.Parameters.AddWithValue("@I2", idealID2);
+                cmd.Parameters.AddWithValue("@B1", bondID1);
+                cmd.Parameters.AddWithValue("@B2", bondID2);
+                cmd.Parameters.AddWithValue("@F1", flawID1);
+                cmd.Parameters.AddWithValue("@F2", flawID2);
+                cmd.Parameters.AddWithValue("@BGID", character.CharacterBackground.BackgroundId);
                 cmd.Connection = conn;
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                    idealId.Add(Convert.ToInt32(reader["0"]));
-                reader.Close();
-
-                // Bond ID
-                cmd = new SqlCommand($"" +
-                    $"Select Id from bond WHERE Description = @Desc");
-                cmd.Parameters.AddWithValue("@Desc", bond[0]);
-                cmd.Connection = conn;
-
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                    bondId.Add(Convert.ToInt32(reader["0"]));
-                reader.Close();
-
-                // Flaw ID
-                cmd = new SqlCommand($"" +
-                    $"Select Id from flawId WHERE Description = @Desc");
-                cmd.Parameters.AddWithValue("@Desc", flaw[0]);
-                cmd.Connection = conn;
-
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                    flawId.Add(Convert.ToInt32(reader["0"]));
-                reader.Close();
-
-                // Inserting the Record
-                cmd = new SqlCommand($"" +
-                    $"Insert into background (PersonalityID1, PersonalityID2, IdealID, BondID, FlawID)" +
-                    $"Values (@pid1, @pid2, @iid, @bid, @fid");
-                cmd.Parameters.AddWithValue("@pid1", personalityId[0]);
-                cmd.Parameters.AddWithValue("@pid2", personalityId[1]);
-                cmd.Parameters.AddWithValue("@iid", idealId[0]);
-                cmd.Parameters.AddWithValue("@bid", bondId[0]);
-                cmd.Parameters.AddWithValue("@fid", flawId[0]);
-                cmd.Connection = conn;
-
-                backgroundId = Convert.ToInt32(cmd.ExecuteScalar());
-                character.BackgroundID = backgroundId;
-                return backgroundId;
-            } catch (SqlException) {
-                // **ERROR PLACE HOLDER**
-                backgroundId = -1;
-                return backgroundId;
-            } finally {
-                conn.Close();
+                charBackgroundID = Convert.ToInt32(cmd.ExecuteScalar());
             }
+
+            return charBackgroundID;
         }
 
         /// <summary>
@@ -125,97 +133,63 @@ namespace DnDSQLLib.dal {
         /// <returns>The number of records that were affected</returns>
         public int DeleteBackground(int backgroundId) {
             int count = 0;
-            try {
+            using (conn) {
                 conn.Open();
 
-                SqlCommand command = new SqlCommand($"" +
-                    $"delete from background where Id = @bId");
-                command.Parameters.AddWithValue("@bId", backgroundId);
-                command.Connection = conn;
+                SqlCommand cmd = new SqlCommand($"delete from characterBackground where Id = @bId;");
+                cmd.Parameters.AddWithValue("@bId", backgroundId);
+                cmd.Connection = conn;
 
-                count = command.ExecuteNonQuery();
+                count = cmd.ExecuteNonQuery();
                 return count;
-            } catch (SqlException) {
-                // Figure out how to deliver a good error message for the user
-                count = -1;
-                return count;
-            } finally {
-                conn.Close();
             }
         }
 
-        public List<BackgroundType> GetAllBgTypes()
-        {
+        public List<BackgroundType> GetAllBgTypes() {
             List<BackgroundType> bgTypes = new List<BackgroundType>();
             int dbId = 0;
             string name = "";
             string desc = "";
 
-            try
-            {
+            using (conn) {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand($"Select * from backgroundType");
+                SqlCommand cmd = new SqlCommand($"Select * from backgroundType;");
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
+                while (reader.Read()) {
                     bgTypes.Add(new BackgroundType(Convert.ToInt32(reader["Id"]), Convert.ToString(reader["Name"]), Convert.ToString(reader["Description"])));
                 }
                 return bgTypes;
             }
-            catch (SqlException)
-            {
-                // Figure out what to give with the exception
-                return null;
-            }
-            finally
-            {
-                conn.Close();
-            }
         }
 
-        public BackgroundType GetBgType(int bgTypeId)
-        {
+        public BackgroundType GetBgType(int bgTypeId) {
             BackgroundType bgType = null;
 
-            try
-            {
+            using (conn) {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand($"select t.Name, t.Description from backgroundType t where Id = @bId");
+                SqlCommand cmd = new SqlCommand($"select Name, Description from backgroundType where Id = @bId;");
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    bgType = new BackgroundType(bgTypeId, Convert.ToString(reader["Name"]), Convert.ToString(reader["Description"]));  
+                while (reader.Read()) {
+                    bgType = new BackgroundType(bgTypeId, Convert.ToString(reader["Name"]), Convert.ToString(reader["Description"]));
                 }
                 reader.Close();
                 return bgType;
             }
-            catch (SqlException)
-            {
-                // Figure out what to give with the exception
-                return null;
-            }
-            finally
-            {
-                conn.Close();
-            }
         }
 
-        public List<string> GetPossibleTraits(int bgTypeId, string traitType)
-        {
+        public List<string> GetPossibleTraits(int bgTypeId, string traitType) {
             List<string> traits = new List<string>();
 
-            try
-            {
+            using (conn) {
                 conn.Open();
                 SqlCommand cmd = null;
-                switch (traitType)
-                {
+                switch (traitType) {
                     case "personality":
                         cmd = new SqlCommand($"" +
                             $"select p.Description from personality p" +
@@ -247,123 +221,139 @@ namespace DnDSQLLib.dal {
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
-                while(reader.Read())
-                {
+                while (reader.Read()) {
                     traits.Add(Convert.ToString(reader["Description"]));
                 }
                 reader.Close();
 
                 return traits;
             }
-            catch (SqlException)
-            {
-                // Error message placeholder
-                return null;
-            }
-            finally
-            {
-                conn.Close();
-            }
         }
 
-        public Background GetBackground(int backgroundId, BackgroundType bgType) {
+        /// <summary>
+        /// Retrieves the background of a character
+        /// </summary>
+        /// <param name="characterId">The character id</param>
+        /// <returns>The character's background, or null if the character does not exist</returns>
+        public Background GetCharacterBackground(int characterId) {
             Background background;
-            List<string> personality = new List<string>();
-            List<string> ideal = new List<string>();
-            List<string> bond = new List<string>();
-            List<string> flaw = new List<string>();
 
-            try {
+            using (conn) {
                 conn.Open();
 
+                // Get character's backgroundid
+                SqlCommand cmd = new SqlCommand("SELECT charbackid FROM character WHERE id = @ID;");
+                cmd.Parameters.AddWithValue("@ID", characterId);
+                cmd.Connection = conn;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                int backgroundId = 0;
+                if (reader.Read()) {
+                    backgroundId = Convert.ToInt32(reader["charbackid"]);
+                } else {
+                    return null; // Character ID does not exist
+                }
+
+                // Retrieve background descriptions
+                List<string> personality = new List<string>();
+                List<string> ideal = new List<string>();
+                List<string> bond = new List<string>();
+                List<string> flaw = new List<string>();
+
                 // Personality
-                SqlCommand cmd = new SqlCommand($"" +
-                    $"Select" +
-                    $"p.Description AS 'P1', p2.Description AS 'P2'" +
-                    $"FROM background bg" +
-                    $"INNER JOIN personality p on p.Id = bg.PersonalityID1" +
-                    $"INNER JOIN personality p2 on p2.Id = bg.PersonalityID2" +
-                    $"where bg.Id = @bId");
+                cmd = new SqlCommand(
+                    $"Select " +
+                    $"p.Description AS 'P1', p2.Description AS 'P2' " +
+                    $"FROM characterbackground bg " +
+                    $"INNER JOIN personality p on p.Id = bg.PersonalityID1 " +
+                    $"INNER JOIN personality p2 on p2.Id = bg.PersonalityID2 " +
+                    $"where bg.Id = @bId;");
 
                 cmd.Parameters.AddWithValue("@bId", backgroundId);
                 cmd.Connection = conn;
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                while(reader.Read())
-                {
+                reader = cmd.ExecuteReader();
+                while (reader.Read()) {
                     personality.Add(Convert.ToString(reader["P1"]));
                     personality.Add(Convert.ToString(reader["P2"]));
                 }
                 reader.Close();
 
                 // Ideal
-                cmd = new SqlCommand($"" +
-                    $"Select" +
-                    $"i.Description AS 'I1', i2.Description AS 'I2'" +
-                    $"FROM background bg" +
-                    $"INNER JOIN ideal i on i.Id = bg.IdealID1" +
-                    $"INNER JOIN ideal i2 on i2.Id = bg.IdealID2" +
-                    $"where bg.Id = @bId");
+                cmd = new SqlCommand(
+                    $"Select " +
+                    $"i.Description AS 'I1', i2.Description AS 'I2' " +
+                    $"FROM characterbackground bg " +
+                    $"INNER JOIN ideal i on i.Id = bg.IdealID1 " +
+                    $"INNER JOIN ideal i2 on i2.Id = bg.IdealID2 " +
+                    $"where bg.Id = @bId;");
 
                 cmd.Parameters.AddWithValue("@bId", backgroundId);
                 cmd.Connection = conn;
 
                 reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
+                while (reader.Read()) {
                     ideal.Add(Convert.ToString(reader["I1"]));
                     ideal.Add(Convert.ToString(reader["I2"]));
                 }
                 reader.Close();
 
                 // Bond
-                cmd = new SqlCommand($"" +
-                    $"Select" +
-                    $"b.Description AS 'B1', b2.Description AS 'B2'" +
-                    $"FROM background bg" +
-                    $"INNER JOIN bond b on b.Id = bg.BondID1" +
-                    $"INNER JOIN bond b2 on b2.Id = bg.BondID2" +
-                    $"where bg.Id = @bId");
+                cmd = new SqlCommand(
+                    $"Select " +
+                    $"b.Description AS 'B1', b2.Description AS 'B2' " +
+                    $"FROM characterbackground bg " +
+                    $"INNER JOIN bond b on b.Id = bg.BondID1 " +
+                    $"INNER JOIN bond b2 on b2.Id = bg.BondID2 " +
+                    $"where bg.Id = @bId;");
 
                 cmd.Parameters.AddWithValue("@bId", backgroundId);
                 cmd.Connection = conn;
 
                 reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
+                while (reader.Read()) {
                     bond.Add(Convert.ToString(reader["B1"]));
                     bond.Add(Convert.ToString(reader["B2"]));
                 }
                 reader.Close();
 
                 // Flaw
-                cmd = new SqlCommand($"" +
-                    $"Select" +
-                    $"f.Description AS 'F1', f2.Description AS 'F2'" +
-                    $"FROM background bg" +
-                    $"INNER JOIN flaw f on f.Id = bg.FlawID1" +
-                    $"INNER JOIN flaw f2 on f2.Id = bg.FlawID2" +
-                    $"where bg.Id = @bId");
+                cmd = new SqlCommand(
+                    $"Select " +
+                    $"f.Description AS 'F1', f2.Description AS 'F2' " +
+                    $"FROM characterbackground bg " +
+                    $"INNER JOIN flaw f on f.Id = bg.FlawID1 " +
+                    $"INNER JOIN flaw f2 on f2.Id = bg.FlawID2 " +
+                    $"where bg.Id = @bId; ");
 
                 cmd.Parameters.AddWithValue("@bId", backgroundId);
                 cmd.Connection = conn;
 
                 reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
+                while (reader.Read()) {
                     flaw.Add(Convert.ToString(reader["F1"]));
                     flaw.Add(Convert.ToString(reader["F2"]));
                 }
                 reader.Close();
 
-                background = new Background(bgType.Name, bgType.Description, personality, ideal, bond, flaw);
-                background.BackgroundId = backgroundId;
+                // Background Description
+                cmd = new SqlCommand("SELECT bt.name, bt.description " +
+                    "FROM backgroundtype bt " +
+                    "INNER JOIN characterbackground cb " +
+                    "ON cb.BackgroundTypeID = bt.Id " +
+                    "WHERE cb.ID = @ID;");
+                cmd.Parameters.AddWithValue("@ID", backgroundId);
 
-            } catch (SqlException) {
-                // Figure out what to give with the exception
-                background = null;
-            } finally {
-                conn.Close();
+                cmd.Connection = conn;
+                reader = cmd.ExecuteReader();
+                string bgName = "";
+                string bgDescription = "";
+                if (reader.Read()) {
+                    bgName = Convert.ToString(reader["name"]);
+                    bgDescription = Convert.ToString(reader["description"]);
+                }
+
+                background = new Background(backgroundId, bgName, bgDescription, personality, ideal, bond, flaw);
             }
 
             return background;
@@ -373,8 +363,84 @@ namespace DnDSQLLib.dal {
         /// Retrieves all backgrounds from the database
         /// </summary>
         /// <returns>Collection of backgrounds</returns>
-        //public List<Background> GetAllBackgrounds() {
-            // TODO: implement method to retrieve all backgrounds
-        //}
+        public List<Background> GetAllBackgroundTypes() {
+            List<Background> backgrounds = new List<Background>();
+
+            // TODO: find a way to implement this without multiple connections, seems messy and dangerous
+            using (conn) {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT id, name, description FROM backgroundType;");
+                cmd.Connection = conn;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read()) {
+                    List<string> personalityTraits = new List<string>();
+                    List<string> ideals = new List<string>();
+                    List<string> bonds = new List<string>();
+                    List<string> flaws = new List<string>();
+
+                    int backgroundID = Convert.ToInt32(reader["id"]);
+
+                    SqlCommand cmdLists = new SqlCommand("SELECT description " +
+                        "FROM personality p INNER JOIN bgTypePersonality bgp ON bgp.PersonalityId = p.id " +
+                        "WHERE bgp.TypeId = @ID;");
+                    cmdLists.Parameters.AddWithValue("@ID", backgroundID);
+                    cmdLists.Connection = conn;
+                    SqlDataReader personalityReader = cmdLists.ExecuteReader();
+                    while (personalityReader.Read()) {
+                        personalityTraits.Add(Convert.ToString(personalityReader["description"]));
+                    }
+                    personalityReader.Close();
+
+                    cmdLists = new SqlCommand("SELECT description " +
+                        "FROM ideal p INNER JOIN bgTypeIdeal bgi ON bgi.IdealID = p.id " +
+                        "WHERE bgi.TypeId = @ID;");
+                    cmdLists.Parameters.AddWithValue("@ID", backgroundID);
+                    cmdLists.Connection = conn;
+                    SqlDataReader idealReader = cmdLists.ExecuteReader();
+                    while (idealReader.Read()) {
+                        ideals.Add(Convert.ToString(idealReader["description"]));
+                    }
+                    idealReader.Close();
+
+                    cmdLists = new SqlCommand("SELECT description " +
+                        "FROM bond p INNER JOIN bgTypeBond bgb ON bgb.BondID = p.id " +
+                        "WHERE bgb.TypeId = @ID;");
+                    cmdLists.Parameters.AddWithValue("@ID", backgroundID);
+                    cmdLists.Connection = conn;
+                    SqlDataReader bondReader = cmdLists.ExecuteReader();
+                    while (bondReader.Read()) {
+                        bonds.Add(Convert.ToString(bondReader["description"]));
+                    }
+                    bondReader.Close();
+
+                    cmdLists = new SqlCommand("SELECT description " +
+                        "FROM flaw p INNER JOIN bgTypeFlaw bgf ON bgf.FlawID = p.id " +
+                        "WHERE bgf.TypeId = @ID;");
+                    cmdLists.Parameters.AddWithValue("@ID", backgroundID);
+                    cmdLists.Connection = conn;
+                    SqlDataReader flawReaer = cmdLists.ExecuteReader();
+                    while (flawReaer.Read()) {
+                        flaws.Add(Convert.ToString(flawReaer["description"]));
+                    }
+                    flawReaer.Close();
+
+                    backgrounds.Add(new Background(
+                        backgroundID,
+                        Convert.ToString(reader["name"]),
+                        Convert.ToString(reader["description"]),
+                        personalityTraits,
+                        ideals,
+                        bonds,
+                        flaws
+                    ));
+                }
+
+            }
+
+            return backgrounds;
+        }
     }
 }

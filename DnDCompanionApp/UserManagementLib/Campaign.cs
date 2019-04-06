@@ -7,7 +7,6 @@ using CharacterCreationLib;
 using UserManagementLib;
 
 namespace UserManagementLib {
-    [Serializable]
     /// <summary>
     /// A D&D campaign which holds groups for the users and characters within the campaign
     /// </summary>
@@ -165,21 +164,11 @@ namespace UserManagementLib {
         public Campaign(string campaignName, string campaignDescription, List<User> campaignUsers,
             List<Character> campaignCharacters, User dungeonMaster
             ) {
-            ID = GenerateID();
             CampaignName = campaignName;
             CampaignDescription = campaignDescription;
             CampaignUsers = campaignUsers;
             CampaignCharacters = campaignCharacters;
             DungeonMaster = dungeonMaster;
-        }
-
-        /// <summary>
-        /// Generates unique 6 digit ID
-        /// </summary>
-        /// <returns></returns>
-        private int GenerateID() {
-            Random rnd = new Random();
-            return rnd.Next(100000, 999999);
         }
 
         /// <summary>

@@ -11,19 +11,13 @@ namespace DnDSQLLib.dal {
         SqlConnection conn;
 
         public FeatureDAO() {
-            try {
-                conn = ConnectionFactory.GetConnection();
-                conn.Open();
-                conn.Close();   // Just double checking to make sure that yes, we can indeed access the server
-            } catch (SqlException) {
-                // Figure out how to let the user know that things just aint happening
-            }
+            conn = ConnectionFactory.GetConnection();
         }
 
         public List<Feature> GetClassFeatures(int classId) {
             List<Feature> features = new List<Feature>();
 
-            try {
+            using (conn)  {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"select f.Id, f.Name, f.Description from features f join classFeatures cf on cf.FeatureId = f.Id where cf.ClassId = @cId");
@@ -39,18 +33,13 @@ namespace DnDSQLLib.dal {
                 reader.Close();
 
                 return features;
-            } catch (SqlException) {
-                // **ERROR PLACE HOLDER**
-                return null;
-            } finally {
-                conn.Close();
             }
         }
 
         public Feature GetFeature(int featureId) {
             Feature feature = null;
 
-            try {
+            using (conn) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"select f.Id, f.Name, f.Description from features f" +
@@ -66,11 +55,6 @@ namespace DnDSQLLib.dal {
                 reader.Close();
 
                 return feature;
-            } catch (SqlException) {
-                // **ERROR PLACE HOLDER**
-                return null;
-            } finally {
-                conn.Close();
             }
         }
     }

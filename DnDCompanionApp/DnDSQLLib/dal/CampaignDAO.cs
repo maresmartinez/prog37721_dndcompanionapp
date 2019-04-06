@@ -38,7 +38,7 @@ namespace DnDSQLLib.dal {
         /// <param name="campaign">Campaign to be uploaded</param>
         /// <returns>Number of rows that were affected in the database</returns>
         public int UploadCampaign(Campaign campaign) {
-            int count = 0;
+            int campaignId;
 
             using (conn) {
                 conn.Open();
@@ -52,7 +52,8 @@ namespace DnDSQLLib.dal {
                 cmd.Parameters.AddWithValue("@DM", campaign.DungeonMaster.ID);
                 cmd.Connection = conn;
 
-                count = cmd.ExecuteNonQuery();
+                campaignId = Convert.ToInt32(cmd.ExecuteScalar());
+                campaign.ID = campaignId;
 
                 // Insert campaign into userCampaign table to associate with users
                 foreach (User campaignUser in campaign.CampaignUsers) {
@@ -61,7 +62,7 @@ namespace DnDSQLLib.dal {
                     cmd.Connection = conn;
                     cmd.Parameters.AddWithValue("@UID", campaignUser.ID);
                     cmd.Parameters.AddWithValue("@CID", campaign.ID);
-                    count += cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                 }
 
                 // Insert campaign into characterCampaign table to associate with characters
@@ -71,11 +72,11 @@ namespace DnDSQLLib.dal {
                     cmd.Connection = conn;
                     //cmd.Parameters.AddWithValue("@CharID", campaignCharacter.ID); //TODO: add ID to character class
                     cmd.Parameters.AddWithValue("@CampID", campaign.ID);
-                    count += cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                 }
             }
 
-            return count;
+            return campaignId;
         }
 
         /// <summary>

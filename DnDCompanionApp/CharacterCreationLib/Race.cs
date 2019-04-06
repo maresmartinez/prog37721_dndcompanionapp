@@ -13,6 +13,7 @@ namespace CharacterCreationLib {
         public int RaceId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+
         public List<Language> Languages {
             get {
                 return languages;
@@ -32,6 +33,13 @@ namespace CharacterCreationLib {
         }
 
         public Race(string name, string description, List<Language> languages) {
+            Name = name;
+            Description = description;
+            Languages = languages;
+        }
+
+        public Race(int id, string name, string description, List<Language> languages) {
+            RaceId = id;
             Name = name;
             Description = description;
             Languages = languages;

@@ -48,11 +48,11 @@ namespace DnDSQLLib.dal {
                     string name = Convert.ToString(reader["name"]);
                     string description = Convert.ToString(reader["description"]);
 
-                    SqlCommand cmd2 = new SqlCommand("SELECT languageID from raceLanguage WHERE raceID=@ID;");
-                    cmd2.Parameters.AddWithValue("@ID", id);
-                    cmd2.Connection = conn;
+                    SqlCommand cmdLanguage = new SqlCommand("SELECT languageID from raceLanguage WHERE raceID=@ID;");
+                    cmdLanguage.Parameters.AddWithValue("@ID", id);
+                    cmdLanguage.Connection = conn;
 
-                    SqlDataReader languageReader = cmd2.ExecuteReader();
+                    SqlDataReader languageReader = cmdLanguage.ExecuteReader();
                     List<Language> languages = new List<Language>();
                     while (languageReader.Read()) {
                         int languageId = Convert.ToInt32(languageReader["languageID"]);
@@ -60,10 +60,37 @@ namespace DnDSQLLib.dal {
                     }
                     languageReader.Close();
 
-                    races.Add(new Race(name, description, languages));
+                    races.Add(new Race(id, name, description, languages));
                 }
             }
             return races;
+        }
+
+        /// <summary>
+        /// Retrieves a character's race
+        /// </summary>
+        /// <param name="characterId">Character id</param>
+        /// <returns>The race of the character, or null if character does not exist</returns>
+        public Race GetCharacterRace(int characterId) {
+            int raceId = 0;
+
+            using (conn) {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT raceid FROM character WHERE id=@ID;");
+                cmd.Parameters.AddWithValue("@ID", characterId);
+                cmd.Connection = conn;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read()) {
+                    raceId = Convert.ToInt32(reader["raceid"]);
+                }
+            } // DB Connection automatically disposed, must reinitialize since this method calls another method in the class
+
+            conn = ConnectionFactory.GetConnection();
+
+            Race race = GetRace(raceId);
+            return race;
         }
 
         /// <summary>
@@ -77,7 +104,7 @@ namespace DnDSQLLib.dal {
             string description = "";
             List<Language> languages = new List<Language>();
 
-            try {
+            using (conn) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"select Name, Description from race where Id = @rId");
@@ -105,11 +132,6 @@ namespace DnDSQLLib.dal {
 
                 race = new Race(name, description, languages);
                 return race;
-            } catch (SqlException) {
-                // **ERROR PLACE HOLDER**
-                return null;
-            } finally {
-                conn.Close();
             }
         }
     }

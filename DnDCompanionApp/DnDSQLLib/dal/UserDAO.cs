@@ -102,30 +102,28 @@ namespace DnDSQLLib.dal {
         /// <returns>Collection of characters</returns>
         public List<Character> GetUserCharacters(int userId) {
             List<Character> characters = new List<Character>();
-
-            try {
+            List<int> characterIds = new List<int>();
+            CharacterDAO cDAO = new CharacterDAO();
+            using (conn) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"select charId from userCharacter where userId = @uId");
                 cmd.Parameters.AddWithValue("@uId", userId);
                 cmd.Connection = conn;
 
-                CharacterDAO cDAO = new CharacterDAO();
-
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read()) {
-                    characters.Add(cDAO.GetCharacter(Convert.ToInt32(reader["charId"])));
+                    //characters.Add(cDAO.GetCharacter(Convert.ToInt32(reader["charId"])));
+                    characterIds.Add(Convert.ToInt32(reader["charId"]));
                 }
                 reader.Close();
-
-                return characters;
-            } catch (SqlException) {
-                // **ERROR PLACE HOLDER**
-                conn.Close();
-                return null;
-            } finally {
-                conn.Close();
             }
+
+            foreach (int id in characterIds) {
+                characters.Add(cDAO.GetCharacter(id));
+            }
+
+            return characters;
         }
 
         /// <summary>

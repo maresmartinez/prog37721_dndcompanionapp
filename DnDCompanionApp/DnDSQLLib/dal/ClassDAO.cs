@@ -22,13 +22,7 @@ namespace DnDSQLLib.dal {
         /// Constructor
         /// </summary>
         public ClassDAO() {
-            try {
-                conn = ConnectionFactory.GetConnection();
-                conn.Open();
-                conn.Close();   // Just double checking to make sure that yes, we can indeed access the server
-            } catch (SqlException) {
-                // Figure out how to let the user know that things just aint happening
-            }
+            conn = ConnectionFactory.GetConnection();
         }
 
         /// <summary>
@@ -59,11 +53,37 @@ namespace DnDSQLLib.dal {
                     FeatureDAO fDAO = new FeatureDAO();
                     List<Feature> features = fDAO.GetClassFeatures(classID);
 
-                    classes.Add(new Class(name, description, features, dice, skills));
+                    classes.Add(new Class(classID, name, description, features, dice, skills));
                 }
             }
 
             return classes;
+        }
+
+        /// <summary>
+        /// Retrieves the class of a character
+        /// </summary>
+        /// <param name="characterId">The character id</param>
+        /// <returns>The class of the character, or null if character does not exist</returns>
+        public Class GetCharacterClass(int characterId) {
+            int classId = 0;
+
+            using (conn) {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT classid FROM character WHERE id=@ID;");
+                cmd.Parameters.AddWithValue("@ID", characterId);
+                cmd.Connection = conn;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read()) {
+                    classId = Convert.ToInt32(reader["classId"]);
+                }
+            } // DB Connection automatically disposed, must reinitialize since this method calls another method in the class
+
+            conn = ConnectionFactory.GetConnection();
+            Class charClass = GetClass(classId);
+            return charClass;
         }
 
         /// <summary>
@@ -85,11 +105,11 @@ namespace DnDSQLLib.dal {
             SkillsDAO sDAO = new SkillsDAO();
             List<Skills> skills = sDAO.GetAllSkills();
 
-            try {
+            using (conn) {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand($"" +
-                        $"select Name, Description, hitDice from class where Id = @cId");
+                        $"select Name, Description, hitDice from class where Id = @cId;");
                 cmd.Parameters.AddWithValue("@cId", classID);
                 cmd.Connection = conn;
 
@@ -105,8 +125,6 @@ namespace DnDSQLLib.dal {
                 charClass = new Class(name, description, features, dice, skills);
 
                 return charClass;
-            } finally {
-                conn.Close();
             }
         }
     }

@@ -260,20 +260,6 @@ namespace DnDWebApp.Users.Campaigns {
             character1.IntMod = 5;
             character1.WisMod = 5;
             character1.ChrMod = 5;
-            character1.FeatureList = new List<Feature>(
-                    // Initializing list with features
-                    new Feature[] {
-                        new Feature("Second Wind",
-                            "You have a limited well of stamina that you can draw on to protect " +
-                            "yourself from harm."),
-                        new Feature("Action Surge",
-                            "You can push yourself beyond your normal limits for a moment. On your " +
-                            "turn, you can take one additional action."),
-                        new Feature("Martial Archetype",
-                            "You choose an archetype that you strive to emulate in your combat styles " +
-                            "and techniques. Choose Chamption, Battle Master, or Eldritch Knight.")
-                    }
-                );
             character1.CharacterBackground = new Background(
                 "Acolyte",
                 "You have spent your life in the service of a temple to a specific god or pantheon of gods.",
@@ -362,20 +348,6 @@ namespace DnDWebApp.Users.Campaigns {
             character2.IntMod = 5;
             character2.WisMod = 5;
             character2.ChrMod = 5;
-            character2.FeatureList = new List<Feature>(
-                    // Initializing list with features
-                    new Feature[] {
-                        new Feature("Second Wind",
-                            "You have a limited well of stamina that you can draw on to protect " +
-                            "yourself from harm."),
-                        new Feature("Action Surge",
-                            "You can push yourself beyond your normal limits for a moment. On your " +
-                            "turn, you can take one additional action."),
-                        new Feature("Martial Archetype",
-                            "You choose an archetype that you strive to emulate in your combat styles " +
-                            "and techniques. Choose Chamption, Battle Master, or Eldritch Knight.")
-                    }
-                );
             character2.CharacterBackground = new Background(
                 "Acolyte",
                 "You have spent your life in the service of a temple to a specific god or pantheon of gods.",
@@ -464,20 +436,6 @@ namespace DnDWebApp.Users.Campaigns {
             character3.IntMod = 5;
             character3.WisMod = 5;
             character3.ChrMod = 5;
-            character3.FeatureList = new List<Feature>(
-                    // Initializing list with features
-                    new Feature[] {
-                        new Feature("Second Wind",
-                            "You have a limited well of stamina that you can draw on to protect " +
-                            "yourself from harm."),
-                        new Feature("Action Surge",
-                            "You can push yourself beyond your normal limits for a moment. On your " +
-                            "turn, you can take one additional action."),
-                        new Feature("Martial Archetype",
-                            "You choose an archetype that you strive to emulate in your combat styles " +
-                            "and techniques. Choose Chamption, Battle Master, or Eldritch Knight.")
-                    }
-                );
             character3.CharacterBackground = new Background(
                 "Acolyte",
                 "You have spent your life in the service of a temple to a specific god or pantheon of gods.",

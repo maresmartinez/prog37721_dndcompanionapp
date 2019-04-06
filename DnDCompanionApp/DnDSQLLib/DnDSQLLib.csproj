@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dal\AppearanceDAO.cs" />
     <Compile Include="dal\BackgroundDAO.cs" />
     <Compile Include="dal\CampaignDAO.cs" />
     <Compile Include="dal\CharacterDAO.cs" />
@@ -51,7 +50,6 @@
     <Compile Include="dal\FeatureDAO.cs" />
     <Compile Include="dal\RaceDAO.cs" />
     <Compile Include="dal\SkillsDAO.cs" />
-    <Compile Include="dal\StatsDAO.cs" />
     <Compile Include="dal\UserDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="dal\SpellDAO.cs" />
