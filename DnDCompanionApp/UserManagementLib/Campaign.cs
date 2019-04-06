@@ -58,76 +58,69 @@ namespace UserManagementLib {
         public User DungeonMaster {
             get { return dungeonMaster; }
             set {
-                if (value is null) {
+                if (value == null) {
                     throw new ArgumentException("Campaign must have a dungeon master");
-                } else if (this.IsUserInCampaign(value)) {
-                    throw new ArgumentException("Dungeon Master cannot also be in campaign");
-                } else {
-                    dungeonMaster = value;
                 }
-
-                if (value is null) {
-                    throw new ArgumentException("Campaign must have a dungeon master");
-                } else {
-                    dungeonMaster = value;
-                }
+                dungeonMaster = value;
             }
         }
 
-        /// <summary>
-        /// All users in the campaign
-        /// </summary>
-        List<User> campaignUsers;
-        /// <summary>
-        /// All users in the campaign
-        /// </summary>
-        public List<User> CampaignUsers {
-            get { return campaignUsers; }
-            set {
-                if (value.Count < 2) {
-                    throw new ArgumentException("Must have at least two Campaign Users");
-                }
+        ///// <summary>
+        ///// All users in the campaign
+        ///// </summary>
+        //List<User> campaignUsers;
+        ///// <summary>
+        ///// All users in the campaign
+        ///// </summary>
+        //public List<User> CampaignUsers {
+        //    get { return campaignUsers; }
+        //    set {
+        //        if (value.Count < 2) {
+        //            throw new ArgumentException("Must have at least two Campaign Users");
+        //        }
 
-                campaignUsers = value;
-            }
-        }
+        //        campaignUsers = value;
+        //    }
+        //}
+        public List<User> CampaignUsers { get; set; }
 
         /// <summary>
         /// The user characters that are in the campaign
         /// </summary>
-        List<Character> campaignCharacters;
+        //List<Character> campaignCharacters;
         /// <summary>
         /// The user characters that are in the campaign
         /// </summary>
-        public List<Character> CampaignCharacters {
-            get { return campaignCharacters; }
-            set {
-                // Ensure that all Characters in List belong to one of the CampaignUsers
-                foreach (Character character in value) {
-                    bool characterNotValid = true;
+        //public List<Character> CampaignCharacters {
+        //    get { return campaignCharacters; }
+        //    set {
+        //        // Ensure that all Characters in List belong to one of the CampaignUsers
+        //        foreach (Character character in value) {
+        //            bool characterNotValid = true;
 
-                    // characterNotValid will only become false if one of the users own it
-                    foreach (User user in CampaignUsers) {
-                        if (user.DoesUserOwnCharacter(character)) {
-                            characterNotValid = false;
-                            break;
-                        }
-                    }
+        //            // characterNotValid will only become false if one of the users own it
+        //            foreach (User user in CampaignUsers) {
+        //                if (user.DoesUserOwnCharacter(character)) {
+        //                    characterNotValid = false;
+        //                    break;
+        //                }
+        //            }
 
-                    // If flag is 
-                    if (characterNotValid) {
-                        throw new ArgumentException("Campaign character must be owned by one of the campaign users");
-                    }
-                }
+        //            // If flag is 
+        //            if (characterNotValid) {
+        //                throw new ArgumentException("Campaign character must be owned by one of the campaign users");
+        //            }
+        //        }
 
-                // Characters must equal users; users can only play one character
-                if (value.Count != CampaignUsers.Count) {
-                    throw new ArgumentException("Campaign users must equal characters");
-                }
+        //        // Characters must equal users; users can only play one character
+        //        if (value.Count != CampaignUsers.Count) {
+        //            throw new ArgumentException("Campaign users must equal characters");
+        //        }
 
-                campaignCharacters = value;
-            }
-        }
+        //        campaignCharacters = value;
+        //    }
+        //}
+        public List<Character> CampaignCharacters { get; set; }
 
         /// <summary>
         /// Unique identifier for campaign
@@ -227,12 +220,12 @@ namespace UserManagementLib {
         /// <summary>
         /// Adds this instance of campaign to the users who are a part of it
         /// </summary>
-        public void AddCampaignToAllUsers() {
-            DungeonMaster.AddCampaign(this);
-            foreach (User user in CampaignUsers) {
-                user.AddCampaign(this);
-            }
-        }
+        //public void AddCampaignToAllUsers() {
+        //    DungeonMaster.AddCampaign(this);
+        //    foreach (User user in CampaignUsers) {
+        //        user.AddCampaign(this);
+        //    }
+        //}
 
         /// <summary>
         /// Determines equality by checking if two campaign objects share the same name, 

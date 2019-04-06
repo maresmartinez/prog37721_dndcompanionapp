@@ -349,7 +349,6 @@ namespace DnDWebApp.Users.Characters {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void BtnSave_Click(object sender, EventArgs e) {
-            // TODO: insert into database
             Character character = (Character)Session["character"];
 
             UserDAO userDAO = new UserDAO();
@@ -358,7 +357,7 @@ namespace DnDWebApp.Users.Characters {
             CharacterDAO characterDAO = new CharacterDAO();
             character.DbID = characterDAO.UploadCharacter(user.ID, character);
 
-            Response.Redirect("~/Home.aspx");
+            Response.Redirect("~/Users/Characters/SeeAllCharacters.aspx?newCharacter=true");
         }
 
         /// <summary>

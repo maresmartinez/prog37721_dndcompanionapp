@@ -4,6 +4,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="mt-5">Your Characters</h1>
     <p class="lead">These are the characters you have created.</p>
+
+    <div id="NewCharacter" runat="server" class="alert alert-success" role="alert" visible="false">
+        Your new character has been added to your collection!
+    </div>
+
     <div class="form-group">
         <asp:Label ID="LblCharacter" runat="server" Text="Choose Character to Display"></asp:Label>
         <asp:DropDownList ID="DDCharacters" runat="server" CssClass="custom-select" AutoPostBack="true" OnSelectedIndexChanged="DDCharacters_SelectedIndexChanged"></asp:DropDownList>

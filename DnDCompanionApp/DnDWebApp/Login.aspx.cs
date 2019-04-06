@@ -30,7 +30,6 @@ namespace DnDWebApp {
             string username = TxtUsername.Text;
             string password = TxtPassword.Text;
 
-            // TODO: call authentication method from database
             UserDAO userDAO = new UserDAO();
             if (userDAO.AuthenticateUser(username, password)) {
                 // Successful

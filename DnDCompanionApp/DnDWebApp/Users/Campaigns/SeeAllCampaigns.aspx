@@ -5,6 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="mt-5">Your Campaigns</h1>
     <p class="lead">These are the campaigns that you are a part of.</p>
+
+    <div id="NewCampaign" runat="server" class="alert alert-success" role="alert" visible="false">
+        Your new campaign has been added to your collection!
+    </div>
+
     <div class="form-group">
         <asp:Label ID="LblCampaigns" runat="server" Text="Choose Campaign to Display"></asp:Label>
         <asp:DropDownList ID="DDCampaigns" runat="server" CssClass="custom-select" AutoPostBack="true" OnSelectedIndexChanged="DDCampaigns_SelectedIndexChanged"></asp:DropDownList>

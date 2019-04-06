@@ -101,17 +101,14 @@ namespace DnDSQLLib.dal {
         /// <returns></returns>
         public int DeleteCharacter(int characterId) {
             int count = 0;
-            try {
+            using (conn) {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand($"" +
-                    $"delete from character where Id = @cId");
+                SqlCommand cmd = new SqlCommand($"delete from character where Id = @cId");
                 cmd.Parameters.AddWithValue("@cId", characterId);
 
                 count = cmd.ExecuteNonQuery();
                 return count;
-            } finally {
-                conn.Close();
             }
         }
 
@@ -132,6 +129,8 @@ namespace DnDSQLLib.dal {
             BackgroundDAO backgroundDAO = new BackgroundDAO();
             Background background = backgroundDAO.GetCharacterBackground(characterId);
 
+            conn = ConnectionFactory.GetConnection();
+
             using (conn) {
                 conn.Open();
 
@@ -143,6 +142,7 @@ namespace DnDSQLLib.dal {
 
                 if (reader.Read()) {
                     character = new Character(
+                        Convert.ToInt32(reader["id"]),
                         Convert.ToString(reader["name"]),
                         Convert.ToInt32(reader["str"]),
                         Convert.ToInt32(reader["dex"]),

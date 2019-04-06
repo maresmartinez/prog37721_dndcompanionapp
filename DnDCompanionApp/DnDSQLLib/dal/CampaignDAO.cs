@@ -22,13 +22,7 @@ namespace DnDSQLLib.dal {
         /// Constructor
         /// </summary>
         public CampaignDAO() {
-            try {
-                conn = ConnectionFactory.GetConnection();
-                conn.Open();
-                conn.Close();   // Just double checking to make sure that yes, we can indeed access the server
-            } catch (SqlException) {
-                // Figure out how to let the user know that things just aint happening
-            }
+            conn = ConnectionFactory.GetConnection();
         }
 
         /// <summary>
@@ -36,7 +30,7 @@ namespace DnDSQLLib.dal {
         /// </summary>
         /// <param name="userId">User to be associated with campaign</param>
         /// <param name="campaign">Campaign to be uploaded</param>
-        /// <returns>Number of rows that were affected in the database</returns>
+        /// <returns>ID of the campaign that was created</returns>
         public int UploadCampaign(Campaign campaign) {
             int campaignId;
 
@@ -44,9 +38,8 @@ namespace DnDSQLLib.dal {
                 conn.Open();
 
                 // Insert campaign into campaigns table
-                SqlCommand cmd = new SqlCommand("INSERT INTO campaign (id, name, description, dungeonMasterId) " +
-                    "VALUES (@CID, @Name, @Description, @DM)");
-                cmd.Parameters.AddWithValue("@CID", campaign.ID);
+                SqlCommand cmd = new SqlCommand("INSERT INTO campaign (name, description, dungeonMasterId) " +
+                    "VALUES (@Name, @Description, @DM); SELECT SCOPE_IDENTITY();");
                 cmd.Parameters.AddWithValue("@Name", campaign.CampaignName);
                 cmd.Parameters.AddWithValue("@Description", campaign.CampaignDescription);
                 cmd.Parameters.AddWithValue("@DM", campaign.DungeonMaster.ID);
@@ -70,7 +63,7 @@ namespace DnDSQLLib.dal {
                     cmd = new SqlCommand("INSERT INTO characterCampaign (charId, campaignId) " +
                     "VALUES (@CharID, @CampID)");
                     cmd.Connection = conn;
-                    //cmd.Parameters.AddWithValue("@CharID", campaignCharacter.ID); //TODO: add ID to character class
+                    cmd.Parameters.AddWithValue("@CharID", campaignCharacter.DbID);
                     cmd.Parameters.AddWithValue("@CampID", campaign.ID);
                     cmd.ExecuteNonQuery();
                 }
@@ -85,61 +78,84 @@ namespace DnDSQLLib.dal {
         /// <param name="campaignId">Campaign to be retrieved</param>
         /// <returns>Campaign</returns>
         public Campaign GetCampaign(int campaignId) {
-            Campaign campaign = null;
+            List<int> userIds = new List<int>();
+            List<int> characterIds = new List<int>();
 
-            try {
+            string name;
+            string description;
+            int dungeonMasterID;
+
+            conn = ConnectionFactory.GetConnection(); // need to reinitialize because this is called in a loop which disposes connection
+            using (conn) {
                 conn.Open();
-                // Get the users in campaign
-                List<User> users = new List<User>();
-                UserDAO uDAO = new UserDAO();
+
+                // Get the campaign
                 SqlCommand cmd = new SqlCommand($"" +
-                    $"select userId from campaign where Id = @cId");
+                    $"select * from campaign where Id = @cId;");
                 cmd.Parameters.AddWithValue("@cId", campaignId);
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read()) {
-                    users.Add(uDAO.GetUser(Convert.ToInt32(reader["UserId"])));
+                if (reader.Read()) {
+                    name = Convert.ToString(reader["Name"]);
+                    description = Convert.ToString(reader["Description"]);
+                    dungeonMasterID = Convert.ToInt32(reader["dungeonMasterId"]);
+                } else {
+                    return null;
                 }
                 reader.Close();
 
-                // Get the characters in campaign
-                List<Character> characters = new List<Character>();
-                CharacterDAO cDAO = new CharacterDAO();
+                // Get ids for users in campaign
                 cmd = new SqlCommand($"" +
-                    $"select CharId from campaign where Id = @cId");
+                    $"select userId from userCampaign where campaignId = @cId;");
                 cmd.Parameters.AddWithValue("@cId", campaignId);
                 cmd.Connection = conn;
 
                 reader = cmd.ExecuteReader();
                 while (reader.Read()) {
-                    characters.Add(cDAO.GetCharacter(Convert.ToInt32(reader["CharId"])));
+                    userIds.Add(Convert.ToInt32(reader["userId"]));
                 }
                 reader.Close();
 
+                // Get ids for characters in campaign
                 cmd = new SqlCommand($"" +
-                    $"select * from campaign where Id = @cId");
+                    $"select CharId from characterCampaign where campaignId = @cId;");
                 cmd.Parameters.AddWithValue("@cId", campaignId);
                 cmd.Connection = conn;
 
-                // Get the campaign
                 reader = cmd.ExecuteReader();
                 while (reader.Read()) {
-                    campaign = new Campaign(Convert.ToInt32(reader["id"]),
-                        Convert.ToString(reader["Name"]),
-                        Convert.ToString(reader["Description"]),
-                        users,
-                        characters,
-                        uDAO.GetUser(Convert.ToInt32(reader["dungeonMasterId"])));
+                    characterIds.Add(Convert.ToInt32(reader["charId"]));
                 }
                 reader.Close();
-                return campaign;
-            } catch (SqlException) {
-                // **ERROR PLACE HOLDER**
-                return null;
-            } finally {
-                conn.Close();
             }
+
+            // Populate list with users
+            List<User> users = new List<User>();
+            UserDAO uDAO = new UserDAO();
+            foreach (int id in userIds) {
+                users.Add(uDAO.GetUser(id));
+            }
+            User dungeonMaster = uDAO.GetUser(dungeonMasterID);
+
+            // Populate list with characters
+            List<Character> characters = new List<Character>();
+            CharacterDAO cDAO = new CharacterDAO();
+            foreach (int id in characterIds) {
+                characters.Add(cDAO.GetCharacter(id));
+            }
+
+            // Instantiate campaign
+            Campaign campaign = new Campaign(
+                campaignId,
+                name,
+                description,
+                users,
+                characters,
+                dungeonMaster
+            );
+
+            return campaign;
         }
     }
 }

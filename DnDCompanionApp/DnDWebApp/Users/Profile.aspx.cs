@@ -17,7 +17,6 @@ namespace DnDWebApp.Users {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e) {
-            // TODO: retrieve logged in user
             UserDAO userDAO = new UserDAO();
             User loggedInUser = userDAO.GetUser(Context.User.Identity.Name);
 

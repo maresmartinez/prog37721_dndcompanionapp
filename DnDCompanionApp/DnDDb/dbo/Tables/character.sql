@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[character] (
+    [Id]         INT            IDENTITY (1, 1) NOT NULL,
+    [Name]       NVARCHAR (128) NOT NULL,
+    [Notes]      NVARCHAR (MAX) NULL,
+    [RaceID]     INT            NOT NULL,
+    [ClassID]    INT            NOT NULL,
+    [CharBackID] INT            NOT NULL,
+    [Str]        INT            NOT NULL,
+    [Dex]        INT            NOT NULL,
+    [Con]        INT            NOT NULL,
+    [Int]        INT            NOT NULL,
+    [Wis]        INT            NOT NULL,
+    [Chr]        INT            NOT NULL,
+    [StrMod]     INT            NOT NULL,
+    [DexMod]     INT            NOT NULL,
+    [ConMod]     INT            NOT NULL,
+    [IntMod]     INT            NOT NULL,
+    [WisMod]     INT            NOT NULL,
+    [ChrMod]     INT            NOT NULL,
+    [Hair]       NVARCHAR (64)  NULL,
+    [Eyes]       NVARCHAR (64)  NULL,
+    [Skin]       NVARCHAR (64)  NULL,
+    CONSTRAINT [PK__Characte__3214EC07F55D91BD] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_character_charbackground] FOREIGN KEY ([CharBackID]) REFERENCES [dbo].[characterBackground] ([Id]),
+    CONSTRAINT [FK_character_class] FOREIGN KEY ([ClassID]) REFERENCES [dbo].[class] ([Id]),
+    CONSTRAINT [FK_character_race] FOREIGN KEY ([RaceID]) REFERENCES [dbo].[race] ([Id])
+);
+

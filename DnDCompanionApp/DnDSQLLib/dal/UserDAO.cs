@@ -57,6 +57,35 @@ namespace DnDSQLLib.dal {
         }
 
         /// <summary>
+        /// Retrieves all users in the database
+        /// </summary>
+        /// <returns>Collection of users</returns>
+        public List<User> GetAllUsers() {
+            List<User> users = new List<User>();
+
+            using (conn) {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT id, fullname, username, password, salt from users;");
+
+                cmd.Connection = conn;
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read()) {
+                    users.Add(new User(
+                        Convert.ToInt32(reader["id"]),
+                        Convert.ToString(reader["userName"]),
+                        Convert.ToString(reader["fullName"]),
+                        Convert.ToString(reader["Password"]),
+                        Convert.ToString(reader["Salt"])
+                    ));
+                }
+            }
+
+            return users;
+        }
+
+        /// <summary>
         /// Checks a username and password against the records in the users table. If credentials are invalid, this method 
         /// will not specify whether it was the email or password that was incorrect.
         /// </summary>
@@ -113,7 +142,6 @@ namespace DnDSQLLib.dal {
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read()) {
-                    //characters.Add(cDAO.GetCharacter(Convert.ToInt32(reader["charId"])));
                     characterIds.Add(Convert.ToInt32(reader["charId"]));
                 }
                 reader.Close();
@@ -133,29 +161,40 @@ namespace DnDSQLLib.dal {
         /// <returns>Collection of campaigns</returns>
         public List<Campaign> GetUserCampaigns(int userId) {
             List<Campaign> campaigns = new List<Campaign>();
+            List<int> campaignIds = new List<int>();
 
-            try {
+            using (conn) {
                 conn.Open();
 
-                CampaignDAO camDAO = new CampaignDAO();
-
+                // Get campaigns in which a user is a party member
                 SqlCommand cmd = new SqlCommand($"" +
-                    $"select CampaignId from userCampaign where userId = @uId");
+                    $"select CampaignId from userCampaign where userId = @uId;");
                 cmd.Parameters.AddWithValue("@uId", userId);
+                cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read()) {
-                    campaigns.Add(camDAO.GetCampaign(Convert.ToInt32(reader["CampaignId"])));
+                    campaignIds.Add(Convert.ToInt32(reader["CampaignId"]));
                 }
                 reader.Close();
-                return campaigns;
-            } catch (SqlException) {
-                // **ERROR PLACE HOLDER**
-                conn.Close();
-                return null;
-            } finally {
-                conn.Close();
+
+                // Get campaigns in which user is DM
+                cmd = new SqlCommand("SELECT id FROM campaign WHERE dungeonMasterId = @UID");
+                cmd.Parameters.AddWithValue("@UID", userId);
+                cmd.Connection = conn;
+
+                reader = cmd.ExecuteReader();
+                while (reader.Read()) {
+                    campaignIds.Add(Convert.ToInt32(reader["id"]));
+                }
             }
+
+            CampaignDAO camDAO = new CampaignDAO();
+            foreach (int id in campaignIds) {
+                campaigns.Add(camDAO.GetCampaign(id));
+            }
+
+            return campaigns;
         }
 
         /// <summary>

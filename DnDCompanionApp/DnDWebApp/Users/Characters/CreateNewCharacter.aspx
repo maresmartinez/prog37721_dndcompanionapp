@@ -84,7 +84,7 @@
                 <asp:CheckBoxList ID="ChkLBonds" CssClass="form-check" runat="server"></asp:CheckBoxList>
             </div>
             <div class="form-group">
-                <asp:Label ID="LblFlaws" runat="server" Text="Flaws"></asp:Label>
+                <asp:Label ID="LblFlaws" runat="server" Text="Flaws (Choose Two)"></asp:Label>
                 <asp:CustomValidator ClientValidationFunction="CountFlaws" ID="ReqTwoFlaws" runat="server" ForeColor="#d44a34" 
                     ErrorMessage="(Flaws must have exactly two items selected)"></asp:CustomValidator>
                 <asp:CheckBoxList ID="ChkLFlaws" CssClass="form-check" runat="server"></asp:CheckBoxList>
