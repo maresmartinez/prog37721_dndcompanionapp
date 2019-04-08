@@ -8,7 +8,7 @@ namespace CharacterCreationLib {
     /// <summary>
     /// Race of a character describes the character's heritage and defines their background in the fantasy world of DnD
     /// </summary>
-    public class Race {
+    public class Race : IComparable<Race> {
 
         /// <summary>
         /// Database identifier of race
@@ -52,7 +52,7 @@ namespace CharacterCreationLib {
         /// Description of background
         /// </summary>
         public string Description {
-            get { return name; }
+            get { return description; }
             set {
                 if (string.IsNullOrEmpty(value)) {
                     throw new ArgumentException("Description must have a value");
@@ -114,6 +114,15 @@ namespace CharacterCreationLib {
         /// <returns>Name of race</returns>
         public override string ToString() {
             return Name;
+        }
+
+        /// <summary>
+        /// Compares race by Name field
+        /// </summary>
+        /// <param name="other">Race to compare</param>
+        /// <returns>Integer that compares relative position in alphabet</returns>
+        public int CompareTo(Race other) {
+            return string.Compare(Name, other.Name);
         }
     }
 }

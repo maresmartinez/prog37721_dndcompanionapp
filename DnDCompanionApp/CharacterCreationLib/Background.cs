@@ -8,7 +8,7 @@ namespace CharacterCreationLib {
     /// <summary>
     /// The background of a DnD character, which determines personality, ideals, bonds, and flaws to help build a backstory
     /// </summary>
-    public class Background {
+    public class Background : IComparable<Background> {
 
         /// <summary>
         /// Database identifier of background
@@ -40,7 +40,7 @@ namespace CharacterCreationLib {
         /// Description of background
         /// </summary>
         public string Description {
-            get { return name; }
+            get { return description; }
             set {
                 if (string.IsNullOrEmpty(value)) {
                     throw new ArgumentException("Description must have a value");
@@ -115,6 +115,15 @@ namespace CharacterCreationLib {
         /// <returns>Description of background</returns>
         public override string ToString() {
             return Name;
+        }
+
+        /// <summary>
+        /// Compares background by Name field
+        /// </summary>
+        /// <param name="other">Background to compare</param>
+        /// <returns>Integer that compares relative position in alphabet</returns>
+        public int CompareTo(Background other) {
+            return string.Compare(Name, other.Name);
         }
     }
 }

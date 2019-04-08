@@ -63,6 +63,7 @@ namespace DnDSQLLib.dal {
                     races.Add(new Race(id, name, description, languages));
                 }
             }
+            races.Sort();
             return races;
         }
 

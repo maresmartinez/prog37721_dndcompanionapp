@@ -145,6 +145,10 @@ namespace DnDSQLLib.dal {
             }
         }
 
+        /// <summary>
+        /// Retrieves all types of backgrounds
+        /// </summary>
+        /// <returns>Collection of backgrounds</returns>
         public List<BackgroundType> GetAllBgTypes() {
             List<BackgroundType> bgTypes = new List<BackgroundType>();
             int dbId = 0;
@@ -165,6 +169,11 @@ namespace DnDSQLLib.dal {
             }
         }
 
+        /// <summary>
+        /// Retrieves a specific background type from the database
+        /// </summary>
+        /// <param name="bgTypeId">ID of background to retrieve</param>
+        /// <returns>Background type, or null</returns>
         public BackgroundType GetBgType(int bgTypeId) {
             BackgroundType bgType = null;
 
@@ -183,6 +192,12 @@ namespace DnDSQLLib.dal {
             }
         }
 
+        /// <summary>
+        /// Retrieves all possible traits
+        /// </summary>
+        /// <param name="bgTypeId">Background type ID</param>
+        /// <param name="traitType">Personality, Ideal, Bond, or Flaw trait</param>
+        /// <returns>List of traits</returns>
         public List<string> GetPossibleTraits(int bgTypeId, string traitType) {
             List<string> traits = new List<string>();
 
@@ -440,6 +455,7 @@ namespace DnDSQLLib.dal {
 
             }
 
+            backgrounds.Sort();
             return backgrounds;
         }
     }

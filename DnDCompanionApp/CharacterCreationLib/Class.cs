@@ -8,7 +8,7 @@ namespace CharacterCreationLib {
     /// <summary>
     /// Class describes the skillset of a character and what their abilities are, in and out of combay
     /// </summary>
-    public class Class {
+    public class Class : IComparable<Class> {
         
         /// <summary>
         /// Database identifier of class
@@ -40,7 +40,7 @@ namespace CharacterCreationLib {
         /// Description of background
         /// </summary>
         public string Description {
-            get { return name; }
+            get { return description; }
             set {
                 if (string.IsNullOrEmpty(value)) {
                     throw new ArgumentException("Description must have a value");
@@ -125,6 +125,15 @@ namespace CharacterCreationLib {
         /// <returns>Name of class</returns>
         public override string ToString() {
             return Name;
+        }
+
+        /// <summary>
+        /// Compares class by Name field
+        /// </summary>
+        /// <param name="other">Class to compare</param>
+        /// <returns>Integer that compares relative position in alphabet</returns>
+        public int CompareTo(Class other) {
+            return string.Compare(Name, other.Name);
         }
     }
 }

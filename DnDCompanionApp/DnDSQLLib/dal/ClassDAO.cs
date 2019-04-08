@@ -57,6 +57,7 @@ namespace DnDSQLLib.dal {
                 }
             }
 
+            classes.Sort();
             return classes;
         }
 
@@ -93,6 +94,7 @@ namespace DnDSQLLib.dal {
         /// <returns>The class record</returns>
         public Class GetClass(int classID) {
             Class charClass;
+            int classId = 0;
             string name = "";
             string description = "";
 
@@ -109,12 +111,13 @@ namespace DnDSQLLib.dal {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand($"" +
-                        $"select Name, Description, hitDice from class where Id = @cId;");
+                        $"select Id, Name, Description, hitDice from class where Id = @cId;");
                 cmd.Parameters.AddWithValue("@cId", classID);
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read()) {
+                    classId = Convert.ToInt32(reader["id"]);
                     name = Convert.ToString(reader["name"]);
                     description = Convert.ToString(reader["description"]);
                     hitDiceValue = Convert.ToInt32(reader["hitDice"]);
@@ -122,7 +125,7 @@ namespace DnDSQLLib.dal {
                 }
                 reader.Close();
 
-                charClass = new Class(name, description, features, dice, skills);
+                charClass = new Class(classId, name, description, features, dice, skills);
 
                 return charClass;
             }
