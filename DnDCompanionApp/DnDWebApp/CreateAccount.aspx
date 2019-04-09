@@ -27,7 +27,7 @@
         <asp:CompareValidator ID="CmpPasswords" runat="server" ControlToCompare="TxtPasswordRepeat" ControlToValidate="TxtPassword" Display="Dynamic"
             ErrorMessage="(Passwords must match)" ForeColor="#D44A34" ValidationGroup="CreateAccount"></asp:CompareValidator>
         <asp:RegularExpressionValidator ID="RegexPassword" runat="server" ControlToValidate="TxtPassword" Display="Dynamic"
-            ErrorMessage="(Password must have at least 6 characters)" ForeColor="#D44A34" ValidationExpression=".{6}"
+            ErrorMessage="(Password must have at least 6 characters)" ForeColor="#D44A34" ValidationExpression="^.{6,}$"
             ValidationGroup="CreateAccount"></asp:RegularExpressionValidator>
         <asp:TextBox ID="TxtPassword" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
