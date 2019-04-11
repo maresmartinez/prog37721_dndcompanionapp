@@ -261,16 +261,20 @@ namespace DnDWebApp.Users.Characters {
             string notes = TxtAdditionalNotes.Text;
 
             // Generate character, catch any exceptions
-            Character character = new Character(
-                name, 
-                str, dex, con, intel, wis, chr, 
-                strMod, dexMod, conMod, intelMod, wisMod, chrMod, 
-                charBackground, 
-                hair, eyes, skin, notes, 
-                charRace, 
+            Character character = null;
+            try {
+                character = new Character(
+                name,
+                str, dex, con, intel, wis, chr,
+                strMod, dexMod, conMod, intelMod, wisMod, chrMod,
+                charBackground,
+                hair, eyes, skin, notes,
+                charRace,
                 charClass
             );
-
+            } catch (ArgumentException ex) {
+                LblError.Text = ex.Message;
+            }
 
             Session["character"] = character;
 

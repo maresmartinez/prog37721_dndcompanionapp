@@ -57,7 +57,7 @@ namespace DnDSQLLib.dal {
         /// <returns>Collection of users</returns>
         public List<User> GetAllUsers() {
             List<User> users = new List<User>();
-
+            conn = ConnectionFactory.GetConnection(); // Need to reinitialze connection string
             using (conn) {
                 conn.Open();
 
@@ -88,6 +88,7 @@ namespace DnDSQLLib.dal {
         /// <param name="plainTextPassword">The password in plain-text of the user</param>
         /// <returns>Whether or not the email and password matched any records in the UserTable</returns>
         public bool AuthenticateUser(string username, string plainTextPassword) {
+            conn = ConnectionFactory.GetConnection(); // Need to reinitialze connection string
             using (conn) {
                 conn.Open();
 
@@ -128,6 +129,7 @@ namespace DnDSQLLib.dal {
             List<Character> characters = new List<Character>();
             List<int> characterIds = new List<int>();
             CharacterDAO cDAO = new CharacterDAO();
+            conn = ConnectionFactory.GetConnection(); // Need to reinitialze connection string
             using (conn) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +

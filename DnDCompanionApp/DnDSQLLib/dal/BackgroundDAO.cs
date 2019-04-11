@@ -21,13 +21,7 @@ namespace DnDSQLLib.dal {
         /// Constructor
         /// </summary>
         public BackgroundDAO() {
-            try {
-                conn = ConnectionFactory.GetConnection();
-                conn.Open();
-                conn.Close();   // Just double checking to make sure that yes, we can indeed access the server
-            } catch (SqlException) {
-                // Figure out how to let the user know that things just aint happening
-            }
+            conn = ConnectionFactory.GetConnection();
         }
 
         /// <summary>
@@ -57,7 +51,7 @@ namespace DnDSQLLib.dal {
             int flawID1;
             int flawID2;
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 // Personality IDs
@@ -133,7 +127,7 @@ namespace DnDSQLLib.dal {
         /// <returns>The number of records that were affected</returns>
         public int DeleteBackground(int backgroundId) {
             int count = 0;
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand($"delete from characterBackground where Id = @bId;");
@@ -151,11 +145,8 @@ namespace DnDSQLLib.dal {
         /// <returns>Collection of backgrounds</returns>
         public List<BackgroundType> GetAllBgTypes() {
             List<BackgroundType> bgTypes = new List<BackgroundType>();
-            int dbId = 0;
-            string name = "";
-            string desc = "";
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand($"Select * from backgroundType;");
@@ -253,7 +244,7 @@ namespace DnDSQLLib.dal {
         public Background GetCharacterBackground(int characterId) {
             Background background;
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 // Get character's backgroundid
@@ -382,7 +373,7 @@ namespace DnDSQLLib.dal {
             List<Background> backgrounds = new List<Background>();
 
             // TODO: find a way to implement this without multiple connections, seems messy and dangerous
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand("SELECT id, name, description FROM backgroundType;");

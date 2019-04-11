@@ -7,31 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DnDSQLLib
-{
-    public class SpellDAO
-    {
+namespace DnDSQLLib {
+    /// <summary>
+    /// Database access object for the spells table
+    /// </summary>
+    public class SpellDAO {
+
+        /// <summary>
+        /// Connection to the database
+        /// </summary>
         SqlConnection conn;
 
-        public SpellDAO()
-        {
-            try
-            {
-                conn = ConnectionFactory.GetConnection();
-                conn.Open();
-                conn.Close();   // Just double checking to make sure that yes, we can indeed access the server
-            }
-            catch (SqlException)
-            {
-                // Figure out how to let the user know that things just aint happening
-            }
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public SpellDAO() {
+            conn = ConnectionFactory.GetConnection();
         }
 
-        public List<Spells> GetAllSpells()
-        {
+        /// <summary>
+        /// Retrieves all spells in the database
+        /// </summary>
+        /// <returns>Collection of spells</returns>
+        public List<Spells> GetAllSpells() {
             List<Spells> spells = new List<Spells>();
-            try
-            {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand($"" +
@@ -39,8 +39,7 @@ namespace DnDSQLLib
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
+                while (reader.Read()) {
                     string name = Convert.ToString(reader["Name"]);
                     int castingTime = Convert.ToInt32(reader["castingTime"]);
                     int duration = Convert.ToInt32(reader["Duration"]);
@@ -51,15 +50,6 @@ namespace DnDSQLLib
                 }
                 reader.Close();
                 return spells;
-            }
-            catch (SqlException)
-            {
-                // **ERROR PLACE HOLDER**
-                return null;
-            }
-            finally
-            {
-                conn.Close();
             }
         }
     }

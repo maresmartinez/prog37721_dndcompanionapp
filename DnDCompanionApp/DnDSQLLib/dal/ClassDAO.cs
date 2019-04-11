@@ -36,7 +36,7 @@ namespace DnDSQLLib.dal {
             List<Skills> skills = sDAO.GetAllSkills();
 
             // TODO: refactor code so that we don't need multiple connections
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand("SELECT id, name, description, hitdice FROM class;");
@@ -69,7 +69,7 @@ namespace DnDSQLLib.dal {
         public Class GetCharacterClass(int characterId) {
             int classId = 0;
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand("SELECT classid FROM character WHERE id=@ID;");
@@ -107,7 +107,7 @@ namespace DnDSQLLib.dal {
             SkillsDAO sDAO = new SkillsDAO();
             List<Skills> skills = sDAO.GetAllSkills();
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand($"" +

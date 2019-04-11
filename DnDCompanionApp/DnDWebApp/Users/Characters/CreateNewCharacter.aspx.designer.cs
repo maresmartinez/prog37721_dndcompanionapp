@@ -22,6 +22,15 @@ namespace DnDWebApp.Users.Characters {
         protected global::System.Web.UI.WebControls.Label LblName;
         
         /// <summary>
+        /// ReqCharacterName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqCharacterName;
+        
+        /// <summary>
         /// TxtName control.
         /// </summary>
         /// <remarks>
@@ -479,6 +488,15 @@ namespace DnDWebApp.Users.Characters {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnGenerate;
+        
+        /// <summary>
+        /// LblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblError;
         
         /// <summary>
         /// CharacterDetails control.

@@ -7,23 +7,31 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DnDSQLLib.dal {
+    /// <summary>
+    /// The database access object for the skills table in the database
+    /// </summary>
     public class SkillsDAO {
+
+        /// <summary>
+        /// Connection to the database
+        /// </summary>
         SqlConnection conn;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public SkillsDAO() {
-            try {
-                conn = ConnectionFactory.GetConnection();
-                conn.Open();
-                conn.Close();   // Just double checking to make sure that yes, we can indeed access the server
-            } catch (SqlException) {
-                // Figure out how to let the user know that things just aint happening
-            }
+            conn = ConnectionFactory.GetConnection();
         }
 
+        /// <summary>
+        /// Retrieves all skills in the database
+        /// </summary>
+        /// <returns>Collection of all skills</returns>
         public List<Skills> GetAllSkills() {
             List<Skills> skills = new List<Skills>();
 
-            try {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"select Id from skill");
@@ -36,11 +44,6 @@ namespace DnDSQLLib.dal {
                 reader.Close();
 
                 return skills;
-            } catch (SqlException) {
-                // **ERROR PLACE HOLDER**
-                return null;
-            } finally {
-                conn.Close();
             }
         }
     }

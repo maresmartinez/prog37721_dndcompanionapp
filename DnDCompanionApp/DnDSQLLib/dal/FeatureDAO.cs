@@ -7,17 +7,32 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DnDSQLLib.dal {
+    /// <summary>
+    /// Interface between the feature table in the database and the feature logic class
+    /// </summary>
     public class FeatureDAO {
+
+        /// <summary>
+        /// Database connection
+        /// </summary>
         SqlConnection conn;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public FeatureDAO() {
             conn = ConnectionFactory.GetConnection();
         }
 
+        /// <summary>
+        /// Retrieves all features for a specific class
+        /// </summary>
+        /// <param name="classId">The class whose features must be retrieved</param>
+        /// <returns>Collection of features if a class</returns>
         public List<Feature> GetClassFeatures(int classId) {
             List<Feature> features = new List<Feature>();
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"select f.Id, f.Name, f.Description from features f join classFeatures cf on cf.FeatureId = f.Id where cf.ClassId = @cId");
@@ -36,10 +51,15 @@ namespace DnDSQLLib.dal {
             }
         }
 
+        /// <summary>
+        /// Retrieves a single feature from the database
+        /// </summary>
+        /// <param name="featureId">The database ID for the feature to retrieve</param>
+        /// <returns>Feature object</returns>
         public Feature GetFeature(int featureId) {
             Feature feature = null;
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"select f.Id, f.Name, f.Description from features f" +
@@ -58,10 +78,14 @@ namespace DnDSQLLib.dal {
             }
         }
 
+        /// <summary>
+        /// Retrieves all features in the database
+        /// </summary>
+        /// <returns>Collection of all features</returns>
         public List<Feature> GetAllFeatures() {
             List<Feature> features = new List<Feature>();
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"SELECT Id, Name, Description from features");
                 cmd.Connection = conn;

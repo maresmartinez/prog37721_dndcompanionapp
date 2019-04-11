@@ -13,6 +13,7 @@
 
     <div class="form-group">
         <asp:Label ID="LblName" runat="server" Text="Name"></asp:Label>
+        <asp:RequiredFieldValidator ID="ReqCharacterName" runat="server" ControlToValidate="TxtName" Display="Dynamic" ErrorMessage="(Name must have a value)" ForeColor="#D44A34" ValidationGroup="GenerateCharacter"></asp:RequiredFieldValidator>
         <asp:TextBox ID="TxtName" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
 
@@ -68,25 +69,25 @@
             <div class="form-group">
                 <asp:Label ID="LblPersonality" runat="server" Text="Personality Traits (Choose Two)"></asp:Label>
                 <asp:CustomValidator ClientValidationFunction="CountPersonality" ID="ReqTwoPersonality" runat="server" ForeColor="#d44a34" 
-                    ErrorMessage="(Personality must have exactly two items selected)"></asp:CustomValidator>
+                    ErrorMessage="(Personality must have exactly two items selected)" ValidationGroup="GenerateCharacter"></asp:CustomValidator>
                 <asp:CheckBoxList ID="ChkLPersonality" CssClass="form-check" runat="server"></asp:CheckBoxList>
             </div>
             <div class="form-group">
                 <asp:Label ID="LblIdeals" runat="server" Text="Ideals (Choose Two)"></asp:Label>
                 <asp:CustomValidator ClientValidationFunction="CountIdeals" ID="ReqTwoIdeals" runat="server" ForeColor="#d44a34" 
-                    ErrorMessage="(Ideals must have exactly two items selected)"></asp:CustomValidator>
+                    ErrorMessage="(Ideals must have exactly two items selected)" ValidationGroup="GenerateCharacter"></asp:CustomValidator>
                 <asp:CheckBoxList ID="ChkLIdeals" CssClass="form-check" runat="server"></asp:CheckBoxList>
             </div>
             <div class="form-group">
                 <asp:Label ID="LblBonds" runat="server" Text="Bonds (Choose Two)"></asp:Label>
                 <asp:CustomValidator ClientValidationFunction="CountBonds" ID="ReqTwoBonds" runat="server" ForeColor="#d44a34" 
-                    ErrorMessage="(Bonds must have exactly two items selected)"></asp:CustomValidator>
+                    ErrorMessage="(Bonds must have exactly two items selected)" ValidationGroup="GenerateCharacter"></asp:CustomValidator>
                 <asp:CheckBoxList ID="ChkLBonds" CssClass="form-check" runat="server"></asp:CheckBoxList>
             </div>
             <div class="form-group">
                 <asp:Label ID="LblFlaws" runat="server" Text="Flaws (Choose Two)"></asp:Label>
                 <asp:CustomValidator ClientValidationFunction="CountFlaws" ID="ReqTwoFlaws" runat="server" ForeColor="#d44a34" 
-                    ErrorMessage="(Flaws must have exactly two items selected)"></asp:CustomValidator>
+                    ErrorMessage="(Flaws must have exactly two items selected)" ValidationGroup="GenerateCharacter"></asp:CustomValidator>
                 <asp:CheckBoxList ID="ChkLFlaws" CssClass="form-check" runat="server"></asp:CheckBoxList>
             </div>
         </div>
@@ -161,7 +162,8 @@
         <asp:TextBox ID="TxtAdditionalNotes" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
     </div>
 
-    <asp:Button ID="BtnGenerate" OnClick="BtnGenerate_Click" runat="server" Text="Generate Character" CssClass="btn btn-dark btn-lg btn-block" BorderColor="#d44a34" BackColor="#d44a34" />
+    <asp:Button ID="BtnGenerate" OnClick="BtnGenerate_Click" runat="server" Text="Generate Character" CssClass="btn btn-dark btn-lg btn-block" BorderColor="#d44a34" BackColor="#d44a34" ValidationGroup="GenerateCharacter" />
+    <asp:Label ID="LblError" runat="server" ForeColor="#D44A34" Text=""></asp:Label>
 
     <div id="CharacterDetails" runat="server" visible="false">
         <hr />

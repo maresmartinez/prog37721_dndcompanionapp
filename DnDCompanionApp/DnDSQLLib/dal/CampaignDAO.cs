@@ -34,7 +34,7 @@ namespace DnDSQLLib.dal {
         public int UploadCampaign(Campaign campaign) {
             int campaignId;
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 // Insert campaign into campaigns table
@@ -85,8 +85,7 @@ namespace DnDSQLLib.dal {
             string description;
             int dungeonMasterID;
 
-            conn = ConnectionFactory.GetConnection(); // need to reinitialize because this is called in a loop which disposes connection
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 // Get the campaign

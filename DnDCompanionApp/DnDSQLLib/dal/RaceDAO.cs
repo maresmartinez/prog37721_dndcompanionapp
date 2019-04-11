@@ -18,13 +18,7 @@ namespace DnDSQLLib.dal {
         /// Constructor
         /// </summary>
         public RaceDAO() {
-            try {
-                conn = ConnectionFactory.GetConnection();
-                conn.Open();
-                conn.Close();   // Just double checking to make sure that yes, we can indeed access the server
-            } catch (SqlException) {
-                // Figure out how to let the user know that things just aint happening
-            }
+            conn = ConnectionFactory.GetConnection();
         }
 
         /// <summary>
@@ -35,7 +29,7 @@ namespace DnDSQLLib.dal {
             List<Race> races = new List<Race>();
 
             // TODO: Refactor so it doesn't need multiple connections open
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
                 
                 SqlCommand cmd = new SqlCommand($"SELECT id, name, description from race;");
@@ -75,7 +69,7 @@ namespace DnDSQLLib.dal {
         public Race GetCharacterRace(int characterId) {
             int raceId = 0;
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand("SELECT raceid FROM character WHERE id=@ID;");
@@ -105,7 +99,7 @@ namespace DnDSQLLib.dal {
             string description = "";
             List<Language> languages = new List<Language>();
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"select Name, Description from race where Id = @rId");

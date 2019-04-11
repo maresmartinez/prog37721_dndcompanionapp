@@ -36,7 +36,7 @@ namespace DnDSQLLib.dal {
             BackgroundDAO backgroundDAO = new BackgroundDAO();
             character.CharBackgroundID = backgroundDAO.UploadBackground(character);
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand(
@@ -101,7 +101,7 @@ namespace DnDSQLLib.dal {
         /// <returns></returns>
         public int DeleteCharacter(int characterId) {
             int count = 0;
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand($"delete from character where Id = @cId");
@@ -131,7 +131,7 @@ namespace DnDSQLLib.dal {
 
             conn = ConnectionFactory.GetConnection();
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand("SELECT * FROM character WHERE id = @CID;");
