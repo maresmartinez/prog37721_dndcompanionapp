@@ -235,28 +235,28 @@ namespace DnDWebApp.Tools {
                 description.InnerHtml = "Description:";
                 description.InnerHtml += "<br>";
                 description.InnerHtml += pulledBackground.Description;
-                descriptor2.InnerHtml = "PersonalityTraits:";
+                descriptor2.InnerHtml = "<br>Personality Traits:";
                 descriptor2.InnerHtml += "<br>";
                 foreach (String pulledBackgroundPersonalityTrait in pulledBackground.Personality) {
-                    descriptor2.InnerHtml = pulledBackgroundPersonalityTrait;
+                    descriptor2.InnerHtml += pulledBackgroundPersonalityTrait;
                     descriptor2.InnerHtml += "<br>";
                 }
-                descriptor3.InnerHtml = "Ideals:";
+                descriptor3.InnerHtml = "<br>Ideals:";
                 descriptor3.InnerHtml += "<br>";
                 foreach (String pulledBackgroundIdeal in pulledBackground.Ideals) {
-                    descriptor3.InnerHtml = pulledBackgroundIdeal;
+                    descriptor3.InnerHtml += pulledBackgroundIdeal;
                     descriptor3.InnerHtml += "<br>";
                 }
-                descriptor4.InnerHtml = "Bonds:";
+                descriptor4.InnerHtml = "<br>Bonds:";
                 descriptor4.InnerHtml += "<br>";
                 foreach (String pulledBackgroundBond in pulledBackground.Bonds) {
-                    descriptor4.InnerHtml = pulledBackgroundBond;
+                    descriptor4.InnerHtml += pulledBackgroundBond;
                     descriptor4.InnerHtml += "<br>";
                 }
-                descriptor5.InnerHtml = "PersonalityTraits:";
+                descriptor5.InnerHtml = "<br>Flaws:";
                 descriptor5.InnerHtml += "<br>";
                 foreach (String pulledBackgroundFlaw in pulledBackground.Flaws) {
-                    descriptor5.InnerHtml = pulledBackgroundFlaw;
+                    descriptor5.InnerHtml += pulledBackgroundFlaw;
                     descriptor5.InnerHtml += "<br>";
                 }
             }
