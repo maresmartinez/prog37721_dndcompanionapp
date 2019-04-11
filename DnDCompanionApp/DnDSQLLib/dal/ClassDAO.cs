@@ -80,9 +80,8 @@ namespace DnDSQLLib.dal {
                 if (reader.Read()) {
                     classId = Convert.ToInt32(reader["classId"]);
                 }
-            } // DB Connection automatically disposed, must reinitialize since this method calls another method in the class
+            }
 
-            conn = ConnectionFactory.GetConnection();
             Class charClass = GetClass(classId);
             return charClass;
         }

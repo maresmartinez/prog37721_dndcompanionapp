@@ -90,7 +90,7 @@ namespace DnDWebApp.Tools {
                 descriptor4.InnerHtml = "<br>Available Skills: ";
                 descriptor4.InnerHtml += "<br>";
                 foreach (Skills pulledClassSkills in pulledClass.CharacterSkills) {
-                    descriptor4.InnerHtml += this.PrettifyEnum(pulledClassSkills.ToString());
+                    descriptor4.InnerHtml += EnumPrettify.Prettify(pulledClassSkills.ToString());
                     descriptor4.InnerHtml += "<br>";
                 }
 
@@ -124,7 +124,7 @@ namespace DnDWebApp.Tools {
                 descriptor2.InnerHtml = "<br>Languages: ";
                 descriptor2.InnerHtml += "<br>";
                 foreach (Language pulledRaceLangages in pulledRace.Languages) {
-                    descriptor2.InnerHtml += this.PrettifyEnum(pulledRaceLangages.ToString());
+                    descriptor2.InnerHtml += EnumPrettify.Prettify(pulledRaceLangages.ToString());
                     descriptor2.InnerHtml += "<br>";
                 }
             }
@@ -159,9 +159,9 @@ namespace DnDWebApp.Tools {
 
                 name.InnerHtml = pulledSpell.Name;
                 description.InnerHtml = pulledSpell.Description;
-                descriptor2.InnerHtml += "<br>Casting Time: "+ Convert.ToString(pulledSpell.CastingTime) + " minutes";
-                descriptor3.InnerHtml += "Duration: " + Convert.ToString(pulledSpell.Duration) + " minutes";
-                descriptor4.InnerHtml += "Range: " + Convert.ToString(pulledSpell.Range) + " meters";
+                descriptor2.InnerHtml += "<br>Casting Time: "+ Convert.ToString(pulledSpell.CastingTime) + " min";
+                descriptor3.InnerHtml += "Duration: " + Convert.ToString(pulledSpell.Duration) + " min";
+                descriptor4.InnerHtml += "Range: " + Convert.ToString(pulledSpell.Range) + " m";
             }
             //connect to db and populate the links div with 1 link for each entry to DB
             links.InnerHtml = "";
@@ -173,47 +173,6 @@ namespace DnDWebApp.Tools {
             }
 
         }
-
-        /// <summary>
-        /// Capitalizes first letter of word. Used to display enums prettier
-        /// </summary>
-        /// <param name="word">Word to capitalize</param>
-        /// <returns>Word with first letter capitalized</returns>
-        private string FirstCharToUpper(string word) {
-            if(string.IsNullOrEmpty(word)) {
-                return string.Empty;
-            }
-            string endOfWord = word.Substring(1);
-            return char.ToUpper(word[0]) + endOfWord.ToLower();
-        }
-
-        /// <summary>
-        /// Replaces enum literal with prettier word
-        /// </summary>
-        /// <param name="word">Enum literal</param>
-        /// <returns>Pretty enum</returns>
-        private string PrettifyEnum(string word) {
-            string prettyEnum = this.FirstCharToUpper(word);
-            return this.ReplaceUnderscore(prettyEnum);
-        }
-
-        /// <summary>
-        /// Replaces underscores with spaces. Used to display enums prettier
-        /// </summary>
-        /// <param name="word">Word to replace</param>
-        /// <returns>Word with underscores replaced with spaces</returns>
-        private string ReplaceUnderscore(string word) {
-            string newWord = "";
-            foreach (char letter in word) {
-                if (letter.Equals('_')) {
-                    newWord += ' ';
-                } else {
-                    newWord += letter;
-                }   
-            }
-            return newWord;
-        }
-
 
         private void BackgroundLinks() {
             string backgroundIDstr = "";

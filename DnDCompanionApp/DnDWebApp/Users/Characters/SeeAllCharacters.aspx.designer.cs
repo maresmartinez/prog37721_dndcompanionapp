@@ -22,6 +22,15 @@ namespace DnDWebApp.Users.Characters {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl NewCharacter;
         
         /// <summary>
+        /// NoCharacters control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NoCharacters;
+        
+        /// <summary>
         /// LblCharacter control.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace DnDWebApp.Users.Characters {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDCharacters;
-        
-        /// <summary>
-        /// LblNoCharacters control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNoCharacters;
         
         /// <summary>
         /// CharacterDetails control.

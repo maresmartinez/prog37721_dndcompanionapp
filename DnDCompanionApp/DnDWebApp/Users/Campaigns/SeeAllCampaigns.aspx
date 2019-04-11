@@ -9,12 +9,14 @@
     <div id="NewCampaign" runat="server" class="alert alert-success" role="alert" visible="false">
         Your new campaign has been added to your collection!
     </div>
+    <div id="NoCampaigns" runat="server" class="alert alert-info" role="alert" visible="false">
+        You have no campaigns to display.
+    </div>
 
     <div class="form-group">
         <asp:Label ID="LblCampaigns" runat="server" Text="Choose Campaign to Display"></asp:Label>
         <asp:DropDownList ID="DDCampaigns" runat="server" CssClass="custom-select" AutoPostBack="true" OnSelectedIndexChanged="DDCampaigns_SelectedIndexChanged"></asp:DropDownList>
     </div>
-    <asp:Label ID="LblNoCampaigns" class="alert alert-info" runat="server" Text=""></asp:Label>
     <div id="CampaignDetails" runat="server" class="card" visible="false">
         <div class="card-header">
             <asp:Label ID="LblCampaignName" runat="server" Text="Campaign"></asp:Label>

@@ -116,7 +116,7 @@ namespace DnDWebApp.Users.Characters {
             RaceDesc.InnerText = race.Description;
             BLLanguages.Items.Clear();
             foreach (Language language in race.Languages) {
-                BLLanguages.Items.Add(language.ToString());
+                BLLanguages.Items.Add(EnumPrettify.Prettify(language.ToString()));
             }
         }
 
@@ -145,7 +145,7 @@ namespace DnDWebApp.Users.Characters {
             HitDice.InnerText = characterClass.HitDice.ToString();
             BLSkills.Items.Clear();
             foreach (Skills skill in characterClass.CharacterSkills) {
-                BLSkills.Items.Add(skill.ToString());
+                BLSkills.Items.Add(EnumPrettify.Prettify(skill.ToString()));
             }
         }
 
@@ -300,7 +300,7 @@ namespace DnDWebApp.Users.Characters {
             RaceDesc.InnerText = character.Race.Name + ": " + character.Race.Description;
             BLNewCharLang.Items.Clear();
             foreach (Language language in character.Race.Languages) {
-                BLNewCharLang.Items.Add(language.ToString());
+                BLNewCharLang.Items.Add(EnumPrettify.Prettify(language.ToString()));
             }
 
             ClassDesc.InnerText = character.CharacterClass.Name + ": " + character.CharacterClass.Description;
@@ -311,7 +311,7 @@ namespace DnDWebApp.Users.Characters {
             HitDice.InnerText = character.CharacterClass.HitDice.ToString();
             BLNewCharSkills.Items.Clear();
             foreach (Skills skill in character.CharacterClass.CharacterSkills) {
-                BLNewCharSkills.Items.Add(skill.ToString());
+                BLNewCharSkills.Items.Add(EnumPrettify.Prettify(skill.ToString()));
             }
 
             BackgroundDesc.InnerText = character.CharacterBackground.Name + ": " + character.CharacterBackground.Description;

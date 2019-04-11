@@ -152,7 +152,7 @@ namespace DnDWebApp.Users.Campaigns {
             RaceDesc.InnerText = character.Race.Name + ": " + character.Race.Description;
             BLLanguages.Items.Clear();
             foreach (Language language in character.Race.Languages) {
-                BLLanguages.Items.Add(language.ToString());
+                BLLanguages.Items.Add(EnumPrettify.Prettify(language.ToString()));
             }
 
             ClassDesc.InnerText = character.CharacterClass.Name + ": " + character.CharacterClass.Description;
@@ -163,7 +163,7 @@ namespace DnDWebApp.Users.Campaigns {
             HitDice.InnerText = character.CharacterClass.HitDice.ToString();
             BLSkills.Items.Clear();
             foreach (Skills skill in character.CharacterClass.CharacterSkills) {
-                BLSkills.Items.Add(skill.ToString());
+                BLSkills.Items.Add(EnumPrettify.Prettify(skill.ToString()));
             }
 
             BackgroundDesc.InnerText = character.CharacterBackground.Name + ": " + character.CharacterBackground.Description;

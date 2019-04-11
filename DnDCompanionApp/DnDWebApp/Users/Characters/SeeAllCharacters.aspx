@@ -8,12 +8,14 @@
     <div id="NewCharacter" runat="server" class="alert alert-success" role="alert" visible="false">
         Your new character has been added to your collection!
     </div>
+    <div id="NoCharacters" runat="server" class="alert alert-info" role="alert" visible="false">
+        You have no characters to display.
+    </div>
 
     <div class="form-group">
         <asp:Label ID="LblCharacter" runat="server" Text="Choose Character to Display"></asp:Label>
         <asp:DropDownList ID="DDCharacters" runat="server" CssClass="custom-select" AutoPostBack="true" OnSelectedIndexChanged="DDCharacters_SelectedIndexChanged"></asp:DropDownList>
     </div>
-    <asp:Label ID="LblNoCharacters" class="alert alert-info" runat="server" Text=""></asp:Label>
     <div id="CharacterDetails" runat="server" class="card" visible="false">
         <div class="card-header">
             <asp:Label ID="LblCharacterName" runat="server" Text="Character"></asp:Label>
