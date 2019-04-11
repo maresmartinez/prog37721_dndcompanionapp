@@ -162,6 +162,8 @@
         <asp:TextBox ID="TxtAdditionalNotes" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
     </div>
 
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="#D44A34" ValidationGroup="GenerateCharacter" />
+
     <asp:Button ID="BtnGenerate" OnClick="BtnGenerate_Click" runat="server" Text="Generate Character" CssClass="btn btn-dark btn-lg btn-block" BorderColor="#d44a34" BackColor="#d44a34" ValidationGroup="GenerateCharacter" />
     <asp:Label ID="LblError" runat="server" ForeColor="#D44A34" Text=""></asp:Label>
 

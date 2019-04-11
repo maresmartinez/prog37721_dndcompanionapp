@@ -86,7 +86,7 @@ namespace DnDWebApp.Tools {
             foreach (Class lClass in classList) {
                 int clID = lClass.ClassId;
                 string clName = lClass.Name;
-                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=classes?classID=" + clID + "\"></a>" + clName + "<br /> ";
+                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=classes&classID=" + clID + "\">" + clName + "</a><br /> ";
             }
         }
 
@@ -163,7 +163,7 @@ namespace DnDWebApp.Tools {
             foreach (Race lRace in raceList) {
                 int raID = lRace.RaceId;
                 string raName = lRace.Name;
-                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=races?raceID=" + raID + "\"></a>" + raName + "<br /> ";
+                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=races&raceID=" + raID + "\">" + raName + "</a><br /> ";
             }
         }
         private void SpellLinks() {
@@ -194,14 +194,13 @@ namespace DnDWebApp.Tools {
                 descriptor3.InnerText = Convert.ToString(pulledSpell.Duration);
                 descriptor4.InnerText = "range: <br />";
                 descriptor4.InnerText = Convert.ToString(pulledSpell.Range);
-
-                //connect to db and populate the links div with 1 link for each entry to DB
-                links.InnerText = "";
-                foreach (Spells lSpell in spellList) {
-                    int spID = lSpell.SpellId;
-                    string spName = lSpell.Name;
-                    links.InnerText += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=spells?spellID=" + spID + "\"></a>" + spName + "<br /> ";
-                }
+            }
+            //connect to db and populate the links div with 1 link for each entry to DB
+            links.InnerText = "";
+            foreach (Spells lSpell in spellList) {
+                int spID = lSpell.SpellId;
+                string spName = lSpell.Name;
+                links.InnerText += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=spells&spellID=" + spID + "\">" + spName + "</a><br /> ";
             }
 
         }
@@ -243,15 +242,14 @@ namespace DnDWebApp.Tools {
                 foreach (String pulledBackgroundFlaw in pulledBackground.Flaws) {
                     descriptor4.InnerText = pulledBackgroundFlaw + "<br />";
                 }
-                //connect to db and populate the links div with 1 link for each entry to DB
-                links.InnerText = "";
-                foreach (Background lBackground in backgroundList) {
-                    int bgID = lBackground.BackgroundId;
-                    string bgName = lBackground.Name;
-                    links.InnerText += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=backgroundTypes?backgroundID=" + bgID + "\"></a>" + bgName + "<br /> ";
-                }
             }
-
+            //connect to db and populate the links div with 1 link for each entry to DB
+            links.InnerText = "";
+            foreach (Background lBackground in backgroundList) {
+                int bgID = lBackground.BackgroundId;
+                string bgName = lBackground.Name;
+                links.InnerText += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=backgroundTypes&backgroundID=" + bgID + "\">" + bgName + "</a><br /> ";
+            }
         }
         private void FeatureLinks() {
             string featureIDstr = "";
@@ -279,13 +277,13 @@ namespace DnDWebApp.Tools {
                 description.InnerText += pulledFeature.Description;
 
 
-                //connect to db and populate the links div with 1 link for each entry to DB
-                links.InnerText = "";
-                foreach (Feature lFeature in featureList) {
-                    int ftID = lFeature.FeatureID;
-                    string ftName = lFeature.Name;
-                    links.InnerText += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=Features?spellID=" + ftID + "\"></a>" + ftName + "<br /> ";
-                }
+            }
+            //connect to db and populate the links div with 1 link for each entry to DB
+            links.InnerText = "";
+            foreach (Feature lFeature in featureList) {
+                int ftID = lFeature.FeatureID;
+                string ftName = lFeature.Name;
+                links.InnerText += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=Features&featureID=" + ftID + "\">" + ftName + "</a><br /> ";
             }
         }
 

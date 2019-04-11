@@ -32,8 +32,7 @@ namespace DnDSQLLib.dal {
         /// <returns></returns>
         public int AddUser(User user) {
             int count = 0;
-            conn = ConnectionFactory.GetConnection(); // Need to reinitialze connection string
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 // Create insert statement depending on whether or not user has a phone number
@@ -57,8 +56,7 @@ namespace DnDSQLLib.dal {
         /// <returns>Collection of users</returns>
         public List<User> GetAllUsers() {
             List<User> users = new List<User>();
-            conn = ConnectionFactory.GetConnection(); // Need to reinitialze connection string
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand("SELECT id, fullname, username, password, salt from users;");
@@ -88,8 +86,7 @@ namespace DnDSQLLib.dal {
         /// <param name="plainTextPassword">The password in plain-text of the user</param>
         /// <returns>Whether or not the email and password matched any records in the UserTable</returns>
         public bool AuthenticateUser(string username, string plainTextPassword) {
-            conn = ConnectionFactory.GetConnection(); // Need to reinitialze connection string
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 SqlCommand select = new SqlCommand("SELECT id, fullname, username, password, salt " +
@@ -129,8 +126,8 @@ namespace DnDSQLLib.dal {
             List<Character> characters = new List<Character>();
             List<int> characterIds = new List<int>();
             CharacterDAO cDAO = new CharacterDAO();
-            conn = ConnectionFactory.GetConnection(); // Need to reinitialze connection string
-            using (conn) {
+
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"select charId from userCharacter where userId = @uId");
@@ -160,7 +157,7 @@ namespace DnDSQLLib.dal {
             List<Campaign> campaigns = new List<Campaign>();
             List<int> campaignIds = new List<int>();
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
                 // Get campaigns in which a user is a party member
@@ -202,7 +199,7 @@ namespace DnDSQLLib.dal {
         public User GetUser(int userId) {
             User user = null;
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"select * from users where id = @uID");
@@ -231,7 +228,7 @@ namespace DnDSQLLib.dal {
         public User GetUser(string username) {
             User user = null;
 
-            using (conn) {
+            using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"select * from users where username = @uName");

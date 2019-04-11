@@ -58,6 +58,8 @@
         <asp:Label ID="LblCannotRemove" ForeColor="#d44a34" runat="server" Text=""></asp:Label>
     </div>
 
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="#D44A34" ValidationGroup="GenerateCampaign" />
+
     <asp:Button ID="BtnGenerate" OnClick="BtnGenerate_Click" runat="server" Text="Generate Campaign"
         CssClass="btn btn-dark btn-lg btn-block" BorderColor="#d44a34" BackColor="#d44a34" ValidationGroup="GenerateCampaign" />
     <asp:Label ID="LblErrorGenerate" ForeColor="#d44a34" runat="server" Text=""></asp:Label>

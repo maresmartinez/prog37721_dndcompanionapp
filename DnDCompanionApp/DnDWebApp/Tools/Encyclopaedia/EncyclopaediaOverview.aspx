@@ -5,6 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="mt-5">Encyclopaedia</h1>
     <p class="lead">Learn more about the D&D lore.</p>
+    <div id="Registered" class="alert alert-info" role="alert">
+        Encyclopaedia coming soon!
+    </div>
     <div id="links" runat="server">
         <a href="EncyclopaediaOverview.aspx?encyclopaediaReq=classes">Classes</a>
         <br />
