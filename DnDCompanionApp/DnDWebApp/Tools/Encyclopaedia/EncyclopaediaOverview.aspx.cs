@@ -22,22 +22,51 @@ namespace DnDWebApp.Tools {
                     switch (encyclopaediaReq) {
                         case "classes":
                             name.InnerHtml = "Classes";
+                            description.InnerHtml = "<p>People have jobs, but adventurers have classes. Class defines an " +
+                                "adventurer’s skillset: Wizards do magic, druids interface with nature, and barbarians hit " +
+                                "things. Not a job or an area of study, classes are more like occupations or callings. A bard, " +
+                                "for example, might not get paid to play music, but they weave magical music-playing into their " +
+                                "life and ambitions.</p>Advancing in a class makes a player’s character more powerful and better" +
+                                " able to affect change in the world. It broadens their skillset and better equips them to be " +
+                                "heroes.< p ></p>";
                             ClassLinks();
                             break;
                         case "races":
                             name.InnerHtml = "Races";
+                            description.InnerHtml = "<p>Your choice of character race provides you with a basic set of " +
+                                "advantages and special abilities. If you’re a fighter, are you a stubborn dwarf monster-slayer, " +
+                                "a graceful elf blademaster, or a fierce dragonborn gladiator? If you’re a wizard, are you a " +
+                                "brave human spell-for-hire or a devious tiefling conjurer? Your character race not only affects " +
+                                "your ability scores and powers but also provides the first cues for building your character’s " +
+                                "story.</p>";
                             RaceLinks();
                             break;
                         case "spells":
                             name.InnerHtml = "Spell";
+                            description.InnerHtml = "Spells are actions which are available to magical classes, such as Clerics, " +
+                                "Mages, Bards, etc.";
                             SpellLinks();
                             break;
                         case "backgroundTypes":
                             name.InnerHtml = "Backgrounds";
+                            description.InnerHtml = "<p>Your character’s background reveals where you came from, how you became " +
+                                "an adventurer, and your place in the world. Your fighter might have been a courageous knight or " +
+                                "a grizzled soldier. Your wizard could have been a sage or an artisan. Your rogue might have " +
+                                "gotten by as a guild thief or commanded audiences as a jester. Choosing a background provides " +
+                                "you with important story cues about your character’s identity.</p>";
                             BackgroundLinks();
                             break;
                         case "features":
                             name.InnerHtml = "Features";
+                            description.InnerHtml = "<p>A feat represents a talent or an area of expertise that gives a character " +
+                                "special capabilities. It embodies training, experience, and abilities beyond what a class " +
+                                "provides. At certain levels, your class gives you the Ability Score Improvement feature. Using " +
+                                "the optional feats rule, you can forgo taking that feature to take a feat of your choice " +
+                                "instead.</p><p>You can take each feat only once, unless the feat's description says otherwise. " +
+                                "You must meet any prerequisite specified in a feat to take that feat. If you ever lose a feat's " +
+                                "prerequisite, you can't use that feat until you regain the prerequisite. For example, the " +
+                                "Grappler feat requires you to have a Strength of 13 or higher. If your Strength is reduced below " +
+                                "13 somehow you can't benefit from the Grappler feat until your Strength is restored.</p>";
                             FeatureLinks();
                             break;
                         default:
@@ -73,7 +102,6 @@ namespace DnDWebApp.Tools {
                 }
                 descriptor3.InnerHtml = "<br>Hit Dice is: " + pulledClass.HitDice.ToString();
 
-
                 descriptor4.InnerHtml = "<br>Available Skills: ";
                 descriptor4.InnerHtml += "<br>";
                 foreach (Skills pulledClassSkills in pulledClass.CharacterSkills) {
@@ -85,6 +113,7 @@ namespace DnDWebApp.Tools {
 
             //connect to db and populate the links div with 1 link for each entry to DB
             links.InnerHtml = "";
+            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx'>> Back</a><br>";
             foreach (Class lClass in classList) {
                 int clID = lClass.ClassId;
                 string clName = lClass.Name;
@@ -109,7 +138,7 @@ namespace DnDWebApp.Tools {
                 description.InnerHtml = "Description: ";
                 description.InnerHtml += "<br>";
                 description.InnerHtml += pulledRace.Description;
-                descriptor2.InnerHtml = "Languages: ";
+                descriptor2.InnerHtml = "<br>Languages: ";
                 descriptor2.InnerHtml += "<br>";
                 foreach (Language pulledRaceLangages in pulledRace.Languages) {
                     switch (pulledRaceLangages) {
@@ -164,6 +193,7 @@ namespace DnDWebApp.Tools {
 
             //connect to db and populate the links div with 1 link for each entry to DB
             links.InnerHtml = "";
+            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx'>> Back</a><br>";
             foreach (Race lRace in raceList) {
                 int raID = lRace.RaceId;
                 string raName = lRace.Name;
@@ -205,6 +235,7 @@ namespace DnDWebApp.Tools {
             }
             //connect to db and populate the links div with 1 link for each entry to DB
             links.InnerHtml = "";
+            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx'>> Back</a><br>";
             foreach (Spells lSpell in spellList) {
                 int spID = lSpell.SpellId;
                 string spName = lSpell.Name;
@@ -262,6 +293,7 @@ namespace DnDWebApp.Tools {
             }
             //connect to db and populate the links div with 1 link for each entry to DB
             links.InnerHtml = "";
+            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx'>> Back</a><br>";
             foreach (Background lBackground in backgroundList) {
                 int bgID = lBackground.BackgroundId;
                 string bgName = lBackground.Name;
@@ -298,6 +330,7 @@ namespace DnDWebApp.Tools {
             }
             //connect to db and populate the links div with 1 link for each entry to DB
             links.InnerHtml = "";
+            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx'>> Back</a><br>";
             foreach (Feature lFeature in featureList) {
                 int ftID = lFeature.FeatureID;
                 string ftName = lFeature.Name;

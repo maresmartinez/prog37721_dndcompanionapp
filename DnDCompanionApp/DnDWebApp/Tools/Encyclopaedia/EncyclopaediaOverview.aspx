@@ -23,11 +23,13 @@
             <div class="col-md-10">
                 <div class="card">
                     <div runat="server" id="name" class="card-header">
-                        Information
+                        Encyclopaedia
                     </div>
                     <div class="card-body">
 
                         <div runat="server" id="description">
+                            Welcome to the D&D Encyclopaedia. In this section, you can learn about D&D lore by selecting the 
+                            different pages in the navigation bar. The information about each item will be displayed here.
                         </div>
                         <div runat="server" id="descriptor2">
                         </div>
