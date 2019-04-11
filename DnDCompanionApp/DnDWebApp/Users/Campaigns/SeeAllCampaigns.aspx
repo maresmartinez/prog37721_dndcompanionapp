@@ -14,7 +14,7 @@
         <asp:Label ID="LblCampaigns" runat="server" Text="Choose Campaign to Display"></asp:Label>
         <asp:DropDownList ID="DDCampaigns" runat="server" CssClass="custom-select" AutoPostBack="true" OnSelectedIndexChanged="DDCampaigns_SelectedIndexChanged"></asp:DropDownList>
     </div>
-    <asp:Label ID="LblNoCampaigns" runat="server" Text=""></asp:Label>
+    <asp:Label ID="LblNoCampaigns" class="alert alert-info" runat="server" Text=""></asp:Label>
     <div id="CampaignDetails" runat="server" class="card" visible="false">
         <div class="card-header">
             <asp:Label ID="LblCampaignName" runat="server" Text="Campaign"></asp:Label>

@@ -8,7 +8,7 @@ namespace CharacterCreationLib {
     /// <summary>
     /// Features are special abilities that are available to classes
     /// </summary>
-    public class Feature {
+    public class Feature : IComparable<Feature> {
 
         /// <summary>
         /// Name of feature
@@ -65,6 +65,15 @@ namespace CharacterCreationLib {
         /// <returns>Name and desciption of feature</returns>
         public override string ToString() {
             return $"{Name} - {Description}";
+        }
+
+        /// <summary>
+        /// Compares feature by Name field
+        /// </summary>
+        /// <param name="other">Feature to compare</param>
+        /// <returns>Integer that compares relative position in alphabet</returns>
+        public int CompareTo(Feature other) {
+            return string.Compare(Name, other.Name);
         }
     }
 }
