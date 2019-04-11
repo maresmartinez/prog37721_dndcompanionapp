@@ -16,8 +16,6 @@
                 <a href="EncyclopaediaOverview.aspx?encyclopaediaReq=spells">Spells</a>
                 <br />
                 <a href="EncyclopaediaOverview.aspx?encyclopaediaReq=backgroundTypes">Backgrounds</a>
-                <br />
-                <a href="EncyclopaediaOverview.aspx?encyclopaediaReq=features">Features</a>
             </div>
 
             <div class="col-md-10">

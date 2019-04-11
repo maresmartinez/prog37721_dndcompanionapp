@@ -87,7 +87,7 @@ namespace DnDSQLLib.dal {
 
             using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand($"SELECT Id, Name, Description from features");
+                SqlCommand cmd = new SqlCommand($"SELECT DISTINCT Id, Name, Description from features");
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
