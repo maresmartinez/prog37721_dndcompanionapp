@@ -8,7 +8,7 @@ Dungeons and Dragons (D&D) is a fantasy tabletop role-playing game that has amas
 * User accounts 
 * Alignment Quiz
 * Dice Roll Tool
-* Encyclopedia for Races and Classes
+* Encyclopedia for D&D Lore
 
 ## Built With
 * [Bootstrap 4](https://getbootstrap.com/) - UX/UI Framework
