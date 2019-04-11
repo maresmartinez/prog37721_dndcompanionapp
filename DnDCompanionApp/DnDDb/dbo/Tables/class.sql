@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[class] (
-    [Id]             INT            IDENTITY (1, 1) NOT NULL,
+    [Id]             INT NOT NULL IDENTITY,
     [Name]           NVARCHAR (128) NOT NULL,
     [Description]    NVARCHAR (256) NOT NULL,
     [hitDice]        INT            NOT NULL,

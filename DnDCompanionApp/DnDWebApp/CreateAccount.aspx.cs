@@ -21,9 +21,21 @@ namespace DnDWebApp {
             string fullName = TxtFullName.Text;
             string password = TxtPassword.Text;
 
-            User user = null;
+            // Check if username is already taken
+            LblTaken.Text = "";
+            UserDAO userDAO = new UserDAO();
+            List<User> allUsers = userDAO.GetAllUsers();
+            foreach (User existingUser in allUsers) {
+                if (existingUser.Username.Equals(username)) {
+                    LblTaken.Text = "(Username is taken)";
+                    return;
+                }
+            }
+
+            // Create user
+            User newUser = null;
             try {
-                user = new User(
+                newUser = new User(
                     username,
                     fullName,
                     password
@@ -34,11 +46,7 @@ namespace DnDWebApp {
             }
 
             // Add new user to database
-            UserDAO userDAO = new UserDAO();
-            userDAO.AddUser(new User(
-                username, fullName, password
-            ));
-
+            userDAO.AddUser(newUser);
             Response.Redirect("~/Login.aspx?justRegistered=true");
         }
 

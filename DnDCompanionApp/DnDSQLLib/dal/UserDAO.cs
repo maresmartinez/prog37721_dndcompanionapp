@@ -22,13 +22,7 @@ namespace DnDSQLLib.dal {
         /// Constructor
         /// </summary>
         public UserDAO() {
-            try {
-                conn = ConnectionFactory.GetConnection();
-                conn.Open();
-                conn.Close();   // Just double checking to make sure that yes, we can indeed access the server
-            } catch (SqlException) {
-                // Figure out how to let the user know that things just aint happening
-            }
+            conn = ConnectionFactory.GetConnection();
         }
 
         /// <summary>
@@ -38,6 +32,7 @@ namespace DnDSQLLib.dal {
         /// <returns></returns>
         public int AddUser(User user) {
             int count = 0;
+            conn = ConnectionFactory.GetConnection(); // Need to reinitialze connection string
             using (conn) {
                 conn.Open();
 
@@ -201,11 +196,11 @@ namespace DnDSQLLib.dal {
         /// Retrieves user object by id
         /// </summary>
         /// <param name="userId">id</param>
-        /// <returns>User object</returns>
+        /// <returns>User object, or null if no user with that id exists</returns>
         public User GetUser(int userId) {
             User user = null;
 
-            try {
+            using (conn) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"select * from users where id = @uID");
@@ -221,15 +216,9 @@ namespace DnDSQLLib.dal {
                         Convert.ToString(reader["Salt"]));
                 }
                 reader.Close();
-
-                return user;
-            } catch (SqlException) {
-                // **ERROR PLACE HOLDER**
-                conn.Close();
-                return null;
-            } finally {
-                conn.Close();
             }
+
+            return user;
         }
 
         /// <summary>
@@ -240,7 +229,7 @@ namespace DnDSQLLib.dal {
         public User GetUser(string username) {
             User user = null;
 
-            try {
+            using (conn) {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand($"" +
                     $"select * from users where username = @uName");
@@ -257,15 +246,8 @@ namespace DnDSQLLib.dal {
                         Convert.ToString(reader["Salt"]));
                 }
                 reader.Close();
-
-                return user;
-            } catch (SqlException) {
-                // **ERROR PLACE HOLDER**
-                conn.Close();
-                return null;
-            } finally {
-                conn.Close();
             }
+            return user;
         }
     }
 }

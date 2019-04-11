@@ -10,6 +10,7 @@
         <asp:Label ID="LblUsername" runat="server" Text="Username"></asp:Label>
         <asp:RequiredFieldValidator ID="ReqUsername" runat="server" ControlToValidate="TxtUsername" Display="Dynamic" ErrorMessage="(Username must have a value)"
             ForeColor="#D44A34" ValidationGroup="CreateAccount"></asp:RequiredFieldValidator>
+        <asp:Label ID="LblTaken" runat="server" ForeColor="#D44A34" Text=""></asp:Label>
         <asp:TextBox ID="TxtUsername" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
 
@@ -27,7 +28,7 @@
         <asp:CompareValidator ID="CmpPasswords" runat="server" ControlToCompare="TxtPasswordRepeat" ControlToValidate="TxtPassword" Display="Dynamic"
             ErrorMessage="(Passwords must match)" ForeColor="#D44A34" ValidationGroup="CreateAccount"></asp:CompareValidator>
         <asp:RegularExpressionValidator ID="RegexPassword" runat="server" ControlToValidate="TxtPassword" Display="Dynamic"
-            ErrorMessage="(Password must have at least 6 characters)" ForeColor="#D44A34" ValidationExpression=".{6}"
+            ErrorMessage="(Password must have at least 6 characters)" ForeColor="#D44A34" ValidationExpression="^.{6,}$"
             ValidationGroup="CreateAccount"></asp:RegularExpressionValidator>
         <asp:TextBox ID="TxtPassword" TextMode="Password" runat="server" CssClass="form-control"></asp:TextBox>
     </div>

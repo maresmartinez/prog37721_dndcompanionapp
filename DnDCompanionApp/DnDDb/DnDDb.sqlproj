@@ -59,6 +59,7 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\backgroundType.sql" />
@@ -87,5 +88,6 @@
     <Build Include="dbo\Tables\userCampaign.sql" />
     <Build Include="dbo\Tables\userCharacter.sql" />
     <Build Include="dbo\Tables\users.sql" />
+    <None Include="Scripts\ReadOnlyTables_InsertData.sql" />
   </ItemGroup>
 </Project>
