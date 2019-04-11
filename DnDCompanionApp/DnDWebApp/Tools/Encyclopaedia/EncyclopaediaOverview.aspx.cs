@@ -28,7 +28,7 @@ namespace DnDWebApp.Tools {
                                 "for example, might not get paid to play music, but they weave magical music-playing into their " +
                                 "life and ambitions.</p>Advancing in a class makes a player’s character more powerful and better" +
                                 " able to affect change in the world. It broadens their skillset and better equips them to be " +
-                                "heroes.< p ></p>";
+                                "heroes.</p>";
                             ClassLinks();
                             break;
                         case "races":
@@ -78,9 +78,7 @@ namespace DnDWebApp.Tools {
                 int classID = int.Parse(classIDstr);
                 Class pulledClass = cDAO.GetClass(classID);
                 name.InnerHtml = pulledClass.Name;
-                description.InnerHtml = "Description:";
-                description.InnerHtml += "<br>";
-                description.InnerHtml += pulledClass.Description;
+                description.InnerHtml = pulledClass.Description;
                 descriptor2.InnerHtml = "<br>Features:";
                 descriptor2.InnerHtml += "<br>";
                 foreach (Feature pulledClassFeatures in pulledClass.Features) {
@@ -92,7 +90,7 @@ namespace DnDWebApp.Tools {
                 descriptor4.InnerHtml = "<br>Available Skills: ";
                 descriptor4.InnerHtml += "<br>";
                 foreach (Skills pulledClassSkills in pulledClass.CharacterSkills) {
-                    descriptor4.InnerHtml += pulledClassSkills.ToString();
+                    descriptor4.InnerHtml += this.PrettifyEnum(pulledClassSkills.ToString());
                     descriptor4.InnerHtml += "<br>";
                 }
 
@@ -100,11 +98,11 @@ namespace DnDWebApp.Tools {
 
             //connect to db and populate the links div with 1 link for each entry to DB
             links.InnerHtml = "";
-            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx'>> Back</a><br>";
+            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx' class='text-dark'>> Back</a><br>";
             foreach (Class lClass in classList) {
                 int clID = lClass.ClassId;
                 string clName = lClass.Name;
-                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=classes&classID=" + clID + "\">" + clName + "</a><br /> ";
+                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=classes&classID=" + clID + "\" class='text-dark'>" + clName + "</a><br /> ";
             }
         }
 
@@ -122,69 +120,22 @@ namespace DnDWebApp.Tools {
                 int raceID = int.Parse(raceIDstr);
                 Race pulledRace = rDAO.GetRace(raceID);
                 name.InnerHtml = pulledRace.Name;
-                description.InnerHtml = "Description: ";
-                description.InnerHtml += "<br>";
-                description.InnerHtml += pulledRace.Description;
+                description.InnerHtml = pulledRace.Description;
                 descriptor2.InnerHtml = "<br>Languages: ";
                 descriptor2.InnerHtml += "<br>";
                 foreach (Language pulledRaceLangages in pulledRace.Languages) {
-                    switch (pulledRaceLangages) {
-                        case Language.Common:
-                            descriptor2.InnerHtml += "Common";
-                            break;
-                        case Language.Aarakocra:
-                            descriptor2.InnerHtml += "Aarakocra";
-                            break;
-                        case Language.Auran:
-                            descriptor2.InnerHtml += "Auran";
-                            break;
-                        case Language.Draconic:
-                            descriptor2.InnerHtml += "Draconic";
-                            break;
-                        case Language.Dwarvish:
-                            descriptor2.InnerHtml += "Dwarvish";
-                            break;
-                        case Language.Elvish:
-                            descriptor2.InnerHtml += "Elvish";
-                            break;
-                        case Language.Primordial:
-                            descriptor2.InnerHtml += "Primordial";
-                            break;
-                        case Language.Gnomish:
-                            descriptor2.InnerHtml += "Gnomish";
-                            break;
-                        case Language.Undercommon:
-                            descriptor2.InnerHtml += "Undercommon";
-                            break;
-                        case Language.Giant:
-                            descriptor2.InnerHtml += "Giant";
-                            break;
-                        case Language.Orc:
-                            descriptor2.InnerHtml += "Orc";
-                            break;
-                        case Language.Halfling:
-                            descriptor2.InnerHtml += "Halfling";
-                            break;
-                        case Language.Infernal:
-                            descriptor2.InnerHtml += "Inernal";
-                            break;
-                        case Language.Celestial:
-                            descriptor2.InnerHtml += "Celestial";
-                            break;
-                        default:
-                            break;
-                    }
+                    descriptor2.InnerHtml += this.PrettifyEnum(pulledRaceLangages.ToString());
                     descriptor2.InnerHtml += "<br>";
                 }
             }
 
             //connect to db and populate the links div with 1 link for each entry to DB
             links.InnerHtml = "";
-            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx'>> Back</a><br>";
+            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx' class='text-dark'>> Back</a><br>";
             foreach (Race lRace in raceList) {
                 int raID = lRace.RaceId;
                 string raName = lRace.Name;
-                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=races&raceID=" + raID + "\">" + raName + "</a><br /> ";
+                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=races&raceID=" + raID + "\" class='text-dark'>" + raName + "</a><br /> ";
             }
         }
         private void SpellLinks() {
@@ -207,28 +158,60 @@ namespace DnDWebApp.Tools {
                 Spells pulledSpell = spellList[counter];
 
                 name.InnerHtml = pulledSpell.Name;
-                description.InnerHtml = "Description:";
-                description.InnerHtml += "<br>";
-                description.InnerHtml += pulledSpell.Description;
-                descriptor2.InnerHtml = "CastingTime:";
-                descriptor2.InnerHtml += "<br>";
-                descriptor2.InnerHtml = Convert.ToString(pulledSpell.CastingTime);
-                descriptor3.InnerHtml = "Duration:";
-                descriptor3.InnerHtml += "<br>";
-                descriptor3.InnerHtml = Convert.ToString(pulledSpell.Duration);
-                descriptor4.InnerHtml = "range:";
-                descriptor4.InnerHtml += "<br>";
-                descriptor4.InnerHtml = Convert.ToString(pulledSpell.Range);
+                description.InnerHtml = pulledSpell.Description;
+                descriptor2.InnerHtml += "<br>Casting Time: "+ Convert.ToString(pulledSpell.CastingTime) + " minutes";
+                descriptor3.InnerHtml += "Duration: " + Convert.ToString(pulledSpell.Duration) + " minutes";
+                descriptor4.InnerHtml += "Range: " + Convert.ToString(pulledSpell.Range) + " meters";
             }
             //connect to db and populate the links div with 1 link for each entry to DB
             links.InnerHtml = "";
-            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx'>> Back</a><br>";
+            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx' class='text-dark'>> Back</a><br>";
             foreach (Spells lSpell in spellList) {
                 int spID = lSpell.SpellId;
                 string spName = lSpell.Name;
-                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=spells&spellID=" + spID + "\">" + spName + "</a><br /> ";
+                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=spells&spellID=" + spID + "\" class='text-dark'>" + spName + "</a><br /> ";
             }
 
+        }
+
+        /// <summary>
+        /// Capitalizes first letter of word. Used to display enums prettier
+        /// </summary>
+        /// <param name="word">Word to capitalize</param>
+        /// <returns>Word with first letter capitalized</returns>
+        private string FirstCharToUpper(string word) {
+            if(string.IsNullOrEmpty(word)) {
+                return string.Empty;
+            }
+            string endOfWord = word.Substring(1);
+            return char.ToUpper(word[0]) + endOfWord.ToLower();
+        }
+
+        /// <summary>
+        /// Replaces enum literal with prettier word
+        /// </summary>
+        /// <param name="word">Enum literal</param>
+        /// <returns>Pretty enum</returns>
+        private string PrettifyEnum(string word) {
+            string prettyEnum = this.FirstCharToUpper(word);
+            return this.ReplaceUnderscore(prettyEnum);
+        }
+
+        /// <summary>
+        /// Replaces underscores with spaces. Used to display enums prettier
+        /// </summary>
+        /// <param name="word">Word to replace</param>
+        /// <returns>Word with underscores replaced with spaces</returns>
+        private string ReplaceUnderscore(string word) {
+            string newWord = "";
+            foreach (char letter in word) {
+                if (letter.Equals('_')) {
+                    newWord += ' ';
+                } else {
+                    newWord += letter;
+                }   
+            }
+            return newWord;
         }
 
 
@@ -250,9 +233,7 @@ namespace DnDWebApp.Tools {
                 Background pulledBackground = backgroundList[counter];
 
                 name.InnerHtml = pulledBackground.Name;
-                description.InnerHtml = "Description:";
-                description.InnerHtml += "<br>";
-                description.InnerHtml += pulledBackground.Description;
+                description.InnerHtml = pulledBackground.Description;
                 descriptor2.InnerHtml = "<br>Personality Traits:";
                 descriptor2.InnerHtml += "<br>";
                 foreach (String pulledBackgroundPersonalityTrait in pulledBackground.Personality) {
@@ -280,11 +261,11 @@ namespace DnDWebApp.Tools {
             }
             //connect to db and populate the links div with 1 link for each entry to DB
             links.InnerHtml = "";
-            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx'>> Back</a><br>";
+            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx' class='text-dark'>> Back</a><br>";
             foreach (Background lBackground in backgroundList) {
                 int bgID = lBackground.BackgroundId;
                 string bgName = lBackground.Name;
-                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=backgroundTypes&backgroundID=" + bgID + "\">" + bgName + "</a><br /> ";
+                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=backgroundTypes&backgroundID=" + bgID + "\" class='text-dark'>" + bgName + "</a><br /> ";
             }
         }
         private void FeatureLinks() {
@@ -309,19 +290,17 @@ namespace DnDWebApp.Tools {
                 Feature pulledFeature = featureList[counter];
 
                 name.InnerHtml = pulledFeature.Name;
-                description.InnerHtml = "Description:";
-                description.InnerHtml += "<br>";
-                description.InnerHtml += pulledFeature.Description;
+                description.InnerHtml = pulledFeature.Description;
 
 
             }
             //connect to db and populate the links div with 1 link for each entry to DB
             links.InnerHtml = "";
-            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx'>> Back</a><br>";
+            links.InnerHtml = "<a href='EncyclopaediaOverview.aspx' class='text-dark'>> Back</a><br>";
             foreach (Feature lFeature in featureList) {
                 int ftID = lFeature.FeatureID;
                 string ftName = lFeature.Name;
-                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=Features&featureID=" + ftID + "\">" + ftName + "</a><br /> ";
+                links.InnerHtml += "<a href=\"EncyclopaediaOverview.aspx?encyclopaediaReq=Features&featureID=" + ftID + "\" class='text-dark'>" + ftName + "</a><br /> ";
             }
         }
 

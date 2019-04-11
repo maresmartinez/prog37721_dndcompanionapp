@@ -36,7 +36,7 @@ namespace CharacterCreationLib {
         /// Description of background
         /// </summary>
         public string Description {
-            get { return name; }
+            get { return description; }
             set {
                 if (string.IsNullOrEmpty(value)) {
                     throw new ArgumentException("Description must have a value");
@@ -135,7 +135,7 @@ namespace CharacterCreationLib {
         /// <param name="castingtime">Casting time of spell</param>
         /// <param name="duration">Duration of spell</param>
         /// <param name="description">Description of spell</param>
-        public Spells(int id, string name, int castingtime, int duration, string description) {
+        public Spells(int id, string name, int castingtime, int duration, int range, string description) {
             SpellId = id;
             Name = name;
             CastingTime = castingtime;

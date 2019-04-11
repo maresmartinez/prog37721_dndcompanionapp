@@ -34,18 +34,18 @@ namespace DnDSQLLib {
             using (conn = ConnectionFactory.GetConnection()) {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand($"" +
-                    $"select * from spells");
+                SqlCommand cmd = new SqlCommand($"select * from spells");
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read()) {
+                    int id = Convert.ToInt32(reader["id"]);
                     string name = Convert.ToString(reader["Name"]);
                     int castingTime = Convert.ToInt32(reader["castingTime"]);
                     int duration = Convert.ToInt32(reader["Duration"]);
                     int range = Convert.ToInt32(reader["Range"]);
                     string description = Convert.ToString(reader["Description"]);
-                    Spells spell = new Spells(name, castingTime, duration, description);
+                    Spells spell = new Spells(id, name, castingTime, duration, range, description);
                     spells.Add(spell);
                 }
                 reader.Close();

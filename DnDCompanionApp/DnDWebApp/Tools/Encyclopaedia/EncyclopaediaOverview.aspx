@@ -9,13 +9,13 @@
     <div class="container">
         <div class="row">
             <div id="links" runat="server" class="col-md-2">
-                <a href="EncyclopaediaOverview.aspx?encyclopaediaReq=classes">Classes</a>
+                <a href="EncyclopaediaOverview.aspx?encyclopaediaReq=backgroundTypes" class="text-dark">Backgrounds</a>
                 <br />
-                <a href="EncyclopaediaOverview.aspx?encyclopaediaReq=races">Races</a>
+                <a href="EncyclopaediaOverview.aspx?encyclopaediaReq=classes" class="text-dark">Classes</a>
                 <br />
-                <a href="EncyclopaediaOverview.aspx?encyclopaediaReq=spells">Spells</a>
+                <a href="EncyclopaediaOverview.aspx?encyclopaediaReq=races" class="text-dark">Races</a>
                 <br />
-                <a href="EncyclopaediaOverview.aspx?encyclopaediaReq=backgroundTypes">Backgrounds</a>
+                <a href="EncyclopaediaOverview.aspx?encyclopaediaReq=spells" class="text-dark">Spells</a>
             </div>
 
             <div class="col-md-10">
