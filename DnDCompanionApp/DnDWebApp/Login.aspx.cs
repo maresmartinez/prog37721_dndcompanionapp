@@ -16,7 +16,10 @@ namespace DnDWebApp {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e) {
-            if(Request.QueryString["justRegistered"] != null) {
+            // Make the Login button the button that responds when user clicks ENTER
+            this.Form.DefaultButton = this.BtnAuthenticate.UniqueID;
+
+            if (Request.QueryString["justRegistered"] != null) {
                 Registered.Visible = true;
             }
         }
