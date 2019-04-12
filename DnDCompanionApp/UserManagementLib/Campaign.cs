@@ -9,7 +9,6 @@ using UserManagementLib;
 namespace UserManagementLib {
     /// <summary>
     /// A D&D campaign which holds groups for the users and characters within the campaign
-    /// TODO: find way to validate campaign lists without needing methods in user class... the commented out code was buggy
     /// </summary>
     public class Campaign {
 
@@ -69,58 +68,11 @@ namespace UserManagementLib {
         ///// <summary>
         ///// All users in the campaign
         ///// </summary>
-        //List<User> campaignUsers;
-        ///// <summary>
-        ///// All users in the campaign
-        ///// </summary>
-        //public List<User> CampaignUsers {
-        //    get { return campaignUsers; }
-        //    set {
-        //        if (value.Count < 2) {
-        //            throw new ArgumentException("Must have at least two Campaign Users");
-        //        }
-
-        //        campaignUsers = value;
-        //    }
-        //}
         public List<User> CampaignUsers { get; set; }
 
         /// <summary>
         /// The user characters that are in the campaign
         /// </summary>
-        //List<Character> campaignCharacters;
-        /// <summary>
-        /// The user characters that are in the campaign
-        /// </summary>
-        //public List<Character> CampaignCharacters {
-        //    get { return campaignCharacters; }
-        //    set {
-        //        // Ensure that all Characters in List belong to one of the CampaignUsers
-        //        foreach (Character character in value) {
-        //            bool characterNotValid = true;
-
-        //            // characterNotValid will only become false if one of the users own it
-        //            foreach (User user in CampaignUsers) {
-        //                if (user.DoesUserOwnCharacter(character)) {
-        //                    characterNotValid = false;
-        //                    break;
-        //                }
-        //            }
-
-        //            // If flag is 
-        //            if (characterNotValid) {
-        //                throw new ArgumentException("Campaign character must be owned by one of the campaign users");
-        //            }
-        //        }
-
-        //        // Characters must equal users; users can only play one character
-        //        if (value.Count != CampaignUsers.Count) {
-        //            throw new ArgumentException("Campaign users must equal characters");
-        //        }
-
-        //        campaignCharacters = value;
-        //    }
-        //}
         public List<Character> CampaignCharacters { get; set; }
 
         /// <summary>
@@ -138,13 +90,6 @@ namespace UserManagementLib {
                 }
                 id = value;
             }
-        }
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public Campaign() {
-
         }
 
         /// <summary>
@@ -191,9 +136,6 @@ namespace UserManagementLib {
         /// <param name="user">The user to add</param>
         /// <param name="character">The user's character to add</param>
         public void AddNewMember(User user, Character character) {
-            //if (!user.DoesUserOwnCharacter(character)) {
-            //    throw new ArgumentException("User must own character");
-            //}
             CampaignUsers.Add(user);
             CampaignCharacters.Add(character);
         }
@@ -241,7 +183,6 @@ namespace UserManagementLib {
             }
 
             return true;
-
         }
 
         /// <summary>
