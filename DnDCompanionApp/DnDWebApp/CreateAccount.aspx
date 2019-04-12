@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DnD.Master" AutoEventWireup="true" CodeBehind="CreateAccount.aspx.cs" Inherits="DnDWebApp.CreateAccount" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DnD.Master" AutoEventWireup="true" CodeBehind="CreateAccount.aspx.cs" MaintainScrollPositionOnPostback="true" Inherits="DnDWebApp.CreateAccount" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

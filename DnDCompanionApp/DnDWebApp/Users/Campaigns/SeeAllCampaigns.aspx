@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DnD.Master" AutoEventWireup="true" CodeBehind="SeeAllCampaigns.aspx.cs" Inherits="DnDWebApp.Users.Campaigns.SeeAllCampaigns" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DnD.Master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="SeeAllCampaigns.aspx.cs" Inherits="DnDWebApp.Users.Campaigns.SeeAllCampaigns" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

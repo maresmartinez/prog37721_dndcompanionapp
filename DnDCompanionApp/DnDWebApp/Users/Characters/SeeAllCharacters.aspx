@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DnD.Master" AutoEventWireup="true" CodeBehind="SeeAllCharacters.aspx.cs" Inherits="DnDWebApp.Users.Characters.SeeAllCharacters" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DnD.Master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="SeeAllCharacters.aspx.cs" Inherits="DnDWebApp.Users.Characters.SeeAllCharacters" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">

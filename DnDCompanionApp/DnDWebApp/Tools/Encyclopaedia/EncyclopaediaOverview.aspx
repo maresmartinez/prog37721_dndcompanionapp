@@ -1,10 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DnD.Master" AutoEventWireup="true" CodeBehind="EncyclopaediaOverview.aspx.cs" Inherits="DnDWebApp.Tools.EncyclopaediaOverview" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DnD.Master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="EncyclopaediaOverview.aspx.cs" Inherits="DnDWebApp.Tools.EncyclopaediaOverview" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <!-- Ref: taken from http://dnd.wizards.com/ -->
-    <img src="http://dnd.wizards.com/sites/default/files/media/styles/news_banner_header/public/images/news/20150608_BehindtheScreens_Header.jpg?itok=IjpkeTVR" class="img-fluid" alt="D&D Header">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="mt-5">Encyclopaedia</h1>
