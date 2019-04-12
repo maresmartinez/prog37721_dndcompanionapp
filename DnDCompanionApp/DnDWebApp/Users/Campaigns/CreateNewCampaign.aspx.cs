@@ -214,15 +214,30 @@ namespace DnDWebApp.Users.Campaigns {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void BtnAddMember_Click(object sender, EventArgs e) {
+            // Check if characer belongs to the DM
+            User dm = validUsers[DDDMUsers.SelectedIndex];
+            User user = validUsers[DDCampaignUsers.SelectedIndex];
+            if (dm.ID == user.ID) {
+                LblInvalidCharacter.Text = "The DM cannot have a character in the party.";
+                return;
+            }
+
+            // Catch any errors that occur when retrieving character
             LblInvalidCharacter.Text = "";
             Character character = null;
-            User user = null;
             try {
                 character = userCharacters[DDCampaignCharacters.SelectedIndex];
-                user = validUsers[DDCampaignUsers.SelectedIndex];
             } catch (ArgumentOutOfRangeException ex) {
                 LblInvalidCharacter.Text = "That character cannot be added to the party.";
                 return;
+            }
+
+            // Check if user already has character in party
+            foreach (User selectedUsers in selectedUsers) {
+                if (selectedUsers.ID == user.ID) {
+                    LblInvalidCharacter.Text = "That user already has a character in the party.";
+                    return;
+                }
             }
 
             // Update Session
@@ -254,8 +269,13 @@ namespace DnDWebApp.Users.Campaigns {
         /// Queries the database and retrieves all valid users that can then be added to the campaign
         /// </summary>
         private void InitUsers() {
+            // Retrieve list of all users
             UserDAO userDAO = new UserDAO();
             validUsers = userDAO.GetAllUsers();
+
+            // Retrieve list of user characters
+            CharacterDAO characterDAO = new CharacterDAO();
+            userCharacters = userDAO.GetUserCharacters(validUsers[0].ID);
         }
     }
 }
