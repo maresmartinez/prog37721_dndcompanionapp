@@ -1,6 +1,7 @@
 ﻿using CharacterCreationLib;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,7 @@ namespace DnDSQLLib.dal {
         public ClassDAO() {
             conn = ConnectionFactory.GetConnection();
         }
-
+        
         /// <summary>
         /// Retrieves all classes from database
         /// </summary>
@@ -35,26 +36,25 @@ namespace DnDSQLLib.dal {
             SkillsDAO sDAO = new SkillsDAO();
             List<Skills> skills = sDAO.GetAllSkills();
 
-            // TODO: refactor code so that we don't need multiple connections
-            using (conn = ConnectionFactory.GetConnection()) {
-                conn.Open();
+            SqlDataAdapter classAdapter = new SqlDataAdapter("SELECT id, name, description, hitdice FROM class;",
+                ConnectionFactory.GetConnection());
+            SqlCommandBuilder commandBuilder = new SqlCommandBuilder(classAdapter);
 
-                SqlCommand cmd = new SqlCommand("SELECT id, name, description, hitdice FROM class;");
-                cmd.Connection = conn;
+            DataTable classTable = new DataTable();
+            classAdapter.Fill(classTable);
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read()) {
-                    int classID = Convert.ToInt32(reader["id"]);
-                    string name = Convert.ToString(reader["name"]);
-                    string description = Convert.ToString(reader["description"]);
-                    int hitDiceValue = Convert.ToInt32(reader["hitDice"]);
-                    Dice dice = new Dice(hitDiceValue);
+            // Retrieve features for all rows
+            foreach (DataRow row in classTable.Rows) {
+                int classID = Convert.ToInt32(row.Field<int>(0));
+                string name = Convert.ToString(row.Field<string>(1));
+                string description = Convert.ToString(row.Field<string>(2));
+                int hitDiceValue = Convert.ToInt32(row.Field<int>(3));
+                Dice dice = new Dice(hitDiceValue);
 
-                    FeatureDAO fDAO = new FeatureDAO();
-                    List<Feature> features = fDAO.GetClassFeatures(classID);
+                FeatureDAO fDAO = new FeatureDAO();
+                List<Feature> features = fDAO.GetClassFeatures(row.Field<int>(0)); // Retrieve features for specific class id
 
-                    classes.Add(new Class(classID, name, description, features, dice, skills));
-                }
+                classes.Add(new Class(classID, name, description, features, dice, skills));
             }
 
             classes.Sort();

@@ -29,7 +29,7 @@ namespace DnDSQLLib.dal {
         public static SqlConnection GetConnection() {
             try {
                 // TODO: remove Multiple Active Result Sets from production build; we're going to refactor our code so we don't need it
-                return new SqlConnection(server1 + ";MultipleActiveResultSets=True");
+                return new SqlConnection(server1 /*+ ";MultipleActiveResultSets=True"*/);
             } catch (SqlException) {
                 return new SqlConnection(server2 + ";MultipleActiveResultSets=True"); 
             }

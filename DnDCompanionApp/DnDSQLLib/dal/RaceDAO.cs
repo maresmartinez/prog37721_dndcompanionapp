@@ -1,6 +1,7 @@
 ﻿using CharacterCreationLib;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -28,35 +29,27 @@ namespace DnDSQLLib.dal {
         public List<Race> GetAllRaces() {
             List<Race> races = new List<Race>();
 
-            // TODO: Refactor so it doesn't need multiple connections open
-            using (conn = ConnectionFactory.GetConnection()) {
-                conn.Open();
-                
-                SqlCommand cmd = new SqlCommand($"SELECT id, name, description from race;");
-                cmd.Connection = conn;
-                
-                SqlDataReader reader = cmd.ExecuteReader();
+            SqlDataAdapter raceAdapter = new SqlDataAdapter("SELECT id, name, description from race;",
+                ConnectionFactory.GetConnection());
+            DataTable raceTable = new DataTable();
+            raceAdapter.Fill(raceTable);
 
-                while (reader.Read()) {
-                    int id = Convert.ToInt32(reader["id"]);
-                    string name = Convert.ToString(reader["name"]);
-                    string description = Convert.ToString(reader["description"]);
+            foreach (DataRow row in raceTable.Rows) {
+                int id = row.Field<int>(0);
+                string name = row.Field<string>(1);
+                string description = row.Field<string>(2);
 
-                    SqlCommand cmdLanguage = new SqlCommand("SELECT languageID from raceLanguage WHERE raceID=@ID;");
-                    cmdLanguage.Parameters.AddWithValue("@ID", id);
-                    cmdLanguage.Connection = conn;
-
-                    SqlDataReader languageReader = cmdLanguage.ExecuteReader();
-                    List<Language> languages = new List<Language>();
-                    while (languageReader.Read()) {
-                        int languageId = Convert.ToInt32(languageReader["languageID"]);
-                        languages.Add((Language)languageId);
-                    }
-                    languageReader.Close();
-
-                    races.Add(new Race(id, name, description, languages));
+                SqlDataAdapter languageAdapter = new SqlDataAdapter("SELECT languageID from raceLanguage WHERE raceID=" + id + ";",
+                    ConnectionFactory.GetConnection());
+                DataTable languageTable = new DataTable();
+                languageAdapter.Fill(languageTable);
+                List<Language> languages = new List<Language>();
+                foreach (DataRow langaugeRow in languageTable.Rows) {
+                    languages.Add((Language)langaugeRow.Field <int>(0));
                 }
+                races.Add(new Race(id, name, description, languages));
             }
+           
             races.Sort();
             return races;
         }
