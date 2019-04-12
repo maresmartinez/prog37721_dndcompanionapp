@@ -2,6 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <!-- Ref: taken from http://dnd.wizards.com/ -->
+    <img src="http://dnd.wizards.com/sites/default/files/media/styles/news_banner_header/public/default_images/_Header_Article_Template_0.jpg?itok=VrtdL3xv" class="img-fluid" alt="D&D Header">
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="mt-5">Welcome</h1>
     <p class="lead">This web application is a companion app for D&D players.</p>

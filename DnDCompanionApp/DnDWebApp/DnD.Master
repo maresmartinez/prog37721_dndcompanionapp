@@ -4,9 +4,11 @@
 
 <html lang="en">
 <head runat="server">
-    <title>DnD Companion App</title>
+    <title>D&D App</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://i.ibb.co/BZQNQ1X/icons8-dice-48.png" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
@@ -70,6 +72,9 @@
                     </div>
                 </div>
             </nav>
+            <!-- For header images -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>            
         </header>
 
         <!-- Page Content -->

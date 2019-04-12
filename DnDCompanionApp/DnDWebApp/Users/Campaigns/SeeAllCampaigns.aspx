@@ -2,6 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <!-- Ref: taken from http://dnd.wizards.com/ -->
+    <img src="http://geekandsundry.com/wp-content/uploads/2016/08/Article_LightDarkUnderdark_Header.jpg" class="img-fluid" alt="D&D Header">
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="mt-5">Your Campaigns</h1>
     <p class="lead">These are the campaigns that you are a part of.</p>

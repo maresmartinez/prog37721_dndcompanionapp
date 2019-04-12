@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DnD.Master" AutoEventWireup="true" CodeBehind="DiceRoll.aspx.cs" Inherits="DnDWebApp.Tools.DiceRoll" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <!-- Ref: taken from https://holyxseis.files.wordpress.com/ -->
+    <img src="https://holyxseis.files.wordpress.com/2019/01/headerphoto-e1547443927473.jpg?w=736" class="img-fluid" alt="D&D Header">
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="mt-5">Dice Roll</h1>
     <p class="lead">Generate your dice rolls.</p>
